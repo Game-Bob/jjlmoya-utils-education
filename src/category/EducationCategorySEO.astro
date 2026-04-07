@@ -1,0 +1,9 @@
+---
+import { SEORenderer } from '@jjlmoya/utils-shared';
+import { educationCategory } from './index';
+
+const categoryContent = await educationCategory.i18n.es?.();
+---
+
+{categoryContent && <SEORenderer content={{ locale: 'es', sections: categoryContent.seo }} />}
+
