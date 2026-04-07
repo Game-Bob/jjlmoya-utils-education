@@ -250,73 +250,66 @@ const labels = {
         renderHistory();
     }
 
+    function createHistoryItem(item, list) {
+        const el = document.createElement("div");
+        el.className = "history-item";
+        el.innerHTML = `
+            <div class="history-text">${item.formatted}</div>
+            <div class="history-actions">
+                <button class="action-btn btn-copy-history" title="Copy">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                </button>
+                <button class="action-btn btn-delete" title="Delete">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                </button>
+            </div>
+        `;
+
+        el.querySelector(".btn-delete")?.addEventListener("click", () => {
+            const newList = list.filter((i) => i.id !== item.id);
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(newList));
+            renderHistory();
+        });
+
+        el.querySelector(".btn-copy-history")?.addEventListener("click", () => {
+            navigator.clipboard.writeText(item.formatted);
+            const btn = el.querySelector(".btn-copy-history");
+            const original = btn.innerHTML;
+            btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+            setTimeout(() => { btn.innerHTML = original; }, 2000);
+        });
+
+        return el;
+    }
+
     function renderHistory() {
         if (!historyList) return;
         const saved = localStorage.getItem(STORAGE_KEY);
         const list = saved ? JSON.parse(saved) : [];
 
-        historyList.innerHTML = list.length
-            ? ""
-            : `<div style="text-align: center; opacity: 0.5; padding: 2rem;">${labels.noSavedCitations}</div>`;
+        historyList.innerHTML = list.length ? "" : 
+            `<div style="text-align: center; opacity: 0.5; padding: 2rem;">${labels.noSavedCitations}</div>`;
 
         list.forEach((item) => {
-            const el = document.createElement("div");
-            el.className = "history-item";
-            el.innerHTML = `
-                <div class="history-text">${item.formatted}</div>
-                <div class="history-actions">
-                    <button class="action-btn btn-copy-history" title="Copy">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                    </button>
-                    <button class="action-btn btn-delete" title="Delete">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-                    </button>
-                </div>
-            `;
-
-            el.querySelector(".btn-delete")?.addEventListener("click", () => {
-                const newList = list.filter((i) => i.id !== item.id);
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(newList));
-                renderHistory();
-            });
-
-            el.querySelector(".btn-copy-history")?.addEventListener("click", () => {
-                const text = el.querySelector(".history-text")?.textContent || "";
-                navigator.clipboard.writeText(text);
-                const btn = el.querySelector(".btn-copy-history");
-                if (btn)
-                    btn.innerHTML =
-                        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
-                setTimeout(() => {
-                    if (btn)
-                        btn.innerHTML =
-                            '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
-                }, 2000);
-            });
-
-            historyList.appendChild(el);
+            historyList.appendChild(createHistoryItem(item, list));
         });
     }
+
+    const typeConfig = {
+        book: { label: labels.publisher, placeholder: "Ex: Publishing House" },
+        website: { label: "Website Name", placeholder: "Ex: Wikipedia or CNN" },
+        article: { label: "Journal Name", placeholder: "Ex: Nature or Journal of Medicine" }
+    };
 
     tabs.forEach((tab) => {
         tab.addEventListener("click", () => {
             tabs.forEach((t) => t.classList.remove("active"));
             tab.classList.add("active");
             currentType = tab.getAttribute("data-type") || "book";
-
-            if (currentType === "book") {
-                if (labelEls.title) labelEls.title.textContent = labels.title;
-                if (labelEls.extra) labelEls.extra.textContent = labels.publisher;
-                inputs.extra.placeholder = "Ex: Publishing House";
-            } else if (currentType === "website") {
-                if (labelEls.title) labelEls.title.textContent = labels.title;
-                if (labelEls.extra) labelEls.extra.textContent = "Website Name";
-                inputs.extra.placeholder = "Ex: Wikipedia or CNN";
-            } else {
-                if (labelEls.title) labelEls.title.textContent = labels.title;
-                if (labelEls.extra) labelEls.extra.textContent = "Journal Name";
-                inputs.extra.placeholder = "Ex: Nature or Journal of Medicine";
-            }
+            
+            const config = typeConfig[currentType];
+            if (labelEls.extra) labelEls.extra.textContent = config.label;
+            inputs.extra.placeholder = config.placeholder;
             updatePreview();
         });
     });

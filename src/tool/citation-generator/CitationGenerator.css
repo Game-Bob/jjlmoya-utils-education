@@ -4,7 +4,7 @@
     --color-primary-light: #e0e7ff;
     --color-secondary: #64748b;
     --color-secondary-light: #94a3b8;
-    --color-success: #6366f1;
+    --color-success: #10b981;
     --color-error: #ef4444;
     --color-error-light: #fee2e2;
     --color-error-lighter: #fecaca;
@@ -15,6 +15,7 @@
     --color-text-dimmed: #64748b;
     --color-border: #e2e8f0;
     --color-border-light: rgba(0, 0, 0, 0.05);
+    --color-white: #fff;
 }
 
 .theme-dark {
@@ -73,7 +74,7 @@
     padding: 0.875rem 1.25rem;
     border-radius: 1rem;
     border: 1px solid var(--color-border);
-    background: #fff;
+    background: var(--color-white);
     color: var(--color-text-base);
     font-size: 1rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -172,7 +173,7 @@
 
 .copied-pulse {
     animation: copied-pulse 0.4s ease forwards;
-    color: var(--color-success) !important;
+    color: var(--color-success);
 }
 
 @keyframes copied-pulse {
@@ -227,7 +228,7 @@
 }
 
 .history-item:hover {
-    background: #fff;
+    background: var(--color-white);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.03);
 }
 
@@ -273,7 +274,8 @@
 }
 
 .btn-copy-history:hover {
-    background: #c7d2fe;
+    background: var(--color-primary-light);
+    opacity: 0.8;
 }
 
 @keyframes slide-in {
@@ -313,7 +315,7 @@
 
 .type-tab.active {
     background: var(--color-primary);
-    color: #fff;
+    color: var(--color-white);
 }
 
 .form-grid {
@@ -338,7 +340,7 @@
     padding: 1rem;
     border-radius: 1rem;
     background: var(--color-primary);
-    color: #fff;
+    color: var(--color-white);
     font-weight: 700;
     font-size: 1rem;
     border: none;
