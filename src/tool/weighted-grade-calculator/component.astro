@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 import type { WeightedGradeCalculatorUI } from "./index";
 
 interface Props {
@@ -39,22 +40,7 @@ const labels = {
                 />
             </div>
             <button id="add-subject" class="add-btn">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    ><line x1="12" y1="5" x2="12" y2="19"></line><line
-                        x1="5"
-                        y1="12"
-                        x2="19"
-                        y2="12"></line></svg
-                >
+                <Icon name="mdi:plus" width="20" height="20" />
                 {labels.addSubject}
             </button>
         </div>
@@ -242,9 +228,7 @@ const labels = {
                 <label class="input-label">${labels.weight}</label>
                 <input type="number" class="input-control subject-weight" min="0" max="100" step="any" value="${weight}">
             </div>
-            <button class="remove-btn" title="${labels.removeSubject}">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
-            </button>
+            <button class="remove-btn" title="${labels.removeSubject}"><svg class="remove-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-9l-1 1H5v2h14V4z"/></svg></button>
         `;
     }
 
@@ -410,7 +394,7 @@ const labels = {
         color: var(--slate-900);
     }
 
-    :global(.dark) .calc-title {
+    :global(.theme-dark) .calc-title {
         color: var(--color-success);
     }
 
@@ -421,7 +405,7 @@ const labels = {
         margin-bottom: 2rem;
     }
 
-    .subject-row {
+    :global(.subject-row) {
         display: grid;
         grid-template-columns: 1fr 100px 100px 40px;
         gap: 1rem;
@@ -430,21 +414,23 @@ const labels = {
         border-radius: 1rem;
         background: var(--color-row-light);
         border: 1px solid var(--color-row-light-border);
-        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
     }
 
-    .subject-row:hover {
+    :global(.subject-row:hover) {
         transform: translateY(-2px);
         box-shadow: 0 4px 12px var(--color-row-light-shadow);
     }
 
-    .input-group {
+    :global(.input-group) {
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
     }
 
-    .input-label {
+    :global(.input-label) {
         font-size: 0.75rem;
         font-weight: 600;
         text-transform: uppercase;
@@ -452,29 +438,31 @@ const labels = {
         color: var(--color-text-light);
     }
 
-    .input-control {
+    :global(.input-control) {
         width: 100%;
         padding: 0.75rem;
         border-radius: 0.5rem;
         border: 1px solid var(--color-border-light);
         background: #fff;
         font-size: 1rem;
-        transition: border-color 0.2s ease, ring 0.2s ease;
+        transition:
+            border-color 0.2s ease,
+            ring 0.2s ease;
     }
 
-    :global(.dark) .input-control {
+    :global(.theme-dark .input-control) {
         background: var(--color-text-dark);
         border-color: var(--color-border-dark);
         color: var(--color-success);
     }
 
-    .input-control:focus {
+    :global(.input-control:focus) {
         outline: none;
         border-color: var(--color-primary);
         box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
     }
 
-    .remove-btn {
+    :global(.remove-btn) {
         width: 40px;
         height: 40px;
         border-radius: 50%;
@@ -485,16 +473,18 @@ const labels = {
         color: var(--color-error);
         border: none;
         cursor: pointer;
-        transition: background 0.2s ease, transform 0.2s ease;
+        transition:
+            background 0.2s ease,
+            transform 0.2s ease;
         margin-top: 1.25rem;
     }
 
-    :global(.dark) .remove-btn {
+    :global(.theme-dark .remove-btn) {
         background: var(--color-error-dark);
         color: var(--color-error-light-dark);
     }
 
-    .remove-btn:hover {
+    :global(.remove-btn:hover) {
         background: #fecaca;
         transform: scale(1.1);
     }
@@ -506,11 +496,13 @@ const labels = {
         padding: 0.75rem 1.5rem;
         border-radius: 1rem;
         background: var(--color-primary);
-        color: var(--color-success);
+        color: var(--color-white);
         font-weight: 600;
         border: none;
         cursor: pointer;
-        transition: background 0.2s ease, transform 0.2s ease;
+        transition:
+            background 0.2s ease,
+            transform 0.2s ease;
         margin: 0 auto;
     }
 
@@ -530,13 +522,17 @@ const labels = {
     }
 
     .results-panel::before {
-        content: '';
+        content: "";
         position: absolute;
         top: -50%;
         left: -50%;
         width: 200%;
         height: 200%;
-        background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+        background: radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 70%
+        );
         pointer-events: none;
     }
 
@@ -578,7 +574,9 @@ const labels = {
         height: 100%;
         background: var(--color-success);
         width: 0%;
-        transition: width 0.3s ease, background-color 0.3s ease;
+        transition:
+            width 0.3s ease,
+            background-color 0.3s ease;
     }
 
     .weight-progress-fill.error {
