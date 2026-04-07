@@ -1,4 +1,4 @@
-:root {
+.weighted-calc-ui {
     --color-primary: #0ea5e9;
     --color-primary-dark: #0284c7;
     --color-accent: #6366f1;
@@ -24,7 +24,7 @@
     --color-focus-shadow: rgba(14, 165, 233, 0.15);
 }
 
-.theme-dark {
+.theme-dark .weighted-calc-ui {
     --color-bg-light: #0f172a;
     --color-bg-light-border: #1e293b;
     --color-bg-light-shadow: rgba(0, 0, 0, 0.5);
