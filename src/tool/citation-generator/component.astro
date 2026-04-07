@@ -150,27 +150,15 @@ const labels = {
 </div>
 
 <script is:inline define:vars={{ labels }}>
-    // interface CitationData {
-    //     id: string;
-    //     authors: string;
-    //     year: string;
-    //     title: string;
-    //     extra: string;
-    //     location: string;
-    //     style: string;
-    //     type: string;
-    //     formatted: string;
-    // }
-
     const STORAGE_KEY = "jjlmoya_citations_v1";
 
     const inputs = {
-        style: document.getElementById("citation-style") as HTMLSelectElement,
-        year: document.getElementById("year") as HTMLInputElement,
-        authors: document.getElementById("authors") as HTMLInputElement,
-        title: document.getElementById("title") as HTMLInputElement,
-        extra: document.getElementById("extra-field") as HTMLInputElement,
-        location: document.getElementById("location-url") as HTMLInputElement,
+        style: document.getElementById("citation-style"),
+        year: document.getElementById("year"),
+        authors: document.getElementById("authors"),
+        title: document.getElementById("title"),
+        extra: document.getElementById("extra-field"),
+        location: document.getElementById("location-url"),
     };
 
     const output = document.getElementById("citation-output");
@@ -225,7 +213,7 @@ const labels = {
         }
     }
 
-    function updatePreview(): string | undefined {
+    function updatePreview() {
         const data = {
             id: "",
             authors: inputs.authors.value.trim(),
@@ -262,7 +250,7 @@ const labels = {
         renderHistory();
     }
 
-    function renderHistory(): void {
+    function renderHistory() {
         if (!historyList) return;
         const saved = localStorage.getItem(STORAGE_KEY);
         const list = saved ? JSON.parse(saved) : [];

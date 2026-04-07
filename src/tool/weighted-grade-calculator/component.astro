@@ -3,22 +3,22 @@ import "./WeightedGradeCalculator.css";
 import type { WeightedGradeCalculatorUI } from "./index";
 
 interface Props {
-  ui?: Partial<WeightedGradeCalculatorUI>;
+    ui?: Partial<WeightedGradeCalculatorUI>;
 }
 
 const { ui = {} } = Astro.props;
 const labels = {
-  subjects: ui.subjects || 'Asignaturas y Ponderaciones',
-  addSubject: ui.addSubject || 'Añadir Asignatura',
-  subjectName: ui.subjectName || 'Asignatura',
-  grade: ui.grade || 'Nota',
-  weight: ui.weight || 'Peso (%)',
-  scale: ui.scale || 'Escala total (Ej: 10, 20, 100)',
-  finalGrade: ui.finalGrade || 'Nota Final Ponderada',
-  removeSubject: ui.removeSubject || 'Eliminar asignatura',
-  weightSum: ui.weightSum || 'Suma de pesos',
-  exampleSubject: ui.exampleSubject || 'Matemáticas II',
-  newSubjectPlaceholder: ui.newSubjectPlaceholder || 'Nueva Asignatura',
+    subjects: ui.subjects || "Asignaturas y Ponderaciones",
+    addSubject: ui.addSubject || "Añadir Asignatura",
+    subjectName: ui.subjectName || "Asignatura",
+    grade: ui.grade || "Nota",
+    weight: ui.weight || "Peso (%)",
+    scale: ui.scale || "Escala total (Ej: 10, 20, 100)",
+    finalGrade: ui.finalGrade || "Nota Final Ponderada",
+    removeSubject: ui.removeSubject || "Eliminar asignatura",
+    weightSum: ui.weightSum || "Suma de pesos",
+    exampleSubject: ui.exampleSubject || "Matemáticas II",
+    newSubjectPlaceholder: ui.newSubjectPlaceholder || "Nueva Asignatura",
 };
 ---
 
@@ -27,8 +27,17 @@ const labels = {
         <h2 class="calc-title">{labels.subjects}</h2>
         <div class="header-actions">
             <div class="scale-setting">
-                <label class="input-label" for="grade-scale">{labels.scale}</label>
-                <input type="number" id="grade-scale" class="input-control scale-input" value="10" min="1" step="any" />
+                <label class="input-label" for="grade-scale"
+                    >{labels.scale}</label
+                >
+                <input
+                    type="number"
+                    id="grade-scale"
+                    class="input-control scale-input"
+                    value="10"
+                    min="1"
+                    step="any"
+                />
             </div>
             <button id="add-subject" class="add-btn">
                 <svg
@@ -41,17 +50,18 @@ const labels = {
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    ><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"
-                    ></line></svg
+                    ><line x1="12" y1="5" x2="12" y2="19"></line><line
+                        x1="5"
+                        y1="12"
+                        x2="19"
+                        y2="12"></line></svg
                 >
                 {labels.addSubject}
             </button>
         </div>
     </div>
 
-    <div id="subjects-list" class="subjects-list">
-        <!-- Initial row will be added by script -->
-    </div>
+    <div id="subjects-list" class="subjects-list"></div>
 
     <div class="results-panel">
         <div class="result-label">{labels.finalGrade}</div>
@@ -59,9 +69,14 @@ const labels = {
 
         <div class="weight-status-container">
             <div class="weight-progress-bar">
-                <div id="weight-progress-fill" class="weight-progress-fill"></div>
+                <div id="weight-progress-fill" class="weight-progress-fill">
+                </div>
             </div>
-            <div id="weight-sum-warning" class="weight-warning" style="display: none;">
+            <div
+                id="weight-sum-warning"
+                class="weight-warning"
+                style="display: none;"
+            >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
@@ -72,10 +87,17 @@ const labels = {
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    ><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"
-                    ></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg
+                    ><circle cx="12" cy="12" r="10"></circle><line
+                        x1="12"
+                        y1="8"
+                        x2="12"
+                        y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"
+                    ></line></svg
                 >
-                <span>{labels.weightSum}: <span id="current-weight-sum">0</span>%</span>
+                <span
+                    >{labels.weightSum}: <span id="current-weight-sum">0</span
+                    >%</span
+                >
             </div>
         </div>
     </div>
@@ -84,7 +106,7 @@ const labels = {
 <script is:inline define:vars={{ labels }}>
     const STORAGE_KEY = "jjlmoya_weighted_grades_v2";
     const SCALE_KEY = "jjlmoya_weighted_grades_scale";
-    
+
     const subjectsList = document.getElementById("subjects-list");
     const addBtn = document.getElementById("add-subject");
     const scaleInput = document.getElementById("grade-scale");
@@ -165,8 +187,12 @@ const labels = {
         const rows = subjectsList.querySelectorAll(".subject-row");
         if (rows.length === 0) return;
 
-        const manualRows = Array.from(rows).filter((r) => r.hasAttribute("data-manual"));
-        const autoRows = Array.from(rows).filter((r) => !r.hasAttribute("data-manual"));
+        const manualRows = Array.from(rows).filter((r) =>
+            r.hasAttribute("data-manual"),
+        );
+        const autoRows = Array.from(rows).filter(
+            (r) => !r.hasAttribute("data-manual"),
+        );
 
         let manualWeightTotal = 0;
         manualRows.forEach((row) => {
@@ -176,7 +202,9 @@ const labels = {
 
         if (autoRows.length > 0) {
             const remainingWeight = Math.max(0, 100 - manualWeightTotal);
-            const weightPerAuto = (remainingWeight / autoRows.length).toFixed(1);
+            const weightPerAuto = (remainingWeight / autoRows.length).toFixed(
+                1,
+            );
             autoRows.forEach((row) => {
                 const input = row.querySelector(".subject-weight");
                 input.value = weightPerAuto;
@@ -188,10 +216,11 @@ const labels = {
     function updateAllRowLabels() {
         if (!subjectsList) return;
         const rows = subjectsList.querySelectorAll(".subject-row");
-        rows.forEach(row => {
+        rows.forEach((row) => {
             const gradeLabel = row.querySelector(".grade-label");
             const gradeInput = row.querySelector(".subject-grade");
-            if (gradeLabel) gradeLabel.textContent = `${labels.grade} (0-${currentScale})`;
+            if (gradeLabel)
+                gradeLabel.textContent = `${labels.grade} (0-${currentScale})`;
             if (gradeInput) gradeInput.max = currentScale.toString();
         });
     }
@@ -227,8 +256,14 @@ const labels = {
             calculateGrade();
         });
 
-        row.querySelector(".subject-name")?.addEventListener("input", calculateGrade);
-        row.querySelector(".subject-grade")?.addEventListener("input", calculateGrade);
+        row.querySelector(".subject-name")?.addEventListener(
+            "input",
+            calculateGrade,
+        );
+        row.querySelector(".subject-grade")?.addEventListener(
+            "input",
+            calculateGrade,
+        );
 
         row.querySelector(".remove-btn")?.addEventListener("click", () => {
             row.remove();
@@ -284,7 +319,7 @@ const labels = {
         }
 
         addBtn.addEventListener("click", () => addSubject());
-        
+
         scaleInput.addEventListener("input", (e) => {
             const val = parseFloat(e.target.value);
             if (!isNaN(val) && val > 0) {
