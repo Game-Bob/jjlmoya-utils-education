@@ -1,0 +1,379 @@
+---
+import "./CitationGenerator.css";
+import type { CitationGeneratorUI } from "./index";
+
+interface Props {
+  ui?: Partial<CitationGeneratorUI>;
+}
+
+const { ui = {} } = Astro.props;
+const labels = {
+  format: ui.format || "Format",
+  book: ui.book || "Book",
+  website: ui.website || "Website",
+  article: ui.article || "Article",
+  publicationYear: ui.publicationYear || "Publication Year",
+  authors: ui.authors || "Authors (Last Name, Initials)",
+  title: ui.title || "Title",
+  publisher: ui.publisher || "Publisher",
+  locationUrl: ui.locationUrl || "Location / URL",
+  preview: ui.preview || "Preview",
+  saveToList: ui.saveToList || "Save to my list",
+  mySavedCitations: ui.mySavedCitations || "My Saved Citations",
+  noSavedCitations: ui.noSavedCitations || "You have no saved citations.",
+  clickToCopy: ui.clickToCopy || "Click on the citation to copy it directly",
+  apa: ui.apa || "APA (7th ed.)",
+  mla: ui.mla || "MLA (9th ed.)",
+  vancouver: ui.vancouver || "Vancouver",
+  exampleAuthor: ui.exampleAuthor || "Perez, J.; Garcia, M.",
+  exampleYear: ui.exampleYear || "2024",
+};
+---
+
+<div class="citation-generator-container view-fade-in">
+    <div class="type-tabs">
+        <button class="type-tab active" data-type="book">{labels.book}</button>
+        <button class="type-tab" data-type="website">{labels.website}</button>
+        <button class="type-tab" data-type="article">{labels.article}</button>
+    </div>
+
+    <div class="generator-grid">
+        <div class="config-section">
+            <div class="form-grid">
+                <div class="field-group">
+                    <label class="field-label">{labels.format}</label>
+                    <select id="citation-style" class="input-control select-control">
+                        <option value="apa">{labels.apa}</option>
+                        <option value="mla">{labels.mla}</option>
+                        <option value="vancouver">{labels.vancouver}</option>
+                    </select>
+                </div>
+                <div class="field-group">
+                    <label class="field-label">{labels.publicationYear}</label>
+                    <input
+                        type="text"
+                        id="year"
+                        class="input-control"
+                        placeholder={`Ex: ${labels.exampleYear}`}
+                    />
+                </div>
+            </div>
+
+            <div class="field-group">
+                <label class="field-label">{labels.authors}</label>
+                <input
+                    type="text"
+                    id="authors"
+                    class="input-control"
+                    placeholder={`Ex: ${labels.exampleAuthor}`}
+                />
+            </div>
+
+            <div class="field-group">
+                <label class="field-label" id="title-label">{labels.title}</label>
+                <input
+                    type="text"
+                    id="title"
+                    class="input-control"
+                    placeholder="Enter the complete title"
+                />
+            </div>
+
+            <div class="form-grid">
+                <div class="field-group" id="extra-field-container">
+                    <label class="field-label" id="extra-label">{labels.publisher}</label>
+                    <input
+                        type="text"
+                        id="extra-field"
+                        class="input-control"
+                        placeholder="Ex: Publishing House"
+                    />
+                </div>
+                <div class="field-group">
+                    <label class="field-label">{labels.locationUrl}</label>
+                    <input
+                        type="text"
+                        id="location-url"
+                        class="input-control"
+                        placeholder="Ex: City or https://..."
+                    />
+                </div>
+            </div>
+
+            <button id="add-to-history" class="add-btn">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"><path d="M12 5v14M5 12h14"></path></svg
+                >
+                {labels.saveToList}
+            </button>
+        </div>
+
+        <div class="results-sidebar">
+            <div class="preview-card">
+                <div class="preview-title">{labels.preview}</div>
+                <div id="citation-output" class="citation-result" title="Click to copy">
+                    Enter data to generate the citation...
+                </div>
+                <div class="copy-helper">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        ><path
+                            d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"
+                        ></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg
+                    >
+                    {labels.clickToCopy}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="history-section">
+        <h3 class="history-title">{labels.mySavedCitations}</h3>
+        <div id="history-list" class="history-list"></div>
+    </div>
+</div>
+
+<script is:inline define:vars={{ labels }}>
+    // interface CitationData {
+    //     id: string;
+    //     authors: string;
+    //     year: string;
+    //     title: string;
+    //     extra: string;
+    //     location: string;
+    //     style: string;
+    //     type: string;
+    //     formatted: string;
+    // }
+
+    const STORAGE_KEY = "jjlmoya_citations_v1";
+
+    const inputs = {
+        style: document.getElementById("citation-style") as HTMLSelectElement,
+        year: document.getElementById("year") as HTMLInputElement,
+        authors: document.getElementById("authors") as HTMLInputElement,
+        title: document.getElementById("title") as HTMLInputElement,
+        extra: document.getElementById("extra-field") as HTMLInputElement,
+        location: document.getElementById("location-url") as HTMLInputElement,
+    };
+
+    const output = document.getElementById("citation-output");
+    const historyList = document.getElementById("history-list");
+    const addBtn = document.getElementById("add-to-history");
+    const tabs = document.querySelectorAll(".type-tab");
+
+    const labelEls = {
+        title: document.getElementById("title-label"),
+        extra: document.getElementById("extra-label"),
+    };
+
+    let currentType = "book";
+
+    function formatAPA(data) {
+        const { authors, year, title, extra, location, type } = data;
+        const authorStr = authors ? `${authors}. ` : "";
+        const yearStr = year ? `(${year}). ` : "";
+
+        if (type === "book") {
+            return `${authorStr}${yearStr}<em>${title}</em>. ${extra}.`;
+        } else if (type === "website") {
+            return `${authorStr}${yearStr}<em>${title}</em>. ${extra}. Retrieved from ${location}`;
+        } else {
+            return `${authorStr}${yearStr}${title}. <em>${extra}</em>. ${location}`;
+        }
+    }
+
+    function formatMLA(data) {
+        const { authors, year, title, extra, location, type } = data;
+        const authorStr = authors ? `${authors}. ` : "";
+
+        if (type === "book") {
+            return `${authorStr}<em>${title}</em>. ${extra}, ${year}.`;
+        } else if (type === "website") {
+            return `${authorStr}"${title}." <em>${extra}</em>, ${year}, ${location}.`;
+        } else {
+            return `${authorStr}"${title}." <em>${extra}</em>, vol. ${location}, ${year}.`;
+        }
+    }
+
+    function formatVancouver(data) {
+        const { authors, year, title, extra, location, type } = data;
+        const authorStr = authors ? `${authors}. ` : "";
+
+        if (type === "book") {
+            return `${authorStr}${title}. ${location}: ${extra}; ${year}.`;
+        } else if (type === "website") {
+            return `${authorStr}${title} [Internet]. ${extra}; ${year} [cited ${new Date().toLocaleDateString()}]. Available from: ${location}`;
+        } else {
+            return `${authorStr}${title}. ${extra}. ${year};${location}.`;
+        }
+    }
+
+    function updatePreview(): string | undefined {
+        const data = {
+            id: "",
+            authors: inputs.authors.value.trim(),
+            year: inputs.year.value.trim(),
+            title: inputs.title.value.trim(),
+            extra: inputs.extra.value.trim(),
+            location: inputs.location.value.trim(),
+            type: currentType,
+            style: inputs.style.value,
+            formatted: "",
+        };
+
+        if (!data.title) {
+            if (output) output.innerHTML = "Enter at least the title...";
+            return;
+        }
+
+        const style = inputs.style.value;
+        let formatted = "";
+
+        if (style === "apa") formatted = formatAPA(data);
+        else if (style === "mla") formatted = formatMLA(data);
+        else formatted = formatVancouver(data);
+
+        if (output) output.innerHTML = formatted;
+        return formatted;
+    }
+
+    function saveToLocalStorage(item) {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        const list = saved ? JSON.parse(saved) : [];
+        list.unshift(item);
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+        renderHistory();
+    }
+
+    function renderHistory(): void {
+        if (!historyList) return;
+        const saved = localStorage.getItem(STORAGE_KEY);
+        const list = saved ? JSON.parse(saved) : [];
+
+        historyList.innerHTML = list.length
+            ? ""
+            : `<div style="text-align: center; opacity: 0.5; padding: 2rem;">${labels.noSavedCitations}</div>`;
+
+        list.forEach((item) => {
+            const el = document.createElement("div");
+            el.className = "history-item";
+            el.innerHTML = `
+                <div class="history-text">${item.formatted}</div>
+                <div class="history-actions">
+                    <button class="action-btn btn-copy-history" title="Copy">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                    <button class="action-btn btn-delete" title="Delete">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+                    </button>
+                </div>
+            `;
+
+            el.querySelector(".btn-delete")?.addEventListener("click", () => {
+                const newList = list.filter((i) => i.id !== item.id);
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(newList));
+                renderHistory();
+            });
+
+            el.querySelector(".btn-copy-history")?.addEventListener("click", () => {
+                const text = el.querySelector(".history-text")?.textContent || "";
+                navigator.clipboard.writeText(text);
+                const btn = el.querySelector(".btn-copy-history");
+                if (btn)
+                    btn.innerHTML =
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+                setTimeout(() => {
+                    if (btn)
+                        btn.innerHTML =
+                            '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+                }, 2000);
+            });
+
+            historyList.appendChild(el);
+        });
+    }
+
+    tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+            tabs.forEach((t) => t.classList.remove("active"));
+            tab.classList.add("active");
+            currentType = tab.getAttribute("data-type") || "book";
+
+            if (currentType === "book") {
+                if (labelEls.title) labelEls.title.textContent = labels.title;
+                if (labelEls.extra) labelEls.extra.textContent = labels.publisher;
+                inputs.extra.placeholder = "Ex: Publishing House";
+            } else if (currentType === "website") {
+                if (labelEls.title) labelEls.title.textContent = labels.title;
+                if (labelEls.extra) labelEls.extra.textContent = "Website Name";
+                inputs.extra.placeholder = "Ex: Wikipedia or CNN";
+            } else {
+                if (labelEls.title) labelEls.title.textContent = labels.title;
+                if (labelEls.extra) labelEls.extra.textContent = "Journal Name";
+                inputs.extra.placeholder = "Ex: Nature or Journal of Medicine";
+            }
+            updatePreview();
+        });
+    });
+
+    Object.values(inputs).forEach((input) => {
+        input.addEventListener("input", updatePreview);
+    });
+
+    addBtn?.addEventListener("click", () => {
+        const formatted = updatePreview();
+        if (formatted && formatted !== "Enter at least the title...") {
+            saveToLocalStorage({
+                id: Date.now().toString(),
+                authors: inputs.authors.value,
+                year: inputs.year.value,
+                title: inputs.title.value,
+                extra: inputs.extra.value,
+                location: inputs.location.value,
+                style: inputs.style.value,
+                type: currentType,
+                formatted: formatted,
+            });
+        }
+    });
+
+    let isCopying = false;
+    output?.addEventListener("click", () => {
+        if (isCopying) return;
+
+        const text = output?.textContent || "";
+        if (text && text !== "Enter at least the title...") {
+            isCopying = true;
+            navigator.clipboard.writeText(text);
+
+            output.classList.add("copied-pulse");
+            const originalHtml = output.innerHTML;
+            output.innerHTML = "Copied!";
+
+            setTimeout(() => {
+                output.classList.remove("copied-pulse");
+                output.innerHTML = originalHtml;
+                isCopying = false;
+            }, 1000);
+        }
+    });
+
+    renderHistory();
+</script>

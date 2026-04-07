@@ -1,0 +1,299 @@
+---
+import "./WeightedGradeCalculator.css";
+import type { WeightedGradeCalculatorUI } from "./index";
+
+interface Props {
+  ui?: Partial<WeightedGradeCalculatorUI>;
+}
+
+const { ui = {} } = Astro.props;
+const labels = {
+  subjects: ui.subjects || 'Asignaturas y Ponderaciones',
+  addSubject: ui.addSubject || 'Añadir Asignatura',
+  subjectName: ui.subjectName || 'Asignatura',
+  grade: ui.grade || 'Nota',
+  weight: ui.weight || 'Peso (%)',
+  scale: ui.scale || 'Escala total (Ej: 10, 20, 100)',
+  finalGrade: ui.finalGrade || 'Nota Final Ponderada',
+  removeSubject: ui.removeSubject || 'Eliminar asignatura',
+  weightSum: ui.weightSum || 'Suma de pesos',
+  exampleSubject: ui.exampleSubject || 'Matemáticas II',
+  newSubjectPlaceholder: ui.newSubjectPlaceholder || 'Nueva Asignatura',
+};
+---
+
+<div class="weighted-calc-container view-fade-in">
+    <div class="calc-header">
+        <h2 class="calc-title">{labels.subjects}</h2>
+        <div class="header-actions">
+            <div class="scale-setting">
+                <label class="input-label" for="grade-scale">{labels.scale}</label>
+                <input type="number" id="grade-scale" class="input-control scale-input" value="10" min="1" step="any" />
+            </div>
+            <button id="add-subject" class="add-btn">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    ><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"
+                    ></line></svg
+                >
+                {labels.addSubject}
+            </button>
+        </div>
+    </div>
+
+    <div id="subjects-list" class="subjects-list">
+        <!-- Initial row will be added by script -->
+    </div>
+
+    <div class="results-panel">
+        <div class="result-label">{labels.finalGrade}</div>
+        <div id="final-grade" class="result-value">0.00</div>
+
+        <div class="weight-status-container">
+            <div class="weight-progress-bar">
+                <div id="weight-progress-fill" class="weight-progress-fill"></div>
+            </div>
+            <div id="weight-sum-warning" class="weight-warning" style="display: none;">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    ><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"
+                    ></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg
+                >
+                <span>{labels.weightSum}: <span id="current-weight-sum">0</span>%</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script is:inline define:vars={{ labels }}>
+    const STORAGE_KEY = "jjlmoya_weighted_grades_v2";
+    const SCALE_KEY = "jjlmoya_weighted_grades_scale";
+    
+    const subjectsList = document.getElementById("subjects-list");
+    const addBtn = document.getElementById("add-subject");
+    const scaleInput = document.getElementById("grade-scale");
+    const finalGradeEl = document.getElementById("final-grade");
+    const weightWarning = document.getElementById("weight-sum-warning");
+    const weightSumEl = document.getElementById("current-weight-sum");
+    const progressFill = document.getElementById("weight-progress-fill");
+
+    let currentScale = 10;
+
+    function saveState() {
+        if (!subjectsList) return;
+        const rows = subjectsList.querySelectorAll(".subject-row");
+        const subjects = Array.from(rows).map((row) => {
+            const nameEl = row.querySelector(".subject-name");
+            const gradeEl = row.querySelector(".subject-grade");
+            const weightEl = row.querySelector(".subject-weight");
+            return {
+                name: nameEl.value,
+                grade: parseFloat(gradeEl.value) || 0,
+                weight: parseFloat(weightEl.value) || 0,
+                manual: row.hasAttribute("data-manual"),
+            };
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(subjects));
+        localStorage.setItem(SCALE_KEY, currentScale.toString());
+    }
+
+    function updateWeightStatus(totalWeight) {
+        if (!weightWarning || !progressFill) return;
+
+        progressFill.style.width = `${Math.min(totalWeight, 100)}%`;
+
+        if (totalWeight > 100.1) {
+            weightWarning.style.display = "flex";
+            weightWarning.classList.add("error");
+            progressFill.classList.add("error");
+        } else if (Math.abs(totalWeight - 100) > 0.1 && totalWeight > 0) {
+            weightWarning.style.display = "flex";
+            weightWarning.classList.remove("error");
+            progressFill.classList.add("warning");
+        } else {
+            weightWarning.style.display = totalWeight === 0 ? "none" : "flex";
+            weightWarning.classList.remove("error");
+            progressFill.classList.remove("error", "warning");
+        }
+    }
+
+    function calculateGrade() {
+        if (!subjectsList || !finalGradeEl || !weightSumEl) return;
+
+        const rows = subjectsList.querySelectorAll(".subject-row");
+        let totalWeightedGrade = 0;
+        let totalWeight = 0;
+
+        rows.forEach((row) => {
+            const gradeInput = row.querySelector(".subject-grade");
+            const weightInput = row.querySelector(".subject-weight");
+
+            if (gradeInput && weightInput) {
+                const grade = parseFloat(gradeInput.value) || 0;
+                const weight = parseFloat(weightInput.value) || 0;
+
+                totalWeightedGrade += grade * (weight / 100);
+                totalWeight += weight;
+            }
+        });
+
+        finalGradeEl.textContent = totalWeightedGrade.toFixed(2);
+        weightSumEl.textContent = Math.round(totalWeight * 10) / 10 + "";
+
+        updateWeightStatus(totalWeight);
+        saveState();
+    }
+
+    function autoAdjustWeights() {
+        if (!subjectsList) return;
+        const rows = subjectsList.querySelectorAll(".subject-row");
+        if (rows.length === 0) return;
+
+        const manualRows = Array.from(rows).filter((r) => r.hasAttribute("data-manual"));
+        const autoRows = Array.from(rows).filter((r) => !r.hasAttribute("data-manual"));
+
+        let manualWeightTotal = 0;
+        manualRows.forEach((row) => {
+            const input = row.querySelector(".subject-weight");
+            manualWeightTotal += parseFloat(input.value) || 0;
+        });
+
+        if (autoRows.length > 0) {
+            const remainingWeight = Math.max(0, 100 - manualWeightTotal);
+            const weightPerAuto = (remainingWeight / autoRows.length).toFixed(1);
+            autoRows.forEach((row) => {
+                const input = row.querySelector(".subject-weight");
+                input.value = weightPerAuto;
+            });
+        }
+        calculateGrade();
+    }
+
+    function updateAllRowLabels() {
+        if (!subjectsList) return;
+        const rows = subjectsList.querySelectorAll(".subject-row");
+        rows.forEach(row => {
+            const gradeLabel = row.querySelector(".grade-label");
+            const gradeInput = row.querySelector(".subject-grade");
+            if (gradeLabel) gradeLabel.textContent = `${labels.grade} (0-${currentScale})`;
+            if (gradeInput) gradeInput.max = currentScale.toString();
+        });
+    }
+
+    function createRowHTML(data) {
+        const name = data?.name || "";
+        const grade = data?.grade || 0;
+        const weight = data?.weight || 0;
+
+        return `
+            <div class="input-group">
+                <label class="input-label">${labels.subjectName}</label>
+                <input type="text" class="input-control subject-name" placeholder="${labels.newSubjectPlaceholder}" value="${name}">
+            </div>
+            <div class="input-group">
+                <label class="input-label grade-label">${labels.grade} (0-${currentScale})</label>
+                <input type="number" class="input-control subject-grade" min="0" max="${currentScale}" step="any" value="${grade}">
+            </div>
+            <div class="input-group">
+                <label class="input-label">${labels.weight}</label>
+                <input type="number" class="input-control subject-weight" min="0" max="100" step="any" value="${weight}">
+            </div>
+            <button class="remove-btn" title="${labels.removeSubject}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+            </button>
+        `;
+    }
+
+    function attachRowListeners(row) {
+        const weightInput = row.querySelector(".subject-weight");
+        weightInput?.addEventListener("input", () => {
+            row.setAttribute("data-manual", "true");
+            calculateGrade();
+        });
+
+        row.querySelector(".subject-name")?.addEventListener("input", calculateGrade);
+        row.querySelector(".subject-grade")?.addEventListener("input", calculateGrade);
+
+        row.querySelector(".remove-btn")?.addEventListener("click", () => {
+            row.remove();
+            autoAdjustWeights();
+        });
+    }
+
+    function addSubject(data) {
+        if (!subjectsList) return;
+
+        const row = document.createElement("div");
+        row.className = "subject-row";
+        if (data?.manual) {
+            row.setAttribute("data-manual", "true");
+        }
+
+        row.innerHTML = createRowHTML(data);
+        subjectsList.appendChild(row);
+        attachRowListeners(row);
+
+        if (!data) {
+            autoAdjustWeights();
+        }
+    }
+
+    function initFromStorage() {
+        const savedScale = localStorage.getItem(SCALE_KEY);
+        if (savedScale && scaleInput) {
+            currentScale = parseFloat(savedScale) || 10;
+            scaleInput.value = currentScale.toString();
+        }
+
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (!saved || !subjectsList) return;
+
+        subjectsList.innerHTML = "";
+        const subjects = JSON.parse(saved);
+        if (subjects.length > 0) {
+            subjects.forEach((s) => addSubject(s));
+            calculateGrade();
+        } else {
+            addSubject();
+        }
+    }
+
+    function init() {
+        if (!subjectsList || !addBtn || !scaleInput) return;
+
+        initFromStorage();
+
+        if (subjectsList.children.length === 0) {
+            addSubject();
+        }
+
+        addBtn.addEventListener("click", () => addSubject());
+        
+        scaleInput.addEventListener("input", (e) => {
+            const val = parseFloat(e.target.value);
+            if (!isNaN(val) && val > 0) {
+                currentScale = val;
+                updateAllRowLabels();
+                calculateGrade();
+            }
+        });
+    }
+
+    init();
+</script>

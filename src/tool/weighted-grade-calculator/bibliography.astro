@@ -1,0 +1,15 @@
+---
+import { Bibliography } from '@jjlmoya/utils-shared';
+import { weightedGradeCalculator } from './index';
+import type { KnownLocale } from '../../types';
+
+interface Props {
+  locale?: KnownLocale;
+}
+
+const { locale = 'es' } = Astro.props as Props;
+const content = await weightedGradeCalculator.i18n[locale]?.();
+if (!content) return null;
+---
+
+{content && <Bibliography links={content.bibliography} />}
