@@ -137,7 +137,7 @@ const appSchema = {
 
 const schemas = [faqSchema, howToSchema, appSchema] as const;
 
-export default {
+export const content = {
     slug,
     title,
     description,

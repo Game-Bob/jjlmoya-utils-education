@@ -28,20 +28,20 @@ export interface ToolLocaleContent<TUI extends Record<string, string> = Record<s
   title: string;
   description: string;
   ui: TUI;
-  seo: SEOSection[];
+  seo: readonly SEOSection[];
   faqTitle?: string;
-  faq: FAQItem[];
+  faq: readonly FAQItem[];
   bibliographyTitle?: string;
-  bibliography: BibliographyEntry[];
-  howTo: HowToStep[];
-  schemas: WithContext<Thing>[];
+  bibliography: readonly BibliographyEntry[];
+  howTo: readonly HowToStep[];
+  schemas: readonly WithContext<Thing>[];
 }
 
 export interface CategoryLocaleContent {
   slug: string;
   title: string;
   description: string;
-  seo: SEOSection[];
+  seo: readonly SEOSection[];
 }
 
 export type LocaleLoader<T> = () => Promise<T>;

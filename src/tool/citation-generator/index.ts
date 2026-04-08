@@ -1,6 +1,7 @@
-import es from './i18n/es';
-import en from './i18n/en';
-import fr from './i18n/fr';
+import type { EducationToolEntry, ToolDefinition, ToolLocaleContent } from '../../types';
+import Component from './component.astro';
+import SEOComponent from './seo.astro';
+import BibliographyComponent from './bibliography.astro';
 
 export interface CitationGeneratorUI {
     format: string;
@@ -24,26 +25,21 @@ export interface CitationGeneratorUI {
     exampleYear: string;
 }
 
-export const citationGenerator = {
-    id: 'citation-generator' as const,
-    icons: {
-        bg: 'mdi:format-quote-open' as const,
-        fg: 'mdi:book-open-page-variant' as const,
-    },
+export type CitationGeneratorLocaleContent = ToolLocaleContent<CitationGeneratorUI>;
+
+export const citationGenerator: EducationToolEntry<CitationGeneratorUI> = {
+    id: 'citation-generator',
+    icons: { bg: 'mdi:format-quote-open', fg: 'mdi:book-open-page-variant' },
     i18n: {
-        es: async () => es,
-        en: async () => en,
-        fr: async () => fr,
+        es: () => import('./i18n/es').then((m) => m.content),
+        en: () => import('./i18n/en').then((m) => m.content),
+        fr: () => import('./i18n/fr').then((m) => m.content),
     },
-} as const;
+};
 
-import Component from './component.astro';
-import SEOComponent from './seo.astro';
-import BibliographyComponent from './bibliography.astro';
-
-export const CITATION_GENERATOR_TOOL = {
+export const CITATION_GENERATOR_TOOL: ToolDefinition = {
     entry: citationGenerator,
     Component,
     SEOComponent,
     BibliographyComponent,
-} as const;
+};
