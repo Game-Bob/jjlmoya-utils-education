@@ -1,7 +1,7 @@
 import type { ToolLocaleContent } from '../../../types';
 import type { WeightedGradeCalculatorUI } from '../index';
 
-const slug = 'calculatrice-note-ponderee';
+const slug = 'calculateur-de-moyenne-coefficients';
 const title = 'Calculateur de Moyenne & Coefficients';
 const description = 'Arrête de te prendre la tête avec tes notes ! Calcule ta moyenne générale ou par matière en un clin d\'œil. Idéal pour le lycée (Bac) ou la fac.';
 

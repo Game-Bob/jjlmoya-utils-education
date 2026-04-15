@@ -1,6 +1,6 @@
 import type { ToolLocaleContent } from '../../../types';
 
-const slug = 'generateur-citations-bibliographiques' as const;
+const slug = 'generateur-de-citations-bibliographiques';
 const title = 'Générateur de Citations Bibliographiques' as const;
 const description = 'Créez automatiquement des références aux formats APA, MLA et Vancouver avec sauvegarde persistante.' as const;
 const faqTitle = 'Questions Fréquemment Posées' as const;

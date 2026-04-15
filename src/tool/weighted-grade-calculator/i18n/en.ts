@@ -1,7 +1,7 @@
 import type { ToolLocaleContent } from '../../../types';
 import type { WeightedGradeCalculatorUI } from '../index';
 
-const slug = 'weighted-grade-calculator';
+const slug = 'weighted-grade-calculator' as const;
 const title = 'Weighted Grade & Final Score Calculator';
 const description = 'Stop stressing over your GPA! Easily calculate your course grades and final marks. Just enter your assignments, exams, and their weights to see where you stand.';
 
