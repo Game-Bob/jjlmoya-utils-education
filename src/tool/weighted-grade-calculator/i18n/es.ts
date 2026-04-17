@@ -1,7 +1,7 @@
 import type { ToolLocaleContent } from '../../../types';
 import type { WeightedGradeCalculatorUI } from '../index';
 
-const slug = 'calculadora-nota-ponderada-media' as const;
+const slug = 'calculadora-nota-ponderada' as const;
 const title = 'Calculadora de Nota Ponderada & Media';
 const description = '¿Haciendo números para entrar en la carrera que quieres? Calcula tu nota de bachillerato, EBAU o de la uni sin complicaciones. ¡Tú pon las notas y nosotros hacemos el resto!';
 
