@@ -7,3 +7,5 @@ export const ALL_TOOLS: ToolDefinition[] = [
   CITATION_GENERATOR_TOOL,
 ];
 
+
+export const ALL_ENTRIES = ALL_TOOLS.map(t => t.entry);
