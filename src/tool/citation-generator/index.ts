@@ -1,7 +1,4 @@
 import type { EducationToolEntry, ToolDefinition, ToolLocaleContent } from '../../types';
-import Component from './component.astro';
-import SEOComponent from './seo.astro';
-import BibliographyComponent from './bibliography.astro';
 
 export interface CitationGeneratorUI {
     format: string;

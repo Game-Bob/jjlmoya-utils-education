@@ -1,7 +1,4 @@
 import type { EducationToolEntry, ToolDefinition, ToolLocaleContent } from '../../types';
-import WeightedGradeCalculatorComponent from './component.astro';
-import WeightedGradeCalculatorSEO from './seo.astro';
-import WeightedGradeCalculatorBibliography from './bibliography.astro';
 
 export type WeightedGradeCalculatorUI = {
   addSubject: string;
@@ -43,7 +40,7 @@ export const weightedGradeCalculator: EducationToolEntry<WeightedGradeCalculator
 
 export const WEIGHTED_GRADE_CALCULATOR_TOOL: ToolDefinition = {
   entry: weightedGradeCalculator,
-  Component: WeightedGradeCalculatorComponent,
-  SEOComponent: WeightedGradeCalculatorSEO,
-  BibliographyComponent: WeightedGradeCalculatorBibliography,
+  Component: () => import('./component.astro'),
+  SEOComponent: () => import('./seo.astro'),
+  BibliographyComponent: () => import('./bibliography.astro'),
 };
