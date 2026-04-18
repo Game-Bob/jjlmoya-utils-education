@@ -48,7 +48,7 @@ export const citationGenerator: EducationToolEntry<CitationGeneratorUI> = {
 
 export const CITATION_GENERATOR_TOOL: ToolDefinition = {
     entry: citationGenerator,
-    Component,
-    SEOComponent,
-    BibliographyComponent,
+    Component: () => import('./component.astro'),
+    SEOComponent: () => import('./seo.astro'),
+    BibliographyComponent: () => import('./bibliography.astro'),
 };
