@@ -1,6 +1,6 @@
 import type { EducationCategoryEntry } from '../types';
-import { weightedGradeCalculator } from '../tool/weighted-grade-calculator';
-import { citationGenerator } from '../tool/citation-generator';
+import { weightedGradeCalculator } from '../tool/weighted-grade-calculator/entry';
+import { citationGenerator } from '../tool/citation-generator/entry';
 
 export const educationCategory: EducationCategoryEntry = {
   icon: 'mdi:school',

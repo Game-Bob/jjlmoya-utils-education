@@ -1,43 +1,4 @@
-import type { EducationToolEntry, ToolDefinition, ToolLocaleContent } from '../../types';
-
-export type WeightedGradeCalculatorUI = {
-  addSubject: string;
-  subjects: string;
-  subjectName: string;
-  grade: string;
-  weight: string;
-  scale: string;
-  finalGrade: string;
-  removeSubject: string;
-  weightSum: string;
-  exampleSubject: string;
-  newSubjectPlaceholder: string;
-};
-
-export type WeightedGradeCalculatorLocaleContent = ToolLocaleContent<WeightedGradeCalculatorUI>;
-
-export const weightedGradeCalculator: EducationToolEntry<WeightedGradeCalculatorUI> = {
-  id: 'weighted-grade-calculator',
-  icons: { bg: 'mdi:calculator', fg: 'mdi:chart-box' },
-  i18n: {
-    es: () => import('./i18n/es').then((m) => m.content),
-    en: () => import('./i18n/en').then((m) => m.content),
-    fr: () => import('./i18n/fr').then((m) => m.content),
-    de: () => import('./i18n/de').then((m) => m.content),
-    it: () => import('./i18n/it').then((m) => m.content),
-    pt: () => import('./i18n/pt').then((m) => m.content),
-    nl: () => import('./i18n/nl').then((m) => m.content),
-    pl: () => import('./i18n/pl').then((m) => m.content),
-    ru: () => import('./i18n/ru').then((m) => m.content),
-    tr: () => import('./i18n/tr').then((m) => m.content),
-    ja: () => import('./i18n/ja').then((m) => m.content),
-    ko: () => import('./i18n/ko').then((m) => m.content),
-    zh: () => import('./i18n/zh').then((m) => m.content),
-    sv: () => import('./i18n/sv').then((m) => m.content),
-    id: () => import('./i18n/id').then((m) => m.content),
-  },
-};
-
+export * from './entry';
 export const WEIGHTED_GRADE_CALCULATOR_TOOL: ToolDefinition = {
   entry: weightedGradeCalculator,
   Component: () => import('./component.astro'),
