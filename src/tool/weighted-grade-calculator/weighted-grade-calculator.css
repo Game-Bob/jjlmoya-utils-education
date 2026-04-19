@@ -24,7 +24,7 @@
         --color-focus-shadow: rgba(14, 165, 233, 0.15);
     }
 
-    :global(.theme-dark) .weighted-calc-ui {
+    .theme-dark .weighted-calc-ui {
         --color-bg-light: #0f172a;
         --color-bg-light-border: #1e293b;
         --color-bg-light-shadow: rgba(0, 0, 0, 0.5);
@@ -75,7 +75,7 @@
         color: var(--slate-900);
     }
 
-    :global(.theme-dark) .calc-title {
+    .theme-dark .calc-title {
         color: var(--color-success);
     }
 
@@ -86,7 +86,7 @@
         margin-bottom: 2rem;
     }
 
-    :global(.subject-row) {
+    .subject-row {
         display: grid;
         grid-template-columns: 1fr 100px 100px 40px;
         gap: 1rem;
@@ -100,18 +100,18 @@
             box-shadow 0.2s ease;
     }
 
-    :global(.subject-row:hover) {
+    .subject-row:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 12px var(--color-row-light-shadow);
     }
 
-    :global(.input-group) {
+    .input-group {
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
     }
 
-    :global(.input-label) {
+    .input-label {
         font-size: 0.75rem;
         font-weight: 600;
         text-transform: uppercase;
@@ -119,7 +119,7 @@
         color: var(--color-text-light);
     }
 
-    :global(.input-control) {
+    .input-control {
         width: 100%;
         padding: 0.75rem;
         border-radius: 0.5rem;
@@ -131,19 +131,19 @@
             ring 0.2s ease;
     }
 
-    :global(.theme-dark .input-control) {
+    .theme-dark .input-control {
         background: var(--color-text-dark);
         border-color: var(--color-border-dark);
         color: var(--color-success);
     }
 
-    :global(.input-control:focus) {
+    .input-control:focus {
         outline: none;
         border-color: var(--color-primary);
         box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
     }
 
-    :global(.remove-btn) {
+    .remove-btn {
         width: 40px;
         height: 40px;
         border-radius: 50%;
@@ -160,12 +160,12 @@
         margin-top: 1.25rem;
     }
 
-    :global(.theme-dark .remove-btn) {
+    .theme-dark .remove-btn {
         background: var(--color-error-dark);
         color: var(--color-error-light-dark);
     }
 
-    :global(.remove-btn:hover) {
+    .remove-btn:hover {
         background: #fecaca;
         transform: scale(1.1);
     }

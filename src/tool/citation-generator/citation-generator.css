@@ -18,7 +18,7 @@
         --color-white: #fff;
     }
 
-    :global(.theme-dark) .citation-generator-ui {
+    .theme-dark .citation-generator-ui {
         --color-bg-light: rgba(15, 23, 42, 0.7);
         --color-bg-card: #1e293b;
         --color-text-base: #f8fafc;
@@ -39,7 +39,7 @@
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.05);
     }
 
-    :global(.theme-dark) .citation-generator-container {
+    .theme-dark .citation-generator-container {
         border: 1px solid rgba(255, 255, 255, 0.1);
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
     }
@@ -80,7 +80,7 @@
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    :global(.theme-dark) .input-control {
+    .theme-dark .input-control {
         background: var(--color-bg-card);
         border-color: var(--color-border);
         color: var(--color-text-base);
@@ -119,7 +119,7 @@
         position: relative;
     }
 
-    :global(.theme-dark) .preview-card {
+    .theme-dark .preview-card {
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
 
@@ -153,11 +153,11 @@
         border-color: rgba(99, 102, 241, 0.2);
     }
 
-    :global(.theme-dark) .citation-result {
+    .theme-dark .citation-result {
         color: var(--color-text-secondary);
     }
 
-    :global(.theme-dark) .citation-result:hover {
+    .theme-dark .citation-result:hover {
         background: rgba(255, 255, 255, 0.05);
         border-color: rgba(255, 255, 255, 0.1);
     }
@@ -197,12 +197,12 @@
         color: var(--color-white);
     }
 
-    :global(.theme-dark) .copy-btn {
+    .theme-dark .copy-btn {
         border-color: var(--color-primary);
         color: var(--color-primary);
     }
 
-    :global(.theme-dark) .copy-btn:hover {
+    .theme-dark .copy-btn:hover {
         background: var(--color-primary);
         color: var(--color-white);
     }
@@ -245,7 +245,7 @@
         gap: 1rem;
     }
 
-    :global(.history-item) {
+    .history-item {
         padding: 1.25rem;
         border-radius: 1rem;
         background: rgba(255, 255, 255, 0.5);
@@ -258,32 +258,32 @@
         animation: slide-in 0.3s ease forwards;
     }
 
-    :global(.theme-dark .history-item) {
+    .theme-dark .history-item {
         background: rgba(30, 41, 59, 0.5);
         border-color: var(--color-border-light);
     }
 
-    :global(.history-item:hover) {
+    .history-item:hover {
         background: var(--color-white);
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.03);
     }
 
-    :global(.theme-dark .history-item:hover) {
+    .theme-dark .history-item:hover {
         background: var(--color-bg-card);
     }
 
-    :global(.history-text) {
+    .history-text {
         font-size: 0.95rem;
         color: var(--color-text-secondary);
         flex: 1;
     }
 
-    :global(.history-actions) {
+    .history-actions {
         display: flex;
         gap: 0.5rem;
     }
 
-    :global(.action-btn) {
+    .action-btn {
         width: 32px;
         height: 32px;
         border-radius: 8px;
@@ -295,29 +295,29 @@
         transition: all 0.2s ease;
     }
 
-    :global(.btn-delete) {
+    .btn-delete {
         background: var(--color-error-light);
         color: var(--color-error);
     }
 
-    :global(.btn-delete:hover) {
+    .btn-delete:hover {
         background: var(--color-error-lighter);
     }
 
-    :global(.btn-copy-formatted),
-    :global(.btn-copy-text) {
+    .btn-copy-formatted,
+    .btn-copy-text {
         background: transparent;
         color: var(--color-primary);
         border: none;
     }
 
-    :global(.btn-copy-formatted:hover),
-    :global(.btn-copy-text:hover) {
+    .btn-copy-formatted:hover,
+    .btn-copy-text:hover {
         color: var(--color-primary-dark);
     }
 
-    :global(.btn-copy-formatted.copied),
-    :global(.btn-copy-text.copied) {
+    .btn-copy-formatted.copied,
+    .btn-copy-text.copied {
         color: var(--color-success);
     }
 
@@ -351,7 +351,7 @@
         transition: all 0.2s ease;
     }
 
-    :global(.theme-dark) .type-tab {
+    .theme-dark .type-tab {
         background: var(--color-bg-card);
         color: var(--color-text-dimmed);
     }
