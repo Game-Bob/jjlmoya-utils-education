@@ -1,5 +1,5 @@
 ---
-import { SEOArticle, SEOTitle, SEOList, SEOCard, SEOTable, SEOTip } from '@jjlmoya/utils-shared';
+import { SEORenderer } from '@jjlmoya/utils-shared';
 import { weightedGradeCalculator } from './index';
 import type { KnownLocale } from '../../types';
 
@@ -12,26 +12,4 @@ const content = await weightedGradeCalculator.i18n[locale]?.();
 if (!content) return null;
 ---
 
-<SEOArticle>
-  {content.seo.map((section: any) => {
-    if (section.type === 'title') {
-      return <SEOTitle title={section.text} level={section.level || 2} />;
-    }
-    if (section.type === 'paragraph') {
-      return <p set:html={section.html} />;
-    }
-    if (section.type === 'list') {
-      return <SEOList items={section.items} />;
-    }
-    if (section.type === 'tip') {
-      return <SEOTip title={section.title}><Fragment set:html={section.html} /></SEOTip>;
-    }
-    if (section.type === 'card') {
-      return <SEOCard title={section.title} icon={section.icon}><Fragment set:html={section.html} /></SEOCard>;
-    }
-    if (section.type === 'table') {
-      return <SEOTable headers={section.headers}><Fragment set:html={section.html} /></SEOTable>;
-    }
-    return null;
-  })}
-</SEOArticle>
+{content.seo?.length > 0 && <SEORenderer content={{ locale, sections: content.seo }} />}

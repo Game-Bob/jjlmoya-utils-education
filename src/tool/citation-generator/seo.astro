@@ -1,5 +1,5 @@
 ---
-import SEORenderer from '@jjlmoya/utils-shared/seo/SEORenderer.astro';
+import { SEORenderer } from '@jjlmoya/utils-shared';
 import { citationGenerator } from './index';
 import type { KnownLocale } from '../../types';
 
@@ -7,9 +7,9 @@ interface Props {
   locale?: KnownLocale;
 }
 
-const { locale = 'es' } = Astro.props as Props;
-const i18nContent = await citationGenerator.i18n[locale]?.();
-if (!i18nContent) return null;
+const { locale = 'es' } = Astro.props;
+const content = await citationGenerator.i18n[locale]?.();
+if (!content) return null;
 ---
 
-<SEORenderer content={{ sections: i18nContent.seo }} />
+{content.seo?.length > 0 && <SEORenderer content={{ locale, sections: content.seo }} />}
