@@ -1,0 +1,585 @@
+---
+import type { PomodoroFlowUI } from "./index";
+import { CYCLE_PRESETS } from "./logic";
+
+interface Props {
+  ui?: Partial<PomodoroFlowUI>;
+}
+
+const { ui = {} } = Astro.props;
+const labels = {
+  taskInput: ui.taskInput || "What are you going to work on?",
+  selectCycle: ui.selectCycle || "Choose your focus cycle",
+  startButton: ui.startButton || "Start",
+  seed: ui.seed || "Seed",
+  tree: ui.tree || "Tree",
+  mountain: ui.mountain || "Mountain",
+  timer: ui.timer || "Timer",
+  pauseButton: ui.pauseButton || "Pause",
+  resumeButton: ui.resumeButton || "Resume",
+  distractionButton: ui.distractionButton || "Distraction",
+  addFiveMin: ui.addFiveMin || "+5m",
+  subtractFiveMin: ui.subtractFiveMin || "-5m",
+  focusMode: ui.focusMode || "Focus",
+  breakTime: ui.breakTime || "Break",
+  focusScore: ui.focusScore || "Focus Score",
+  totalTime: ui.totalTime || "Total Time",
+  interruptions: ui.interruptions || "Interruptions",
+  taskBreakdown: ui.taskBreakdown || "Task Breakdown",
+  monthlyHeatmap: ui.monthlyHeatmap || "Monthly Activity",
+  copyMarkdown: ui.copyMarkdown || "Copy Markdown",
+  shareImage: ui.shareImage || "Share",
+  wellnessMessage: ui.wellnessMessage || "Take a break, you deserve it",
+  sessionSummary: ui.sessionSummary || "Session Summary",
+  newSession: ui.newSession || "New Session",
+  copied: ui.copied || "Copied!",
+  unnamedTask: ui.unnamedTask || "Unnamed Task",
+  breakTimeNotification: ui.breakTimeNotification || "Break time!",
+  focusTimeNotification: ui.focusTimeNotification || "Time to focus!",
+  interruptionsLabel: ui.interruptionsLabel || "Interruptions:",
+  studySession: ui.studySession || "Study Session",
+};
+---
+
+<div class="pomodoro-ui pomodoro-container view-fade-in">
+  <div class="pomodoro-phase active" id="phase-config">
+    <div class="phase-config">
+      <div class="task-input-wrapper">
+        <input
+          type="text"
+          class="task-input"
+          id="task-input"
+          placeholder={labels.taskInput}
+          autofocus
+        />
+      </div>
+
+      <div style="width: 100%;">
+        <div style="margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.5px;">
+          {labels.selectCycle}
+        </div>
+        <div class="cycle-selector">
+          {Object.entries(CYCLE_PRESETS).map(([key, preset]) => (
+            <div
+              class="cycle-card"
+              data-cycle={key}
+              data-work={preset.work}
+              data-break={preset.break}
+            >
+              <div class="cycle-name">{preset.label}</div>
+              <div class="cycle-duration">
+                {preset.work}m / {preset.break}m
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <button class="start-button" id="start-btn">
+        {labels.startButton}
+      </button>
+    </div>
+  </div>
+
+  <div class="pomodoro-phase" id="phase-flow">
+    <div class="phase-flow">
+      <div class="task-name-display" id="task-name"></div>
+
+      <div class="timer-container">
+        <div class="timer-label" id="phase-label">Focus</div>
+
+        <div class="timer-ring" id="timer-ring">
+          <svg class="timer-ring-svg" viewBox="0 0 300 300">
+            <circle
+              cx="150"
+              cy="150"
+              r="140"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="8"
+              style="opacity: 0.2;"
+            />
+            <circle
+              id="progress-ring"
+              cx="150"
+              cy="150"
+              r="140"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="8"
+              stroke-dasharray="879.6"
+              stroke-dashoffset="879.6"
+              stroke-linecap="round"
+              transform="rotate(-90 150 150)"
+              style="transition: stroke-dashoffset 1s linear; color: var(--color-focus);"
+            />
+          </svg>
+          <div class="timer-display" id="timer-display">25:00</div>
+        </div>
+
+        <div class="timer-controls">
+          <button class="timer-btn" id="minus-5">
+            {labels.subtractFiveMin}
+          </button>
+          <button class="timer-btn" id="pause-btn">
+            {labels.pauseButton}
+          </button>
+          <button class="timer-btn" id="plus-5">
+            {labels.addFiveMin}
+          </button>
+        </div>
+
+        <div style="display: flex; gap: 1rem; align-items: center; justify-content: center; flex-wrap: wrap;">
+          <button class="distraction-btn" id="distraction-btn">
+            {labels.distractionButton}
+          </button>
+          <div style="font-size: 0.9rem; color: var(--color-text-secondary);">
+            {labels.interruptionsLabel} <span id="interrupt-count" style="font-weight: 700; color: var(--color-break);">0</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pomodoro-phase" id="phase-harvest">
+    <div class="phase-harvest">
+      <div class="harvest-title">{labels.sessionSummary}</div>
+
+      <div class="harvest-grid">
+        <div class="harvest-card">
+          <div class="harvest-card-label">{labels.focusScore}</div>
+          <div class="harvest-card-value" id="harvest-focus">95%</div>
+        </div>
+        <div class="harvest-card">
+          <div class="harvest-card-label">{labels.totalTime}</div>
+          <div class="harvest-card-value" id="harvest-time">50m</div>
+        </div>
+        <div class="harvest-card">
+          <div class="harvest-card-label">{labels.interruptions}</div>
+          <div class="harvest-card-value" id="harvest-interruptions">0</div>
+        </div>
+        <div class="harvest-card">
+          <div class="harvest-card-label">{labels.taskBreakdown}</div>
+          <div class="harvest-card-value" id="harvest-tasks">1</div>
+        </div>
+      </div>
+
+      <div class="charts-container">
+        <div class="chart-wrapper">
+          <div class="chart-title">{labels.taskBreakdown}</div>
+          <div id="task-breakdown" style="display: flex; flex-direction: column; gap: 0.75rem;"></div>
+        </div>
+      </div>
+
+      <div class="harvest-actions">
+        <button class="action-btn" id="copy-markdown">
+          {labels.copyMarkdown}
+        </button>
+        <button class="action-btn" id="new-session-btn">
+          {labels.newSession}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline define:vars={{ labels }}>
+  const STORAGE_KEY = "jjlmoya_pomodoro_sessions";
+  const STATE_KEY = "jjlmoya_pomodoro_state";
+
+  let currentCycle = "tree";
+  let workDuration = 50;
+  let breakDuration = 10;
+  let isRunning = false;
+  let isPaused = false;
+  let timeRemaining = workDuration * 60;
+  let isWorkPhase = true;
+  let interruptions = 0;
+  let taskName = "";
+  let timerInterval = null;
+  let phaseStartTime = null;
+
+  const elements = {
+    taskInput: document.getElementById("task-input"),
+    startBtn: document.getElementById("start-btn"),
+    phaseConfig: document.getElementById("phase-config"),
+    phaseFlow: document.getElementById("phase-flow"),
+    phaseHarvest: document.getElementById("phase-harvest"),
+    timerDisplay: document.getElementById("timer-display"),
+    taskName: document.getElementById("task-name"),
+    phaseLabel: document.getElementById("phase-label"),
+    pauseBtn: document.getElementById("pause-btn"),
+    distrationBtn: document.getElementById("distraction-btn"),
+    interruptCount: document.getElementById("interrupt-count"),
+    plus5: document.getElementById("plus-5"),
+    minus5: document.getElementById("minus-5"),
+    timerRing: document.getElementById("timer-ring"),
+    progressRing: document.getElementById("progress-ring"),
+    container: document.querySelector(".pomodoro-container"),
+    copyMarkdown: document.getElementById("copy-markdown"),
+    newSessionBtn: document.getElementById("new-session-btn"),
+    harvestFocus: document.getElementById("harvest-focus"),
+    harvestTime: document.getElementById("harvest-time"),
+    harvestInterruptions: document.getElementById("harvest-interruptions"),
+    harvestTasks: document.getElementById("harvest-tasks"),
+    taskBreakdown: document.getElementById("task-breakdown"),
+  };
+
+  function formatTime(seconds) {
+    const mins = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    return `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+  }
+
+  function saveState() {
+    let currentPhase = "config";
+    if (elements.phaseFlow.classList.contains("active")) {
+      currentPhase = "flow";
+    } else if (elements.phaseHarvest.classList.contains("active")) {
+      currentPhase = "harvest";
+    }
+
+    const state = {
+      currentCycle,
+      workDuration,
+      breakDuration,
+      isRunning,
+      isPaused,
+      timeRemaining,
+      isWorkPhase,
+      interruptions,
+      taskName,
+      phaseStartTime,
+      currentPhase,
+    };
+    localStorage.setItem(STATE_KEY, JSON.stringify(state));
+  }
+
+  function renderTaskBreakdown(taskStats) {
+    if (!elements.taskBreakdown) return;
+    elements.taskBreakdown.innerHTML = "";
+    const totalTime = Object.values(taskStats).reduce((a, b) => a + b, 0);
+    Object.entries(taskStats).forEach(([task, time]) => {
+      const percentage = (time / totalTime) * 100;
+      const taskItem = document.createElement("div");
+      taskItem.style.cssText = "display: flex; flex-direction: column; gap: 0.5rem;";
+      taskItem.innerHTML = `
+        <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+          <span>${task}</span>
+          <span style="font-weight: 700; color: var(--color-focus);">${time}m</span>
+        </div>
+        <div style="width: 100%; height: 24px; background: rgba(255,255,255,0.05); border-radius: 0.4rem; overflow: hidden;">
+          <div style="height: 100%; width: ${percentage}%; background: linear-gradient(90deg, var(--color-focus), rgba(14,165,233,0.6)); border-radius: 0.4rem; transition: width 0.3s ease;"></div>
+        </div>
+      `;
+      elements.taskBreakdown.appendChild(taskItem);
+    });
+  }
+
+  function displayHarvest(state) {
+    if (state.currentPhase === "flow") {
+      elements.taskName.textContent = taskName;
+      switchPhase(elements.phaseConfig, elements.phaseFlow);
+    } else if (state.currentPhase === "harvest") {
+      switchPhase(elements.phaseConfig, elements.phaseHarvest);
+      const focusScore = Math.max(0, Math.min(100, ((workDuration - interruptions * 2) / workDuration) * 100));
+      elements.harvestFocus.textContent = Math.round(focusScore) + "%";
+      elements.harvestTime.textContent = workDuration + "m";
+      elements.harvestInterruptions.textContent = interruptions;
+      const sessions = getSessions();
+      elements.harvestTasks.textContent = new Set(sessions.map(s => s.taskName)).size;
+      const taskStats = {};
+      sessions.forEach(s => {
+        taskStats[s.taskName] = (taskStats[s.taskName] || 0) + s.workDuration;
+      });
+      renderTaskBreakdown(taskStats);
+    }
+  }
+
+  function restoreState() {
+    const saved = localStorage.getItem(STATE_KEY);
+    if (!saved) return false;
+
+    const state = JSON.parse(saved);
+    currentCycle = state.currentCycle;
+    workDuration = state.workDuration;
+    breakDuration = state.breakDuration;
+    isRunning = state.isRunning;
+    isPaused = state.isPaused;
+    timeRemaining = state.timeRemaining;
+    isWorkPhase = state.isWorkPhase;
+    interruptions = state.interruptions;
+    taskName = state.taskName;
+    phaseStartTime = state.phaseStartTime;
+
+    if (isRunning && phaseStartTime) {
+      const elapsedSeconds = Math.floor((Date.now() - phaseStartTime) / 1000);
+      timeRemaining = Math.max(0, timeRemaining - elapsedSeconds);
+      phaseStartTime = Date.now();
+    }
+
+    displayHarvest(state);
+    if (elements.interruptCount) {
+      elements.interruptCount.textContent = interruptions;
+    }
+
+    updateDisplay();
+    return true;
+  }
+
+  function clearState() {
+    localStorage.removeItem(STATE_KEY);
+  }
+
+  function updateDisplay() {
+    elements.timerDisplay.textContent = formatTime(timeRemaining);
+    const circumference = 879.6;
+    const progress = 1 - timeRemaining / ((isWorkPhase ? workDuration : breakDuration) * 60);
+    elements.progressRing.style.strokeDashoffset = circumference * (1 - progress);
+  }
+
+  function switchPhase(from, to) {
+    from.classList.remove("active");
+    to.classList.add("active");
+  }
+
+  function startSession() {
+    const inputValue = elements.taskInput.value.trim();
+    if (inputValue) {
+      taskName = inputValue;
+    } else {
+      const now = new Date();
+      const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
+      const date = now.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+      taskName = `Study Session - ${time}, ${date}`;
+    }
+    isRunning = true;
+    interruptions = 0;
+    if (elements.interruptCount) {
+      elements.interruptCount.textContent = "0";
+    }
+
+    elements.taskName.textContent = taskName;
+    switchPhase(elements.phaseConfig, elements.phaseFlow);
+    elements.container.classList.remove("break-mode");
+    saveState();
+
+    startTimer();
+  }
+
+  function handleTimerEnd() {
+    clearInterval(timerInterval);
+    playNotification();
+    if (isWorkPhase) {
+      const sessionData = {
+        taskName,
+        cycleType: currentCycle,
+        workDuration,
+        breakDuration,
+        timestamp: Date.now(),
+        interruptions,
+      };
+      saveSessions(sessionData);
+      showHarvest();
+    } else {
+      switchPhases();
+    }
+  }
+
+  function startTimer() {
+    if (timerInterval) clearInterval(timerInterval);
+    phaseStartTime = Date.now();
+    isRunning = true;
+
+    timerInterval = setInterval(() => {
+      if (!isPaused) {
+        timeRemaining--;
+        updateDisplay();
+        document.title = `(${formatTime(timeRemaining)}) ${taskName}`;
+        saveState();
+        if (timeRemaining <= 0) handleTimerEnd();
+      }
+    }, 1000);
+  }
+
+  function switchPhases() {
+    isWorkPhase = !isWorkPhase;
+    timeRemaining = (isWorkPhase ? workDuration : breakDuration) * 60;
+
+    if (!isWorkPhase) {
+      elements.phaseLabel.textContent = labels.breakTime;
+      elements.container.classList.add("break-mode");
+      elements.pauseBtn.textContent = labels.resumeButton;
+    } else {
+      elements.phaseLabel.textContent = labels.focusMode;
+      elements.container.classList.remove("break-mode");
+      elements.pauseBtn.textContent = labels.pauseButton;
+    }
+
+    updateDisplay();
+    startTimer();
+  }
+
+  function playNotification() {
+    if ("Notification" in window && Notification.permission === "granted") {
+      new Notification("Pomodoro Flow", {
+        body: isWorkPhase ? labels.breakTimeNotification : labels.focusTimeNotification,
+      });
+    }
+  }
+
+  function togglePause() {
+    isPaused = !isPaused;
+    elements.pauseBtn.textContent = isPaused ? labels.resumeButton : labels.pauseButton;
+    saveState();
+  }
+
+  function recordInterruption() {
+    interruptions++;
+    if (elements.interruptCount) {
+      elements.interruptCount.textContent = interruptions;
+    }
+    elements.distrationBtn.style.opacity = "0.7";
+    setTimeout(() => {
+      elements.distrationBtn.style.opacity = "1";
+    }, 200);
+    saveState();
+  }
+
+  function adjustTime(delta) {
+    timeRemaining = Math.max(0, timeRemaining + delta * 60);
+    updateDisplay();
+    saveState();
+  }
+
+  function saveSessions(sessionData) {
+    const sessions = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    sessions.push(sessionData);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(sessions));
+  }
+
+  function getSessions() {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+  }
+
+  function showHarvest() {
+    const sessions = getSessions();
+    const focusScore = Math.max(0, Math.min(100, ((workDuration - interruptions * 2) / workDuration) * 100));
+
+    elements.harvestFocus.textContent = Math.round(focusScore) + "%";
+    elements.harvestTime.textContent = workDuration + "m";
+    elements.harvestInterruptions.textContent = interruptions;
+    elements.harvestTasks.textContent = new Set(sessions.map(s => s.taskName)).size;
+
+    const taskStats = {};
+    sessions.forEach(s => {
+      taskStats[s.taskName] = (taskStats[s.taskName] || 0) + s.workDuration;
+    });
+
+    renderTaskBreakdown(taskStats);
+    switchPhase(elements.phaseFlow, elements.phaseHarvest);
+    saveState();
+  }
+
+  function copyToClipboard() {
+    const focusScore = Math.round(((workDuration - interruptions * 2) / workDuration) * 100);
+    const markdown = `## ${labels.studySession} - ${new Date().toLocaleDateString()}
+* Task: ${taskName}
+* Time: ${workDuration} min
+* Focus: ${focusScore}%
+* ${labels.interruptionsLabel} ${interruptions}`;
+
+    navigator.clipboard.writeText(markdown).then(() => {
+      const originalText = elements.copyMarkdown.textContent;
+      elements.copyMarkdown.textContent = labels.copied;
+      setTimeout(() => {
+        elements.copyMarkdown.textContent = originalText;
+      }, 2000);
+    });
+  }
+
+  function resetSession() {
+    switchPhase(elements.phaseHarvest, elements.phaseConfig);
+    elements.taskInput.value = "";
+    elements.taskInput.focus();
+    isRunning = false;
+    isPaused = false;
+    timeRemaining = workDuration * 60;
+    isWorkPhase = true;
+    interruptions = 0;
+    taskName = "";
+    if (elements.interruptCount) {
+      elements.interruptCount.textContent = "0";
+    }
+    clearInterval(timerInterval);
+    clearState();
+    updateDisplay();
+  }
+
+  function attachCycleCardListeners() {
+    document.querySelectorAll(".cycle-card").forEach((card) => {
+      card.addEventListener("click", () => {
+        document.querySelectorAll(".cycle-card").forEach(c => c.classList.remove("selected"));
+        card.classList.add("selected");
+        currentCycle = card.dataset.cycle;
+        workDuration = parseInt(card.dataset.work);
+        breakDuration = parseInt(card.dataset.break);
+        timeRemaining = workDuration * 60;
+        updateDisplay();
+        saveState();
+      });
+    });
+  }
+
+  function attachControlListeners() {
+    if (elements.startBtn) elements.startBtn.addEventListener("click", startSession);
+    if (elements.pauseBtn) elements.pauseBtn.addEventListener("click", togglePause);
+    if (elements.distrationBtn) elements.distrationBtn.addEventListener("click", recordInterruption);
+    if (elements.plus5) elements.plus5.addEventListener("click", () => adjustTime(5));
+    if (elements.minus5) elements.minus5.addEventListener("click", () => adjustTime(-5));
+    if (elements.timerRing) {
+      elements.timerRing.addEventListener("click", () => {
+        if (isRunning) togglePause();
+      });
+    }
+    if (elements.copyMarkdown) elements.copyMarkdown.addEventListener("click", copyToClipboard);
+    if (elements.newSessionBtn) elements.newSessionBtn.addEventListener("click", resetSession);
+
+    window.addEventListener("focus", () => {
+      if (isRunning && phaseStartTime) {
+        const elapsedSeconds = Math.floor((Date.now() - phaseStartTime) / 1000);
+        timeRemaining = Math.max(0, timeRemaining - elapsedSeconds);
+        phaseStartTime = Date.now();
+        updateDisplay();
+      }
+    });
+  }
+
+  function attachEventListeners() {
+    attachCycleCardListeners();
+    attachControlListeners();
+  }
+
+  function init() {
+    const hasRestoredState = restoreState();
+    attachEventListeners();
+
+    if (!hasRestoredState) {
+      const firstCard = document.querySelector(".cycle-card");
+      if (firstCard) firstCard.click();
+    } else if (isRunning) {
+      startTimer();
+    }
+
+    if ("Notification" in window && Notification.permission === "default") {
+      Notification.requestPermission();
+    }
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+
+</script>

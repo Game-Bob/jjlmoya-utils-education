@@ -1,0 +1,343 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { InternationalGradeConverterUI } from "./entry";
+import './international-grade-converter.css';
+
+interface Props {
+    ui?: Partial<InternationalGradeConverterUI>;
+}
+
+const { ui = {} } = Astro.props;
+const labels = {
+    originSystem: ui.originSystem || "Conversion Setup",
+    targetSystems: ui.targetSystems || "Equivalencies",
+    gradeInput: ui.gradeInput || "Input Grade",
+    bulkMode: ui.bulkMode || "Bulk Mode",
+    bulkPlaceholder: ui.bulkPlaceholder || "Paste grades (e.g. Math: 8.5)...",
+    results: ui.results || "Dashboard",
+    shareResults: ui.shareResults || "Generate Equivalence Report",
+    selectCountry: ui.selectCountry || "Country",
+    sourceCountry: ui.sourceCountry || "Source Country",
+    systemSelection: ui.systemSelection || "System Selection",
+    convertedScore: ui.convertedScore || "Converted Score",
+    emptyState: ui.emptyState || "Enter academic data to view global equivalencies",
+    minLabel: ui.minLabel || "MIN",
+    passLabel: ui.passLabel || "PASS",
+    maxLabel: ui.maxLabel || "MAX",
+    singleGradeMode: ui.singleGradeMode || "Single Grade",
+    transcriptMode: ui.transcriptMode || "Full Transcript",
+    gradeCounter: ui.gradeCounter || "Grades entered",
+    averageSummary: ui.averageSummary || "Calculated average",
+    gradesIgnored: ui.gradesIgnored || "{count} grades ignored (out of range)",
+    bulkHelp: ui.bulkHelp || "Paste your transcript directly. We detect grades separated by spaces, commas, or lines.",
+    copiedLabel: ui.copiedLabel || "Copied!",
+    placeholderSpain: ui.placeholderSpain || "e.g. 8.5",
+    placeholderUSA: ui.placeholderUSA || "e.g. 3.7 or A-",
+    placeholderFrance: ui.placeholderFrance || "e.g. 14",
+    placeholderGermany: ui.placeholderGermany || "e.g. 1.3",
+    placeholderUK: ui.placeholderUK || "e.g. 75",
+    placeholderItaly: ui.placeholderItaly || "e.g. 28",
+    placeholderNetherlands: ui.placeholderNetherlands || "e.g. 7.5",
+    spainExpl: ui.spainExpl || "Standard 0-10 scale.",
+    usaExpl: ui.usaExpl || "GPA scale from 0.0 to 4.0.",
+    franceExpl: ui.franceExpl || "20-point scale.",
+    germanyExpl: ui.germanyExpl || "Reverse system: 1.0 is the best.",
+    ukExpl: ui.ukExpl || "Percentage based classification.",
+    italyExpl: ui.italyExpl || "30-point scale.",
+    netherlandsExpl: ui.netherlandsExpl || "1-10 scale.",
+};
+---
+
+<div class="grade-converter-ui grade-converter-container">
+    <div class="main-converter-card no-print">
+        <!-- Card Header -->
+        <div class="section-header">
+            <div class="header-main">
+                <Icon name="mdi:earth-box" width="24" height="24" />
+                <h2 class="section-title">{labels.originSystem}</h2>
+            </div>
+            <div class="mode-toggle">
+                <button class="toggle-btn active" data-mode="single">
+                    <Icon name="mdi:numeric-1-box-outline" width="16" height="16" />
+                    {labels.singleGradeMode}
+                </button>
+                <button class="toggle-btn" data-mode="bulk">
+                    <Icon name="mdi:format-list-numbered" width="16" height="16" />
+                    {labels.transcriptMode}
+                </button>
+            </div>
+        </div>
+
+        <!-- Body -->
+        <div class="converter-body">
+            <div class="input-section selection-section">
+                <div class="field-group">
+                    <label class="field-label" for="origin-country">{labels.sourceCountry}</label>
+                    <select id="origin-country" class="field-control">
+                        <option value="spain">Spain (0-10)</option>
+                        <option value="usa_gpa">USA (GPA 4.0)</option>
+                        <option value="france">France (0-20)</option>
+                        <option value="italy">Italy (0-30)</option>
+                        <option value="germany">Germany (1-6)</option>
+                        <option value="uk_percent">UK (%)</option>
+                        <option value="netherlands">Netherlands (1-10)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="pane-single" class="input-pane active">
+                <div class="field-group">
+                    <label class="field-label" for="grade-value">{labels.gradeInput}</label>
+                    <input type="number" id="grade-value" class="field-control" placeholder={labels.placeholderSpain} step="any" />
+                </div>
+            </div>
+
+            <div id="pane-bulk" class="input-pane">
+                <div class="field-group">
+                    <div class="label-with-help">
+                        <label class="field-label" for="bulk-input">{labels.bulkMode}</label>
+                        <div class="help-tooltip">
+                            <Icon name="mdi:information-outline" width="14" height="14" />
+                            <span class="tooltip-content">{labels.bulkHelp}</span>
+                        </div>
+                    </div>
+                    <textarea id="bulk-input" class="field-control bulk-textarea" placeholder={labels.bulkPlaceholder}></textarea>
+                </div>
+                <div id="bulk-stats" class="bulk-stats" style="display: none;">
+                    <div class="stats-main">
+                        <div class="stat-item">
+                            <span class="stat-label">{labels.gradeCounter}</span>
+                            <span id="grade-count" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">{labels.averageSummary}</span>
+                            <span id="grade-avg" class="stat-value">0.00</span>
+                        </div>
+                    </div>
+                    <div id="ignored-warning" class="ignored-warning" style="display: none;">
+                        <Icon name="mdi:alert-circle-outline" width="14" height="14" />
+                        <span id="ignored-text"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Dashboard -->
+        <div class="results-pane">
+            <div class="pane-title">
+                <Icon name="mdi:chart-bar" width="18" height="18" />
+                {labels.results}
+            </div>
+            <div id="results-list" class="results-list"></div>
+        </div>
+
+        <!-- Card Footer -->
+        <div class="card-footer" id="footer-actions" style="display: none;">
+            <button id="download-report" class="btn-download">
+                <Icon name="mdi:file-pdf-box" width="22" height="22" />
+                {labels.shareResults}
+            </button>
+        </div>
+    </div>
+
+    <!-- Hidden Template for Print -->
+    <template id="report-template">
+        <style>
+            body { font-family: serif; color: #000; background: #fff; padding: 2rem; }
+            .report-meta { display: flex; justify-content: space-between; border-bottom: 2px solid #000; padding-bottom: 1rem; margin-bottom: 2rem; font-size: 0.9rem; }
+            .report-section { margin-bottom: 2rem; }
+            .section-heading { font-size: 1.1rem; border-bottom: 1px solid #000; margin-bottom: 1rem; padding-bottom: 0.25rem; text-transform: uppercase; }
+            table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
+            th, td { border: 1px solid #000; padding: 0.5rem; text-align: left; font-size: 0.85rem; }
+            th { background: #f2f2f2; }
+            .footer { margin-top: 4rem; border-top: 1px solid #000; padding-top: 1rem; font-size: 0.75rem; text-align: center; }
+            .bold { font-weight: 900; }
+        </style>
+        <div class="report-meta">
+            <span>Source System: <strong id="t-source"></strong></span>
+            <span>Date: <strong id="t-date"></strong></span>
+        </div>
+        <div id="t-transcript-section" class="report-section">
+            <h3 class="section-heading">Transcript Breakdown</h3>
+            <table id="t-transcript-table"></table>
+        </div>
+        <div class="report-section">
+            <h3 class="section-heading">Global Equivalencies</h3>
+            <table>
+                <thead><tr><th>Country / System</th><th>Scale</th><th>Equivalent</th><th>Status</th></tr></thead>
+                <tbody id="t-equivalency-tbody"></tbody>
+            </table>
+        </div>
+        <div class="footer">
+            <p>Generated at <strong id="t-domain"></strong></p>
+        </div>
+    </template>
+</div>
+
+<script is:inline define:vars={{ labels }}>
+    const GRADE_SCALES = {
+        spain: { id: 'spain', name: 'Spain', min: 0, max: 10, pass: 5, accent: '#6366f1', expl: labels.spainExpl, placeholder: labels.placeholderSpain },
+        usa_gpa: { id: 'usa_gpa', name: 'USA (GPA)', min: 0, max: 4, pass: 2, accent: '#3b82f6', expl: labels.usaExpl, placeholder: labels.placeholderUSA },
+        france: { id: 'france', name: 'France', min: 0, max: 20, pass: 10, accent: '#0ea5e9', expl: labels.franceExpl, placeholder: labels.placeholderFrance },
+        italy: { id: 'italy', name: 'Italy', min: 0, max: 30, pass: 18, accent: '#10b981', expl: labels.italyExpl, placeholder: labels.placeholderItaly },
+        germany: { id: 'germany', name: 'Germany', min: 6, max: 1, pass: 4, isReverse: true, accent: '#1e293b', expl: labels.germanyExpl, placeholder: labels.placeholderGermany },
+        uk_percent: { id: 'uk_percent', name: 'UK (%)', min: 0, max: 100, pass: 40, accent: '#4f46e5', expl: labels.ukExpl, placeholder: labels.placeholderUK },
+        netherlands: { id: 'netherlands', name: 'Netherlands', min: 1, max: 10, pass: 6, accent: '#f59e0b', expl: labels.netherlandsExpl, placeholder: labels.placeholderNetherlands },
+    };
+
+    const els = {
+        origin: document.getElementById('origin-country'),
+        grade: document.getElementById('grade-value'),
+        bulk: document.getElementById('bulk-input'),
+        list: document.getElementById('results-list'),
+        footer: document.getElementById('footer-actions'),
+        download: document.getElementById('download-report'),
+        toggle: document.querySelectorAll('.toggle-btn'),
+        paneSingle: document.getElementById('pane-single'),
+        paneBulk: document.getElementById('pane-bulk'),
+        stats: document.getElementById('bulk-stats'),
+        count: document.getElementById('grade-count'),
+        avg: document.getElementById('grade-avg'),
+        warn: document.getElementById('ignored-warning'),
+        warnTxt: document.getElementById('ignored-text'),
+        template: document.getElementById('report-template')
+    };
+
+    let mode = 'single';
+    const targets = ['usa_gpa', 'uk_percent', 'germany', 'france', 'italy', 'netherlands', 'spain'];
+    let lastValid = [];
+    let lastAvg = 0;
+
+    function convert(val, from, to) {
+        let n = from.isReverse ? (from.min - val) / (from.min - from.max) : (val - from.min) / (from.max - from.min);
+        n = Math.max(0, Math.min(1, n));
+        return to.isReverse ? to.min - n * (to.min - to.max) : to.min + n * (to.max - to.min);
+    }
+
+    async function copy(txt, el) {
+        await navigator.clipboard.writeText(txt);
+        const orig = el.innerHTML;
+        el.textContent = labels.copiedLabel;
+        setTimeout(() => el.innerHTML = orig, 1000);
+    }
+
+    function update() {
+        const origin = GRADE_SCALES[els.origin.value];
+        els.grade.placeholder = origin.placeholder;
+
+        let entries = [];
+        if (mode === 'bulk') {
+            const bulk = els.bulk.value.trim();
+            if (bulk) {
+                bulk.split('\n').forEach(line => {
+                    const match = line.match(/^(.*?)(?::|\s)\s*(\d+(?:[.,]\d+)?)\s*$/) || line.match(/(\d+(?:[.,]\d+)?)/);
+                    if (match) {
+                        const val = parseFloat(match[match.length - 1].replace(',', '.'));
+                        const name = match.length > 2 ? match[1].trim() : '-';
+                        entries.push({ name, val });
+                    }
+                });
+            }
+        } else {
+            const v = parseFloat(els.grade.value);
+            if (!isNaN(v)) entries.push({ name: 'Single Evaluation', val: v });
+        }
+
+        const minR = Math.min(origin.min, origin.max);
+        const maxR = Math.max(origin.min, origin.max);
+        lastValid = entries.filter(e => e.val >= minR && e.val <= maxR);
+        const ignored = entries.length - lastValid.length;
+
+        if (mode === 'bulk') {
+            els.stats.style.display = entries.length > 0 ? 'flex' : 'none';
+            els.count.textContent = lastValid.length;
+            if (ignored > 0) {
+                els.warn.style.display = 'flex';
+                els.warnTxt.textContent = labels.gradesIgnored.replace('{count}', ignored);
+            } else els.warn.style.display = 'none';
+            if (lastValid.length > 0) {
+                lastAvg = lastValid.reduce((a, b) => a + b.val, 0) / lastValid.length;
+                els.avg.textContent = lastAvg.toFixed(2);
+            }
+        } else {
+            lastAvg = lastValid.length > 0 ? lastValid[0].val : 0;
+        }
+
+        if (lastValid.length === 0) {
+            els.list.innerHTML = `<div class="empty-state">${labels.emptyState}</div>`;
+            els.footer.style.display = 'none';
+            return;
+        }
+
+        els.footer.style.display = 'flex';
+        els.list.innerHTML = targets.filter(t => t !== origin.id).map(tKey => {
+            const target = GRADE_SCALES[tKey];
+            const v = convert(lastAvg, origin, target);
+            const pass = target.isReverse ? v <= target.pass : v >= target.pass;
+            const color = pass ? 'var(--color-success)' : 'var(--color-error)';
+            const p = target.isReverse ? ((target.min - v) / (target.min - target.max)) * 100 : ((v - target.min) / (target.max - target.min)) * 100;
+            const pm = target.isReverse ? ((target.min - target.pass) / (target.min - target.max)) * 100 : ((target.pass - target.min) / (target.max - target.min)) * 100;
+
+            return `
+                <div class="result-row" style="--accent-color: ${target.accent}" title="${target.expl}">
+                    <div class="target-info">${target.name}</div>
+                    <div class="progress-strip">
+                        <div class="pass-mark" style="left: ${pm}%"></div>
+                        <div class="progress-fill" style="width: ${Math.max(0, Math.min(100, p))}%; background: ${color}"></div>
+                    </div>
+                    <div class="grade-out" onclick="copy('${v.toFixed(tKey === 'usa_gpa' ? 2 : 1)}', this)">
+                        <span class="val" style="color: ${color}">${v.toFixed(tKey === 'usa_gpa' ? 2 : 1)}</span>
+                        <span class="lbl">${labels.convertedScore}</span>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    els.download.addEventListener('click', () => {
+        const origin = GRADE_SCALES[els.origin.value];
+        const win = window.open('', '_blank');
+        const clone = els.template.content.cloneNode(true);
+        
+        clone.getElementById('t-source').textContent = origin.name;
+        clone.getElementById('t-date').textContent = new Date().toLocaleDateString();
+        clone.getElementById('t-domain').textContent = window.location.hostname;
+
+        const table = clone.getElementById('t-equivalency-tbody');
+        targets.filter(t => t !== origin.id).forEach(tKey => {
+            const target = GRADE_SCALES[tKey];
+            const v = convert(lastAvg, origin, target);
+            const pass = target.isReverse ? v <= target.pass : v >= target.pass;
+            table.innerHTML += `<tr><td>${target.name}</td><td>${target.min}-${target.max}</td><td class="bold">${v.toFixed(tKey === 'usa_gpa' ? 2 : 1)}</td><td>${pass ? 'PASS' : 'FAIL'}</td></tr>`;
+        });
+
+        const transcript = clone.getElementById('t-transcript-table');
+        if (mode === 'bulk' && lastValid.length > 1) {
+            transcript.innerHTML = `<thead><tr><th>Subject</th><th>Score</th><th>GPA</th></tr></thead><tbody>`;
+            lastValid.forEach(e => {
+                transcript.innerHTML += `<tr><td>${e.name}</td><td>${e.val.toFixed(2)}</td><td>${convert(e.val, origin, GRADE_SCALES.usa_gpa).toFixed(2)}</td></tr>`;
+            });
+            transcript.innerHTML += `<tr class="bold"><td>AVERAGE</td><td>${lastAvg.toFixed(2)}</td><td>${convert(lastAvg, origin, GRADE_SCALES.usa_gpa).toFixed(2)}</td></tr></tbody>`;
+        } else {
+            clone.getElementById('t-transcript-section').style.display = 'none';
+        }
+
+        win.document.body.appendChild(clone);
+        win.document.title = 'Grade Equivalence Report';
+        win.print();
+    });
+
+    els.toggle.forEach(b => b.addEventListener('click', () => {
+        mode = b.dataset.mode;
+        els.toggle.forEach(x => x.classList.remove('active'));
+        b.classList.add('active');
+        els.paneSingle.classList.toggle('active', mode === 'single');
+        els.paneBulk.classList.toggle('active', mode === 'bulk');
+        update();
+    }));
+
+    els.origin.addEventListener('change', update);
+    els.grade.addEventListener('input', update);
+    els.bulk.addEventListener('input', update);
+    update();
+</script>
