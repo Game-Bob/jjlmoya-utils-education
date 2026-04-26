@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { WeightedGradeCalculatorUI } from '../index';
 
@@ -55,8 +56,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Har du fortfarande frågor?',
-  bibliographyTitle: 'Läs mer',
   ui: {
     addSubject: 'Lägg till del',
     subjects: 'Betyg och vikter',
@@ -86,8 +85,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   ],
   faq: faqItems,
   howTo: howToItems,
-  bibliography: [
-    { name: 'Förstå vägda medelvärden (Wikipedia)', url: 'https://sv.wikipedia.org/wiki/V%C3%A4gt_medelv%C3%A4rde' },
-  ],
+  bibliography,
   schemas: [faqSchema, howToSchema, appSchema],
 };

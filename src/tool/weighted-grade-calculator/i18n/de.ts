@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { WeightedGradeCalculatorUI } from '../index';
 
@@ -55,8 +56,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Haben Sie noch Fragen?',
-  bibliographyTitle: 'Mehr erfahren',
   ui: {
     addSubject: 'Element hinzufügen',
     subjects: 'Noten & Gewichtungen',
@@ -86,8 +85,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   ],
   faq: faqItems,
   howTo: howToItems,
-  bibliography: [
-    { name: 'Gewichtetes Mittel verstehen (Wikipedia)', url: 'https://de.wikipedia.org/wiki/Gewichtetes_Arithmetisches_Mittel' },
-  ],
+  bibliography,
   schemas: [faqSchema, howToSchema, appSchema],
 };

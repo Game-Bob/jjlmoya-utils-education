@@ -1,10 +1,9 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 
 const slug = 'citeringsgenerator';
 const title = 'Citeringsgenerator' as const;
 const description = 'Skapa automatiska referenser i formaten APA, MLA och Vancouver med permanent lagring.' as const;
-const faqTitle = 'Vanliga frågor' as const;
-const bibliographyTitle = 'Bibliografi' as const;
 
 const ui = {
     format: 'Format',
@@ -82,20 +81,6 @@ const howTo = [
     },
 ] as const;
 
-const bibliography = [
-    {
-        name: 'APA Style Manual 7:e upplagan',
-        url: 'https://apastyle.apa.org/',
-    },
-    {
-        name: 'MLA Style Guide (Purdue OWL)',
-        url: 'https://owl.purdue.edu/',
-    },
-    {
-        name: 'Vancouver-riktlinjer - ICJME',
-        url: 'https://www.icmje.org/recommendations/browse/manuscript-preparation/preparing-for-submission.html',
-    },
-] as const;
 
 const faqSchema = {
     '@context': 'https://schema.org',
@@ -141,8 +126,6 @@ export const content = {
     slug,
     title,
     description,
-    faqTitle,
-    bibliographyTitle,
     ui,
     seo,
     faq,

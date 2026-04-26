@@ -1,10 +1,9 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 
 const slug = 'citation-generator' as const;
 const title = '引用文献作成ツール' as const;
 const description = 'APA、MLA、バンクーバー形式の自動参照文献を、保存機能付きで作成できます。' as const;
-const faqTitle = 'よくある質問' as const;
-const bibliographyTitle = '参考文献' as const;
 
 const ui = {
     format: '形式',
@@ -82,20 +81,6 @@ const howTo = [
     },
 ] as const;
 
-const bibliography = [
-    {
-        name: 'APAスタイルマニュアル 第7版',
-        url: 'https://apastyle.apa.org/',
-    },
-    {
-        name: 'MLAスタイルガイド (Purdue OWL)',
-        url: 'https://owl.purdue.edu/',
-    },
-    {
-        name: 'バンクーバー・ガイドライン - ICJME',
-        url: 'https://www.icmje.org/recommendations/browse/manuscript-preparation/preparing-for-submission.html',
-    },
-] as const;
 
 const faqSchema = {
     '@context': 'https://schema.org',
@@ -141,8 +126,6 @@ export const content = {
     slug,
     title,
     description,
-    faqTitle,
-    bibliographyTitle,
     ui,
     seo,
     faq,

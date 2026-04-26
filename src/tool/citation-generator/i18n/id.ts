@@ -1,10 +1,9 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 
 const slug = 'pembuat-sitasi';
 const title = 'Pembuat Sitasi' as const;
 const description = 'Buat referensi otomatis dalam format APA, MLA, dan Vancouver dengan penyimpanan persisten.' as const;
-const faqTitle = 'Pertanyaan yang Sering Diajukan' as const;
-const bibliographyTitle = 'Bibliografi' as const;
 
 const ui = {
     format: 'Format',
@@ -82,20 +81,6 @@ const howTo = [
     },
 ] as const;
 
-const bibliography = [
-    {
-        name: 'Manual Gaya APA Edisi ke-7',
-        url: 'https://apastyle.apa.org/',
-    },
-    {
-        name: 'Panduan Gaya MLA (Purdue OWL)',
-        url: 'https://owl.purdue.edu/',
-    },
-    {
-        name: 'Pedoman Vancouver - ICJME',
-        url: 'https://www.icmje.org/recommendations/browse/manuscript-preparation/preparing-for-submission.html',
-    },
-] as const;
 
 const faqSchema = {
     '@context': 'https://schema.org',
@@ -141,8 +126,6 @@ export const content = {
     slug,
     title,
     description,
-    faqTitle,
-    bibliographyTitle,
     ui,
     seo,
     faq,

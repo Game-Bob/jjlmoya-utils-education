@@ -1,10 +1,9 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 
 const slug = 'citation-generator' as const;
 const title = '引用格式生成器' as const;
 const description = '创建具有持久存储功能的 APA、MLA 和 Vancouver 格式自动引用。' as const;
-const faqTitle = '常见问题解答' as const;
-const bibliographyTitle = '参考文献' as const;
 
 const ui = {
     format: '格式',
@@ -82,20 +81,6 @@ const howTo = [
     },
 ] as const;
 
-const bibliography = [
-    {
-        name: 'APA 样式手册第 7 版',
-        url: 'https://apastyle.apa.org/',
-    },
-    {
-        name: 'MLA 样式指南 (Purdue OWL)',
-        url: 'https://owl.purdue.edu/',
-    },
-    {
-        name: 'Vancouver 指南 - ICJME',
-        url: 'https://www.icmje.org/recommendations/browse/manuscript-preparation/preparing-for-submission.html',
-    },
-] as const;
 
 const faqSchema = {
     '@context': 'https://schema.org',
@@ -141,8 +126,6 @@ export const content = {
     slug,
     title,
     description,
-    faqTitle,
-    bibliographyTitle,
     ui,
     seo,
     faq,

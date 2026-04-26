@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { WeightedGradeCalculatorUI } from '../index';
 
@@ -55,8 +56,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Nadal masz pytania?',
-  bibliographyTitle: 'Dowiedz się więcej',
   ui: {
     addSubject: 'Dodaj Element',
     subjects: 'Oceny i Wagi',
@@ -86,8 +85,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   ],
   faq: faqItems,
   howTo: howToItems,
-  bibliography: [
-    { name: 'Zrozumienie średniej ważonej (Wikipedia)', url: 'https://pl.wikipedia.org/wiki/%C5%9Arednia_wa%C5%BCona' },
-  ],
+  bibliography,
   schemas: [faqSchema, howToSchema, appSchema],
 };

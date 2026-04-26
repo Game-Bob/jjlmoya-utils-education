@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { WeightedGradeCalculatorUI } from '../index';
 
@@ -55,8 +56,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   slug,
   title,
   description,
-  faqTitle: '¿Tienes dudas?',
-  bibliographyTitle: 'Fuentes y ayuda',
   ui: {
     addSubject: 'Añadir nota',
     subjects: 'Notas & Ponderaciones',
@@ -86,8 +85,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   ],
   faq: faqItems,
   howTo: howToItems,
-  bibliography: [
-    { name: 'Promedio ponderado (Wikipedia)', url: 'https://es.wikipedia.org/wiki/Promedio_ponderado' },
-  ],
+  bibliography,
   schemas: [faqSchema, howToSchema, appSchema],
 };

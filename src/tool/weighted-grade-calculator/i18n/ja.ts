@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { WeightedGradeCalculatorUI } from '../index';
 
@@ -55,8 +56,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   slug,
   title,
   description,
-  faqTitle: 'まだ不明な点がありますか？',
-  bibliographyTitle: 'さらに詳しく',
   ui: {
     addSubject: '項目を追加',
     subjects: '成績と比重',
@@ -86,8 +85,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   ],
   faq: faqItems,
   howTo: howToItems,
-  bibliography: [
-    { name: '加重平均を理解する (Wikipedia)', url: 'https://ja.wikipedia.org/wiki/%E5%8A%A0%E9%87%8D%E5%B9%B3%E5%9D%87' },
-  ],
+  bibliography,
   schemas: [faqSchema, howToSchema, appSchema],
 };

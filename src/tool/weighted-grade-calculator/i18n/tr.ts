@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { WeightedGradeCalculatorUI } from '../index';
 
@@ -55,8 +56,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Hala sorularınız mı var?',
-  bibliographyTitle: 'Daha Fazla Bilgi',
   ui: {
     addSubject: 'Öğe Ekle',
     subjects: 'Notlar ve Ağırlıklar',
@@ -86,8 +85,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   ],
   faq: faqItems,
   howTo: howToItems,
-  bibliography: [
-    { name: 'Ağırlıklı Ortalamaları Anlamak (Wikipedia)', url: 'https://tr.wikipedia.org/wiki/A%C4%9F%C4%B1rl%C4%B1kl%C4%B1_ortalama' },
-  ],
+  bibliography,
   schemas: [faqSchema, howToSchema, appSchema],
 };

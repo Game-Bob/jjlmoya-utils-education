@@ -1,10 +1,9 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 
 const slug = 'zitiergenerator';
 const title = 'Zitiergenerator' as const;
 const description = 'Erstellen Sie automatische Referenzen im APA-, MLA- und Vancouver-Format mit dauerhafter Speicherung.' as const;
-const faqTitle = 'Häufig gestellte Fragen' as const;
-const bibliographyTitle = 'Bibliographie' as const;
 
 const ui = {
     format: 'Format',
@@ -82,21 +81,6 @@ const howTo = [
     },
 ] as const;
 
-const bibliography = [
-    {
-        name: 'APA Style Manual 7. Auflage',
-        url: 'https://apastyle.apa.org/',
-    },
-    {
-        name: 'MLA Style Guide (Purdue OWL)',
-        url: 'https://owl.purdue.edu/',
-    },
-    {
-        name: 'Vancouver-Richtlinien - ICJME',
-        url: 'https://www.icmje.org/recommendations/browse/manuscript-preparation/preparing-for-submission.html',
-    },
-] as const;
-
 const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -141,8 +125,6 @@ export const content = {
     slug,
     title,
     description,
-    faqTitle,
-    bibliographyTitle,
     ui,
     seo,
     faq,

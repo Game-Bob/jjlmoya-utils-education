@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { WeightedGradeCalculatorUI } from '../index';
 
@@ -55,8 +56,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Heb je nog vragen?',
-  bibliographyTitle: 'Lees Meer',
   ui: {
     addSubject: 'Item Toevoegen',
     subjects: 'Cijfers & Weging',
@@ -86,8 +85,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   ],
   faq: faqItems,
   howTo: howToItems,
-  bibliography: [
-    { name: 'Gewogen Gemiddelde Begrijpen (Wikipedia)', url: 'https://nl.wikipedia.org/wiki/Gewogen_gemiddelde' },
-  ],
+  bibliography,
   schemas: [faqSchema, howToSchema, appSchema],
 };

@@ -1,10 +1,9 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 
 const slug = 'citation-generator' as const;
 const title = '인용 생성기' as const;
 const description = 'APA, MLA, 밴쿠버 형식의 자동 참조 문헌을 영구 저장 기능과 함께 생성하세요.' as const;
-const faqTitle = '자주 묻는 질문' as const;
-const bibliographyTitle = '참고 문헌' as const;
 
 const ui = {
     format: '형식',
@@ -82,20 +81,6 @@ const howTo = [
     },
 ] as const;
 
-const bibliography = [
-    {
-        name: 'APA 스타일 매뉴얼 제7판',
-        url: 'https://apastyle.apa.org/',
-    },
-    {
-        name: 'MLA 스타일 가이드 (Purdue OWL)',
-        url: 'https://owl.purdue.edu/',
-    },
-    {
-        name: '밴쿠버 가이드라인 - ICJME',
-        url: 'https://www.icmje.org/recommendations/browse/manuscript-preparation/preparing-for-submission.html',
-    },
-] as const;
 
 const faqSchema = {
     '@context': 'https://schema.org',
@@ -141,8 +126,6 @@ export const content = {
     slug,
     title,
     description,
-    faqTitle,
-    bibliographyTitle,
     ui,
     seo,
     faq,

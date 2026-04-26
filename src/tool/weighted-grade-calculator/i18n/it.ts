@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { WeightedGradeCalculatorUI } from '../index';
 
@@ -55,8 +56,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Hai ancora domande?',
-  bibliographyTitle: 'Scopri di più',
   ui: {
     addSubject: 'Aggiungi Elemento',
     subjects: 'Voti e Pesi',
@@ -86,8 +85,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   ],
   faq: faqItems,
   howTo: howToItems,
-  bibliography: [
-    { name: 'Capire le Medie Ponderate (Wikipedia)', url: 'https://it.wikipedia.org/wiki/Media_ponderata' },
-  ],
+  bibliography,
   schemas: [faqSchema, howToSchema, appSchema],
 };

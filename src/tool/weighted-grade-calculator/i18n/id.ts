@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { WeightedGradeCalculatorUI } from '../index';
 
@@ -55,8 +56,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Masih punya pertanyaan?',
-  bibliographyTitle: 'Pelajari Lebih Lanjut',
   ui: {
     addSubject: 'Tambah Item',
     subjects: 'Nilai & Bobot',
@@ -86,8 +85,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   ],
   faq: faqItems,
   howTo: howToItems,
-  bibliography: [
-    { name: 'Memahami Rata-rata Tertimbang (Wikipedia)', url: 'https://id.wikipedia.org/wiki/Rata-rata_tertimbang' },
-  ],
+  bibliography,
   schemas: [faqSchema, howToSchema, appSchema],
 };

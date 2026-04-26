@@ -1,10 +1,9 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 
 const slug = 'alinti-olusturucu' as const;
 const title = 'Alıntı Oluşturucu' as const;
 const description = 'Kalıcı depolama ile APA, MLA ve Vancouver formatlarında otomatik referanslar oluşturun.' as const;
-const faqTitle = 'Sıkça Sorulan Sorular' as const;
-const bibliographyTitle = 'Kaynakça' as const;
 
 const ui = {
     format: 'Format',
@@ -82,20 +81,6 @@ const howTo = [
     },
 ] as const;
 
-const bibliography = [
-    {
-        name: 'APA Stil El Kitabı 7. Baskı',
-        url: 'https://apastyle.apa.org/',
-    },
-    {
-        name: 'MLA Stil Kılavuzu (Purdue OWL)',
-        url: 'https://owl.purdue.edu/',
-    },
-    {
-        name: 'Vancouver Kılavuz İlkeleri - ICJME',
-        url: 'https://www.icmje.org/recommendations/browse/manuscript-preparation/preparing-for-submission.html',
-    },
-] as const;
 
 const faqSchema = {
     '@context': 'https://schema.org',
@@ -141,8 +126,6 @@ export const content = {
     slug,
     title,
     description,
-    faqTitle,
-    bibliographyTitle,
     ui,
     seo,
     faq,

@@ -1,10 +1,9 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 
 const slug = 'citatiegenerator';
 const title = 'Citatiegenerator' as const;
 const description = 'Maak automatische bronvermeldingen in APA-, MLA- en Vancouver-formaten met permanente opslag.' as const;
-const faqTitle = 'Veelgestelde Vragen' as const;
-const bibliographyTitle = 'Bibliografie' as const;
 
 const ui = {
     format: 'Formaat',
@@ -82,20 +81,6 @@ const howTo = [
     },
 ] as const;
 
-const bibliography = [
-    {
-        name: 'APA Style Manual 7de editie',
-        url: 'https://apastyle.apa.org/',
-    },
-    {
-        name: 'MLA Style Guide (Purdue OWL)',
-        url: 'https://owl.purdue.edu/',
-    },
-    {
-        name: 'Vancouver-richtlijnen - ICJME',
-        url: 'https://www.icmje.org/recommendations/browse/manuscript-preparation/preparing-for-submission.html',
-    },
-] as const;
 
 const faqSchema = {
     '@context': 'https://schema.org',
@@ -141,8 +126,6 @@ export const content = {
     slug,
     title,
     description,
-    faqTitle,
-    bibliographyTitle,
     ui,
     seo,
     faq,

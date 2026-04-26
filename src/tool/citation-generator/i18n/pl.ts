@@ -1,10 +1,9 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 
 const slug = 'generator-cytowan';
 const title = 'Generator Cytowań' as const;
 const description = 'Twórz automatyczne odniesienia w formatach APA, MLA i Vancouver z trwałym zapisem.' as const;
-const faqTitle = 'Najczęściej Zadawane Pytania' as const;
-const bibliographyTitle = 'Bibliografia' as const;
 
 const ui = {
     format: 'Format',
@@ -82,20 +81,6 @@ const howTo = [
     },
 ] as const;
 
-const bibliography = [
-    {
-        name: 'Podręcznik stylu APA wydanie 7',
-        url: 'https://apastyle.apa.org/',
-    },
-    {
-        name: 'Przewodnik po stylu MLA (Purdue OWL)',
-        url: 'https://owl.purdue.edu/',
-    },
-    {
-        name: 'Wytyczne Vancouver - ICJME',
-        url: 'https://www.icmje.org/recommendations/browse/manuscript-preparation/preparing-for-submission.html',
-    },
-] as const;
 
 const faqSchema = {
     '@context': 'https://schema.org',
@@ -141,8 +126,6 @@ export const content = {
     slug,
     title,
     description,
-    faqTitle,
-    bibliographyTitle,
     ui,
     seo,
     faq,

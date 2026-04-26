@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { WeightedGradeCalculatorUI } from '../index';
 
@@ -55,8 +56,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   slug,
   title,
   description,
-  faqTitle: '궁금한 점이 더 있으신가요?',
-  bibliographyTitle: '더 알아보기',
   ui: {
     addSubject: '항목 추가',
     subjects: '성적 및 가중치',
@@ -86,8 +85,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   ],
   faq: faqItems,
   howTo: howToItems,
-  bibliography: [
-    { name: '가중 평균 이해하기 (위키백과)', url: 'https://ko.wikipedia.org/wiki/%EA%B0%80%EC%A4%91_%ED%8F%89%EA%B7%A0' },
-  ],
+  bibliography,
   schemas: [faqSchema, howToSchema, appSchema],
 };

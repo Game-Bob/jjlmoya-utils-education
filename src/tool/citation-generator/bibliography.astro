@@ -12,4 +12,4 @@ const content = await citationGenerator.i18n[locale]?.();
 if (!content) return null;
 ---
 
-{content && <Bibliography links={content.bibliography} />}
+{content && <Bibliography {content} />}

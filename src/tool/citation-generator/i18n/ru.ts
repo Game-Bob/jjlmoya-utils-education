@@ -1,10 +1,9 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 
 const slug = 'generator-tsitat' as const;
 const title = 'Генератор Цитат' as const;
 const description = 'Создавайте автоматические ссылки в форматах APA, MLA и Ванкувер с постоянным хранением.' as const;
-const faqTitle = 'Часто Задаваемые Вопросы' as const;
-const bibliographyTitle = 'Библиография' as const;
 
 const ui = {
     format: 'Формат',
@@ -82,20 +81,6 @@ const howTo = [
     },
 ] as const;
 
-const bibliography = [
-    {
-        name: 'Руководство по стилю APA, 7-е издание',
-        url: 'https://apastyle.apa.org/',
-    },
-    {
-        name: 'Руководство по стилю MLA (Purdue OWL)',
-        url: 'https://owl.purdue.edu/',
-    },
-    {
-        name: 'Рекомендации Ванкувера — ICJME',
-        url: 'https://www.icmje.org/recommendations/browse/manuscript-preparation/preparing-for-submission.html',
-    },
-] as const;
 
 const faqSchema = {
     '@context': 'https://schema.org',
@@ -141,8 +126,6 @@ export const content = {
     slug,
     title,
     description,
-    faqTitle,
-    bibliographyTitle,
     ui,
     seo,
     faq,

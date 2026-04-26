@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { WeightedGradeCalculatorUI } from '../index';
 
@@ -55,8 +56,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Still have questions?',
-  bibliographyTitle: 'Learn More',
   ui: {
     addSubject: 'Add Item',
     subjects: 'Grades & Weights',
@@ -86,9 +85,7 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   ],
   faq: faqItems,
   howTo: howToItems,
-  bibliography: [
-    { name: 'Understanding Weighted Averages (Wikipedia)', url: 'https://en.wikipedia.org/wiki/Weighted_arithmetic_mean' },
-  ],
+  bibliography,
   schemas: [faqSchema, howToSchema, appSchema],
 };
 

@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { WeightedGradeCalculatorUI } from '../index';
 
@@ -55,8 +56,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Ainda tem dúvidas?',
-  bibliographyTitle: 'Saiba Mais',
   ui: {
     addSubject: 'Adicionar Item',
     subjects: 'Notas e Pesos',
@@ -86,8 +85,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   ],
   faq: faqItems,
   howTo: howToItems,
-  bibliography: [
-    { name: 'Compreender Médias Pesadas (Wikipedia)', url: 'https://pt.wikipedia.org/wiki/M%C3%A9dia_aritm%C3%A9tica_ponderada' },
-  ],
+  bibliography,
   schemas: [faqSchema, howToSchema, appSchema],
 };

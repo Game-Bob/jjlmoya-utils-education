@@ -1,10 +1,9 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 
 const slug = 'generador-citas-bibliograficas' as const;
 const title = 'Generador de Citas Bibliográficas' as const;
 const description = 'Crea referencias automáticas en formato APA, MLA y Vancouver con guardado persistente.' as const;
-const faqTitle = 'Preguntas Frecuentes' as const;
-const bibliographyTitle = 'Referencias Bibliográficas' as const;
 
 const ui = {
     format: 'Formato',
@@ -82,21 +81,6 @@ const howTo = [
     },
 ] as const;
 
-const bibliography = [
-    {
-        name: 'Manual de Normas APA 7ª Edición',
-        url: 'https://apastyle.apa.org/',
-    },
-    {
-        name: 'Guía de Estilo MLA (Purdue OWL)',
-        url: 'https://owl.purdue.edu/',
-    },
-    {
-        name: 'Normas de Vancouver - ICJME',
-        url: 'https://www.icmje.org/recommendations/browse/manuscript-preparation/preparing-for-submission.html',
-    },
-] as const;
-
 const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -141,8 +125,6 @@ export const content = {
     slug,
     title,
     description,
-    faqTitle,
-    bibliographyTitle,
     ui,
     seo,
     faq,

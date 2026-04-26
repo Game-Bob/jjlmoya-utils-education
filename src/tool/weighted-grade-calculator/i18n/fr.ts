@@ -1,3 +1,4 @@
+import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { WeightedGradeCalculatorUI } from '../index';
 
@@ -55,8 +56,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   slug,
   title,
   description,
-  faqTitle: 'Des questions ?',
-  bibliographyTitle: 'En savoir plus',
   ui: {
     addSubject: 'Ajouter une note',
     subjects: 'Notes & Coefficients',
@@ -86,8 +85,6 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
   ],
   faq: faqItems,
   howTo: howToItems,
-  bibliography: [
-    { name: 'Moyenne pondérée (Wikipedia)', url: 'https://fr.wikipedia.org/wiki/Moyenne_pond%C3%A9r%C3%A9e' },
-  ],
+  bibliography,
   schemas: [faqSchema, howToSchema, appSchema],
 };
