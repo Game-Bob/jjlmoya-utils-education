@@ -2,7 +2,7 @@ import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { InternationalGradeConverterUI } from '../entry';
 
-const slug = 'international-grade-converter' as const;
+const slug = 'conversor-notas-equivalencia-gpa' as const;
 const title = 'Conversor de Notas Internacionais e Calculadora de Equivalência GPA';
 const description = 'A ferramenta mais precisa para converter notas académicas entre sistemas internacionais. Traduza instantaneamente pontuações de Espanha, EUA, Reino Unido, Alemanha, França, Itália e mais. Essencial para Erasmus+, Fulbright e candidaturas universitárias globais.';
 

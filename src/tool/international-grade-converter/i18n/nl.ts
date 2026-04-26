@@ -2,8 +2,8 @@ import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { InternationalGradeConverterUI } from '../entry';
 
-const slug = 'international-grade-converter' as const;
-const title = 'Internationale Cijferomzetter & GPA-equivalentiecalculator';
+const slug = 'internationale-cijferomzetter' as const;
+const title = 'Internationale Cijferomzetter en GPA equivalentiecalculator';
 const description = 'De meest nauwkeurige tool voor het omzetten van academische cijfers tussen internationale systemen. Vertaal direct scores van Spanje, VS, VK, Duitsland, Frankrijk, Italië en meer. Essentieel voor Erasmus+, Fulbright en wereldwijde universitaire aanmeldingen.';
 
 const faqItems = [

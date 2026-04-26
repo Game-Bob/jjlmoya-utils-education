@@ -2,7 +2,7 @@ import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { InternationalGradeConverterUI } from '../entry';
 
-const slug = 'international-grade-converter' as const;
+const slug = 'konwerter-ocen-miedzynarodowy' as const;
 const title = 'Międzynarodowy Konwerter Ocen i Kalkulator Ekwiwalentu GPA';
 const description = 'Najdokładniejsze narzędzie do przeliczania ocen akademickich między systemami międzynarodowymi. Błyskawicznie konwertuj wyniki z Hiszpanii, USA, Wielkiej Brytanii, Niemiec, Francji, Włoch i innych krajów. Niezbędne przy Erasmus+, Fulbright i aplikacjach na zagraniczne uczelnie.';
 

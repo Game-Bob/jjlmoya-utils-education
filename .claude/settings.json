@@ -1,5 +1,15 @@
 {
   "permissions": {
+    "allow": [
+      "Bash(head -200 src/tool/pomodoro-flow/component.astro)",
+      "Bash(mv /tmp/component_clean.astro src/tool/pomodoro-flow/component.astro)",
+      "PowerShell(\\(Get-Content \"d:\\\\code\\\\jjlmoya-utils-education\\\\src\\\\tool\\\\pomodoro-flow\\\\script.ts\" | Measure-Object -Line\\).Lines)",
+      "Bash(git -C \"/d/code/jjlmoya-utils-education\" status --short)",
+      "Read(//d/code/jjlmoya-utils-education/src/tool/pomodoro-flow/i18n//**)",
+      "Read(//d/code/jjlmoya-utils-education/src/tool/pomodoro-flow//**)",
+      "Bash(git -C \"/d/code/jjlmoya-utils-education\" status)",
+      "Read(//d/code/jjlmoya-utils-education/src/tool/international-grade-converter/i18n/**)"
+    ],
     "additionalDirectories": [
       "D:\\code\\jjlmoya-utils-education",
       "D:\\code\\jjlmoya-utils-education\\src\\tool\\citation-generator\\i18n",

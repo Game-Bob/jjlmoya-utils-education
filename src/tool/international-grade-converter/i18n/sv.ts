@@ -2,8 +2,8 @@ import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { InternationalGradeConverterUI } from '../entry';
 
-const slug = 'international-grade-converter' as const;
-const title = 'Internationell betygskonverterare & GPA-kalkylator';
+const slug = 'internationell-betygskonverterare' as const;
+const title = 'Internationell betygskonverterare och GPA kalkylator';
 const description = 'Det mest exakta verktyget för att konvertera akademiska betyg mellan internationella system. Översätt direkt betyg från Spanien, USA, Storbritannien, Tyskland, Frankrike, Italien och mer. Oumbärligt för Erasmus+, Fulbright och globala universitetsansökningar.';
 
 const faqItems = [

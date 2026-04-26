@@ -2,7 +2,7 @@ import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { InternationalGradeConverterUI } from '../entry';
 
-const slug = 'international-grade-converter' as const;
+const slug = 'uluslararasi-not-donusturucu' as const;
 const title = 'Uluslararası Not Dönüştürücü ve GPA Denklik Hesaplayıcı';
 const description = 'Uluslararası sistemler arasında akademik not dönüşümü için en hassas araç. İspanya, ABD, İngiltere, Almanya, Fransa, İtalya ve daha fazlası için puanları anında çevirin. Erasmus+, Fulbright ve küresel üniversite başvuruları için vazgeçilmezdir.';
 

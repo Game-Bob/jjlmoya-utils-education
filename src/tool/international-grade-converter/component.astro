@@ -50,7 +50,6 @@ const labels = {
 
 <div class="grade-converter-ui grade-converter-container">
     <div class="main-converter-card no-print">
-        <!-- Card Header -->
         <div class="section-header">
             <div class="header-main">
                 <Icon name="mdi:earth-box" width="24" height="24" />
@@ -68,7 +67,6 @@ const labels = {
             </div>
         </div>
 
-        <!-- Body -->
         <div class="converter-body">
             <div class="input-section selection-section">
                 <div class="field-group">
@@ -122,7 +120,6 @@ const labels = {
             </div>
         </div>
 
-        <!-- Results Dashboard -->
         <div class="results-pane">
             <div class="pane-title">
                 <Icon name="mdi:chart-bar" width="18" height="18" />
@@ -131,7 +128,6 @@ const labels = {
             <div id="results-list" class="results-list"></div>
         </div>
 
-        <!-- Card Footer -->
         <div class="card-footer" id="footer-actions" style="display: none;">
             <button id="download-report" class="btn-download">
                 <Icon name="mdi:file-pdf-box" width="22" height="22" />
@@ -140,18 +136,58 @@ const labels = {
         </div>
     </div>
 
-    <!-- Hidden Template for Print -->
     <template id="report-template">
         <style>
-            body { font-family: serif; color: #000; background: #fff; padding: 2rem; }
-            .report-meta { display: flex; justify-content: space-between; border-bottom: 2px solid #000; padding-bottom: 1rem; margin-bottom: 2rem; font-size: 0.9rem; }
-            .report-section { margin-bottom: 2rem; }
-            .section-heading { font-size: 1.1rem; border-bottom: 1px solid #000; margin-bottom: 1rem; padding-bottom: 0.25rem; text-transform: uppercase; }
-            table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
-            th, td { border: 1px solid #000; padding: 0.5rem; text-align: left; font-size: 0.85rem; }
-            th { background: #f2f2f2; }
-            .footer { margin-top: 4rem; border-top: 1px solid #000; padding-top: 1rem; font-size: 0.75rem; text-align: center; }
-            .bold { font-weight: 900; }
+            body {
+                --report-black: #000;
+
+                color: var(--report-black);
+                background: #fff;
+                padding: 2rem;
+            }
+            .report-meta {
+                display: flex;
+                justify-content: space-between;
+                border-bottom: 2px solid var(--report-black);
+                padding-bottom: 1rem;
+                margin-bottom: 2rem;
+                font-size: 0.9rem;
+            }
+            .report-section {
+                margin-bottom: 2rem;
+            }
+            .section-heading {
+                font-size: 1.1rem;
+                border-bottom: 1px solid var(--report-black);
+                margin-bottom: 1rem;
+                padding-bottom: 0.25rem;
+                text-transform: uppercase;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-bottom: 1rem;
+            }
+            th,
+            td {
+                border: 1px solid var(--report-black);
+                padding: 0.5rem;
+                text-align: left;
+                font-size: 0.85rem;
+            }
+            th {
+                background: #f2f2f2;
+            }
+            .footer {
+                margin-top: 4rem;
+                border-top: 1px solid var(--report-black);
+                padding-top: 1rem;
+                font-size: 0.75rem;
+                text-align: center;
+            }
+            .bold {
+                font-weight: 900;
+            }
         </style>
         <div class="report-meta">
             <span>Source System: <strong id="t-source"></strong></span>
@@ -218,14 +254,14 @@ const labels = {
         await navigator.clipboard.writeText(txt);
         const orig = el.innerHTML;
         el.textContent = labels.copiedLabel;
-        setTimeout(() => el.innerHTML = orig, 1000);
+        setTimeout(() => {
+            el.innerHTML = orig;
+        }, 1000);
     }
+    window.copy = copy;
 
-    function update() {
-        const origin = GRADE_SCALES[els.origin.value];
-        els.grade.placeholder = origin.placeholder;
-
-        let entries = [];
+    function parseEntries() {
+        const entries = [];
         if (mode === 'bulk') {
             const bulk = els.bulk.value.trim();
             if (bulk) {
@@ -242,7 +278,10 @@ const labels = {
             const v = parseFloat(els.grade.value);
             if (!isNaN(v)) entries.push({ name: 'Single Evaluation', val: v });
         }
+        return entries;
+    }
 
+    function updateStats(entries, origin) {
         const minR = Math.min(origin.min, origin.max);
         const maxR = Math.max(origin.min, origin.max);
         lastValid = entries.filter(e => e.val >= minR && e.val <= maxR);
@@ -254,7 +293,9 @@ const labels = {
             if (ignored > 0) {
                 els.warn.style.display = 'flex';
                 els.warnTxt.textContent = labels.gradesIgnored.replace('{count}', ignored);
-            } else els.warn.style.display = 'none';
+            } else {
+                els.warn.style.display = 'none';
+            }
             if (lastValid.length > 0) {
                 lastAvg = lastValid.reduce((a, b) => a + b.val, 0) / lastValid.length;
                 els.avg.textContent = lastAvg.toFixed(2);
@@ -262,7 +303,9 @@ const labels = {
         } else {
             lastAvg = lastValid.length > 0 ? lastValid[0].val : 0;
         }
+    }
 
+    function renderResults(origin) {
         if (lastValid.length === 0) {
             els.list.innerHTML = `<div class="empty-state">${labels.emptyState}</div>`;
             els.footer.style.display = 'none';
@@ -292,6 +335,14 @@ const labels = {
                 </div>
             `;
         }).join('');
+    }
+
+    function update() {
+        const origin = GRADE_SCALES[els.origin.value];
+        els.grade.placeholder = origin.placeholder;
+        const entries = parseEntries();
+        updateStats(entries, origin);
+        renderResults(origin);
     }
 
     els.download.addEventListener('click', () => {

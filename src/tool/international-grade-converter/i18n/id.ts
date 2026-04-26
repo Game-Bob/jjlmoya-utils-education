@@ -2,7 +2,7 @@ import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { InternationalGradeConverterUI } from '../entry';
 
-const slug = 'international-grade-converter' as const;
+const slug = 'konverter-nilai-internasional' as const;
 const title = 'Konverter Nilai Internasional & Kalkulator Kesetaraan GPA';
 const description = 'Alat paling presisi untuk mengonversi nilai akademik antar sistem internasional. Terjemahkan skor dari Spanyol, AS, Inggris, Jerman, Prancis, Italia, dan lainnya secara instan. Esensial untuk Erasmus+, Fulbright, dan pendaftaran universitas global.';
 

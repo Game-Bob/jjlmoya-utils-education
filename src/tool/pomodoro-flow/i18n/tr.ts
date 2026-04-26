@@ -2,7 +2,7 @@ import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { PomodoroFlowUI } from '../index';
 
-const slug = 'pomodoro-flow' as const;
+const slug = 'pomodoro-akisi' as const;
 const title = 'Pomodoro Flow';
 const description = 'Zen odaklı zaman yönetimi ile üretkenliğinizde ustalaşın. Çalışma/mola döngülerini özelleştirin, bölünmeleri takip edin ve odaklanma kalıplarınızı gerçek zamanlı olarak görselleştirin.';
 

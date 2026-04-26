@@ -2,7 +2,7 @@ import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { PomodoroFlowUI } from '../index';
 
-const slug = 'pomodoro-flow' as const;
+const slug = 'pomodoro-fluss' as const;
 const title = 'Pomodoro Flow';
 const description = 'Meistern Sie Ihre Produktivität mit zen-fokussiertem Zeitmanagement. Passen Sie Arbeits- und Pausenzyklen an, erfassen Sie Unterbrechungen und visualisieren Sie Ihre Konzentrationsmuster in Echtzeit.';
 

@@ -2,7 +2,7 @@ import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { InternationalGradeConverterUI } from '../entry';
 
-const slug = 'international-grade-converter' as const;
+const slug = 'mezhdunarodnyi-perevod-ocenok' as const;
 const title = 'Международный конвертер оценок и калькулятор GPA';
 const description = 'Самый точный инструмент для перевода академических оценок между международными системами. Мгновенно конвертируйте баллы Испании, США, Великобритании, Германии, Франции, Италии и других стран. Незаменим для программ Erasmus+, Fulbright и поступления в мировые университеты.';
 

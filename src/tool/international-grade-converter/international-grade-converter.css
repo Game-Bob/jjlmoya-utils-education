@@ -4,7 +4,7 @@
     --color-success: #10b981;
     --color-warning: #f59e0b;
     --color-error: #ef4444;
-    --color-bg-card: #ffffff;
+    --color-bg-card: #fff;
     --color-bg-sub: #f8fafc;
     --color-border: #e2e8f0;
     --color-text: #1e293b;
@@ -136,7 +136,6 @@
 
 .bulk-textarea {
     min-height: 120px;
-    font-family: monospace;
     font-size: 0.9rem;
 }
 
@@ -207,7 +206,7 @@
     left: 0;
     transform: translateY(5px) scale(0.95);
     background: #1e293b;
-    color: #ffffff;
+    color: var(--color-bg-card);
     padding: 0.75rem 1rem;
     border-radius: 0.75rem;
     font-size: 0.75rem;
@@ -327,7 +326,7 @@
     gap: 0.5rem;
     padding: 0.85rem 2rem;
     background: var(--color-primary);
-    color: white;
+    color: var(--color-bg-card);
     border: none;
     border-radius: 1rem;
     font-weight: 900;

@@ -2,7 +2,7 @@ import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { PomodoroFlowUI } from '../index';
 
-const slug = 'pomodoro-flow' as const;
+const slug = 'potok-pomidora' as const;
 const title = 'Pomodoro Flow';
 const description = 'Управляйте своей продуктивностью с помощью дзен-тайм-менеджмента. Настраивайте циклы работы и отдыха, отслеживайте отвлечения и визуализируйте свои паттерны концентрации в реальном времени.';
 

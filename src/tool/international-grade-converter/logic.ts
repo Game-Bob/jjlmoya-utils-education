@@ -18,7 +18,6 @@ export const GRADE_SCALES: Record<string, GradeScale> = {
 };
 
 export function convertGrade(grade: number, from: GradeScale, to: GradeScale): number {
-  // Normalize to 0-1 range
   let normalized: number;
   if (from.isReverse) {
     normalized = (from.min - grade) / (from.min - from.max);
@@ -26,10 +25,8 @@ export function convertGrade(grade: number, from: GradeScale, to: GradeScale): n
     normalized = (grade - from.min) / (from.max - from.min);
   }
 
-  // Handle out of bounds
   normalized = Math.max(0, Math.min(1, normalized));
 
-  // Convert to target scale
   if (to.isReverse) {
     return to.min - normalized * (to.min - to.max);
   } else {
@@ -42,8 +39,8 @@ export function getGradeColor(grade: number, scale: GradeScale): string {
     ? (scale.min - grade) / (scale.min - scale.max)
     : (grade - scale.min) / (scale.max - scale.min);
   
-  if (normalized >= 0.9) return '#10b981'; // Emerald 500
-  if (normalized >= 0.7) return '#3b82f6'; // Blue 500
-  if (normalized >= 0.5) return '#f59e0b'; // Amber 500
-  return '#ef4444'; // Red 500
+  if (normalized >= 0.9) return '#10b981';
+  if (normalized >= 0.7) return '#3b82f6';
+  if (normalized >= 0.5) return '#f59e0b';
+  return '#ef4444';
 }
