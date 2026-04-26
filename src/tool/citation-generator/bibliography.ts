@@ -2,15 +2,11 @@ import type { BibliographyEntry } from '../../types';
 
 export const bibliography: BibliographyEntry[] = [
     {
-        name: 'Manual de Normas APA 7ª Edición',
+        name: 'Write With Clarity, Precision, and Inclusion',
         url: 'https://apastyle.apa.org/',
     },
     {
-        name: 'Guía de Estilo MLA (Purdue OWL)',
-        url: 'https://owl.purdue.edu/',
-    },
-    {
-        name: 'Normas de Vancouver - ICJME',
-        url: 'https://www.icmje.org/recommendations/browse/manuscript-preparation/preparing-for-submission.html',
-    },
+        name: 'MLA and styleguide',
+        url: 'https://owl.purdue.edu/owl/owl_en_espanol/estilo_MLA/formato_mla_y_guia_de_estilo.html',
+    }
 ];
