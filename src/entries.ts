@@ -8,10 +8,14 @@ export { internationalGradeConverter } from './tool/international-grade-converte
 export type { InternationalGradeConverterUI, InternationalGradeConverterLocaleContent } from './tool/international-grade-converter/entry';
 export { transcriptGPAParser } from './tool/transcript-gpa-parser/entry';
 export type { TranscriptGPAParserUI, TranscriptGPAParserLocaleContent } from './tool/transcript-gpa-parser/entry';
+export { examCountdownSessionPredictor } from './tool/exam-countdown-session-predictor/entry';
+export type { ExamCountdownSessionPredictorUI, ExamCountdownSessionPredictorLocaleContent } from './tool/exam-countdown-session-predictor/entry';
 export { educationCategory } from './category';
 import { citationGenerator } from './tool/citation-generator/entry';
 import { weightedGradeCalculator } from './tool/weighted-grade-calculator/entry';
 import { pomodoroFlow } from './tool/pomodoro-flow/entry';
 import { internationalGradeConverter } from './tool/international-grade-converter/entry';
 import { transcriptGPAParser } from './tool/transcript-gpa-parser/entry';
-export const ALL_ENTRIES = [citationGenerator, weightedGradeCalculator, pomodoroFlow, internationalGradeConverter, transcriptGPAParser];
+import { examCountdownSessionPredictor } from './tool/exam-countdown-session-predictor/entry';
+export const ALL_ENTRIES = [citationGenerator, weightedGradeCalculator, pomodoroFlow, internationalGradeConverter, transcriptGPAParser, examCountdownSessionPredictor];
+

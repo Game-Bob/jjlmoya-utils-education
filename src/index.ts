@@ -5,6 +5,8 @@ export { weightedGradeCalculator, WEIGHTED_GRADE_CALCULATOR_TOOL } from './tool/
 export { citationGenerator, CITATION_GENERATOR_TOOL } from './tool/citation-generator';
 export { pomodoroFlow, POMODORO_FLOW_TOOL } from './tool/pomodoro-flow';
 export { internationalGradeConverter, INTERNATIONAL_GRADE_CONVERTER_TOOL } from './tool/international-grade-converter';
+export { examCountdownSessionPredictor, EXAM_COUNTDOWN_SESSION_PREDICTOR_TOOL } from './tool/exam-countdown-session-predictor';
+
 
 export type {
   KnownLocale,

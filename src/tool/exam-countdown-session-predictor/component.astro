@@ -1,0 +1,194 @@
+---
+import type { ExamCountdownUI } from "./index";
+
+interface Props {
+  ui?: Partial<ExamCountdownUI>;
+}
+
+const { ui = {} } = Astro.props;
+const labels = {
+  title: ui.title || "Study Planner & Countdown",
+  examDateLabel: ui.examDateLabel || "Exam Date",
+  materialLabel: ui.materialLabel || "Total Material (Pages / Chapters)",
+  materialUnitLabel: ui.materialUnitLabel || "Material Unit",
+  progressLabel: ui.progressLabel || "Completed So Far",
+  weeklyScheduleLabel: ui.weeklyScheduleLabel || "Weekly Study Days",
+  reviewBufferLabel: ui.reviewBufferLabel || "Review Buffer (Days)",
+  excludedDatesLabel: ui.excludedDatesLabel || "Custom Rest Days",
+  dailyPaceLabel: ui.dailyPaceLabel || "Daily Study Pace",
+  daysLeftLabel: ui.daysLeftLabel || "Days Left",
+  studyDaysLabel: ui.studyDaysLabel || "Study Days",
+  bufferDaysLabel: ui.bufferDaysLabel || "Buffer Days",
+  scheduleTitle: ui.scheduleTitle || "Your Customized Study Calendar",
+  resetButton: ui.resetButton || "Reset to Defaults",
+  addExclusionButton: ui.addExclusionButton || "Add Rest Day",
+  daysOfWeek: ui.daysOfWeek || ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+  dayTypes: {
+    study: ui.dayTypes?.study || "Study Day",
+    rest: ui.dayTypes?.rest || "Rest Day",
+    review: ui.dayTypes?.review || "Review Buffer",
+    exam: ui.dayTypes?.exam || "Exam Day",
+  },
+  units: {
+    pages: ui.units?.pages || "Pages",
+    chapters: ui.units?.chapters || "Chapters",
+    exercises: ui.units?.exercises || "Exercises",
+    modules: ui.units?.modules || "Modules",
+    topics: ui.units?.topics || "Topics",
+  },
+  noStudyDaysError: ui.noStudyDaysError || "You have no available study days! Check your weekly schedule and review buffer settings.",
+  examInPastError: ui.examInPastError || "The exam date must be in the future.",
+  noMaterialError: ui.noMaterialError || "Please enter a total material count greater than zero.",
+  scheduleTableHeader: {
+    date: ui.scheduleTableHeader?.date || "Date",
+    day: ui.scheduleTableHeader?.day || "Day",
+    type: ui.scheduleTableHeader?.type || "Status",
+    target: ui.scheduleTableHeader?.target || "Daily Target",
+    cumulative: ui.scheduleTableHeader?.cumulative || "Overall Progress",
+    action: ui.scheduleTableHeader?.action || "Quick Actions",
+  },
+  markAsRest: ui.markAsRest || "Mark as Rest",
+  markAsStudy: ui.markAsStudy || "Mark as Study",
+  faqTitle: ui.faqTitle || "Frequently Asked Questions",
+  bibliographyTitle: ui.bibliographyTitle || "References & Academic Resources",
+};
+---
+
+<div class="exam-countdown-ui exam-countdown-container view-fade-in">
+  <div class="config-panel">
+    <div class="config-section">
+      <h3 class="section-title">{labels.title}</h3>
+      <div class="input-group">
+        <label class="input-label" for="exam-date">{labels.examDateLabel}</label>
+        <input type="date" id="exam-date" class="input-control" />
+      </div>
+    </div>
+
+    <div class="config-section">
+      <div class="input-group">
+        <label class="input-label" for="total-material">{labels.materialLabel}</label>
+        <input type="number" id="total-material" class="input-control" min="1" step="any" />
+      </div>
+      <div class="input-group">
+        <label class="input-label" for="material-unit">{labels.materialUnitLabel}</label>
+        <select id="material-unit" class="input-control">
+          <option value="pages">{labels.units.pages}</option>
+          <option value="chapters">{labels.units.chapters}</option>
+          <option value="exercises">{labels.units.exercises}</option>
+          <option value="modules">{labels.units.modules}</option>
+          <option value="topics">{labels.units.topics}</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label class="input-label" for="current-progress">{labels.progressLabel}</label>
+        <input type="number" id="current-progress" class="input-control" min="0" step="any" />
+      </div>
+    </div>
+
+    <div class="config-section">
+      <div class="input-group">
+        <label class="input-label">{labels.weeklyScheduleLabel}</label>
+        <div class="weekly-grid">
+          {labels.daysOfWeek.map((dayName, idx) => (
+            <label class="weekly-day-label" title={dayName}>
+              <input type="checkbox" class="weekly-day-checkbox" data-day={idx} />
+              <span class="day-badge">{dayName.substring(0, 3)}</span>
+            </label>
+          ))}
+        </div>
+      </div>
+      <div class="input-group">
+        <label class="input-label" for="review-buffer">{labels.reviewBufferLabel}</label>
+        <input type="number" id="review-buffer" class="input-control" min="0" step="1" />
+      </div>
+    </div>
+
+    <div class="config-section">
+      <div class="input-group">
+        <label class="input-label" for="new-excluded-date">{labels.excludedDatesLabel}</label>
+        <div class="exclusion-input-row">
+          <input type="date" id="new-excluded-date" class="input-control" />
+          <button id="add-exclusion-btn" class="btn-primary">{labels.addExclusionButton}</button>
+        </div>
+        <div id="exclusions-list" class="exclusions-list"></div>
+      </div>
+    </div>
+
+    <button id="reset-btn" class="btn-secondary btn-reset">{labels.resetButton}</button>
+  </div>
+
+  <div class="results-area">
+    <div class="stats-grid">
+      <div class="stat-card pace-card">
+        <div class="pace-icon-wrapper">
+          <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div class="pace-content">
+          <div class="stat-label">{labels.dailyPaceLabel}</div>
+          <div id="daily-pace" class="stat-value">0.0</div>
+          <div id="pace-unit" class="pace-unit">pages/day</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon-wrapper icon-calendar">
+          <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        </div>
+        <div class="stat-label">{labels.daysLeftLabel}</div>
+        <div id="days-left" class="stat-value">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon-wrapper icon-book">
+          <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+        </div>
+        <div class="stat-label">{labels.studyDaysLabel}</div>
+        <div id="study-days" class="stat-value">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon-wrapper icon-shield">
+          <svg class="stat-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        </div>
+        <div class="stat-label">{labels.bufferDaysLabel}</div>
+        <div id="buffer-days" class="stat-value">0</div>
+      </div>
+    </div>
+
+    <div id="error-message" class="error-banner" style="display: none;"></div>
+
+    <div class="schedule-section">
+      <div class="schedule-header">
+        <h3 class="schedule-title">{labels.scheduleTitle}</h3>
+      </div>
+      <div class="schedule-table-container">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>{labels.scheduleTableHeader.date}</th>
+              <th>{labels.scheduleTableHeader.day}</th>
+              <th>{labels.scheduleTableHeader.type}</th>
+              <th>{labels.scheduleTableHeader.target}</th>
+              <th>{labels.scheduleTableHeader.cumulative}</th>
+              <th>{labels.scheduleTableHeader.action}</th>
+            </tr>
+          </thead>
+          <tbody id="schedule-table-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline define:vars={{ labels }}>
+  window.examCountdownLabels = labels;
+</script>
+
+<script>
+  import { initExamCountdown } from './script';
+
+  const { init } = initExamCountdown(window.examCountdownLabels);
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+</script>

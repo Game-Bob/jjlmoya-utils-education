@@ -1,21 +1,12 @@
-import type { EducationCategoryEntry } from '../types';
-import { weightedGradeCalculator } from '../tool/weighted-grade-calculator/entry';
-import { citationGenerator } from '../tool/citation-generator/entry';
-import { pomodoroFlow } from '../tool/pomodoro-flow/entry';
-import { internationalGradeConverter } from '../tool/international-grade-converter/entry';
-import { transcriptGPAParser } from '../tool/transcript-gpa-parser/entry';
-import { examCountdownSessionPredictor } from '../tool/exam-countdown-session-predictor/entry';
+import type { EducationToolEntry, ToolLocaleContent } from '../../types';
+import type { ExamCountdownUI } from './types';
 
-export const educationCategory: EducationCategoryEntry = {
-  icon: 'mdi:school',
-  tools: [
-    weightedGradeCalculator,
-    citationGenerator,
-    pomodoroFlow,
-    internationalGradeConverter,
-    transcriptGPAParser,
-    examCountdownSessionPredictor,
-  ],
+export type ExamCountdownSessionPredictorUI = ExamCountdownUI;
+export type ExamCountdownSessionPredictorLocaleContent = ToolLocaleContent<ExamCountdownSessionPredictorUI>;
+
+export const examCountdownSessionPredictor: EducationToolEntry<ExamCountdownSessionPredictorUI> = {
+  id: 'exam-countdown-session-predictor',
+  icons: { bg: 'mdi:calendar-month', fg: 'mdi:timer-sand' },
   i18n: {
     en: () => import('./i18n/en').then((m) => m.content),
     es: () => import('./i18n/es').then((m) => m.content),
@@ -34,5 +25,3 @@ export const educationCategory: EducationCategoryEntry = {
     zh: () => import('./i18n/zh').then((m) => m.content),
   },
 };
-
-

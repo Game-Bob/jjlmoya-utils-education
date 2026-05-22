@@ -5,8 +5,9 @@ import { educationCategory } from '../data';
 describe('Tool Validation Suite', () => {
   describe('Library Registration', () => {
     it('should have tools in ALL_TOOLS', () => {
-      expect(ALL_TOOLS.length).toBe(5);
+      expect(ALL_TOOLS.length).toBe(6);
     });
+
 
     it('educationCategory should be defined', () => {
       expect(educationCategory).toBeDefined();
