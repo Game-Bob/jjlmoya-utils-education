@@ -35,7 +35,14 @@ jobs:
 
       - run: npm ci
       - run: npm run build
-      - run: npm publish --access public
+      - name: Publish to NPM
+        run: |
+          if [ -z "${NODE_AUTH_TOKEN}" ]; then
+            echo "Error: NPM_TOKEN secret is empty or not found!"
+            exit 1
+          fi
+          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > .npmrc
+          npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
