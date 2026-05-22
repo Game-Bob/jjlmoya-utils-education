@@ -1,0 +1,15 @@
+---
+import { Bibliography as SharedBibliography } from '@jjlmoya/utils-shared';
+import { latexFormulaRenderer } from './index';
+import type { KnownLocale } from '../../types';
+
+interface Props {
+  locale?: KnownLocale;
+}
+
+const { locale = 'en' } = Astro.props as Props;
+const content = await latexFormulaRenderer.i18n[locale]?.();
+if (!content) return null;
+---
+
+{content && <SharedBibliography links={content.bibliography} />}

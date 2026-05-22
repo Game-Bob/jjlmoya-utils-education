@@ -1,0 +1,157 @@
+---
+import type { LatexRendererUI } from "./index";
+import './latex-formula-renderer.css';
+
+interface Props {
+  ui?: Partial<LatexRendererUI>;
+}
+
+const { ui = {} } = Astro.props;
+const labels = {
+  title: ui.title || "LaTeX Formula Renderer",
+  inputLabel: ui.inputLabel || "LaTeX Expression",
+  inputPlaceholder: ui.inputPlaceholder || "e.g. \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}",
+  displayModeLabel: ui.displayModeLabel || "Block",
+  inlineModeLabel: ui.inlineModeLabel || "Inline",
+  fontSizeLabel: ui.fontSizeLabel || "Font Size",
+  copyPngButton: ui.copyPngButton || "Copy as PNG",
+  copyMarkdownButton: ui.copyMarkdownButton || "Copy Markdown",
+  copyLatexButton: ui.copyLatexButton || "Copy LaTeX",
+  resetButton: ui.resetButton || "Reset",
+  previewTitle: ui.previewTitle || "Live Preview",
+  copiedToast: ui.copiedToast || "Copied to clipboard",
+  errorLabel: ui.errorLabel || "Syntax error",
+  emptyPreviewHint: ui.emptyPreviewHint || "Start typing LaTeX above to see the rendered formula here.",
+  faqTitle: ui.faqTitle || "Frequently Asked Questions",
+  bibliographyTitle: ui.bibliographyTitle || "References & Resources",
+};
+---
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css"
+  integrity="sha384-5TcZemv2l/9On385z///+d7MSYlvIEw9FuZTIdZ14vJLqWphw7e7ZPuOiCHJcFCP"
+  crossorigin="anonymous"
+/>
+
+<div class="latex-renderer-ui latex-renderer-container view-fade-in">
+  <div class="editor-panel">
+    <div class="panel-section">
+      <h3 class="section-label">{labels.title}</h3>
+      <label class="section-label" for="latex-input">{labels.inputLabel}</label>
+      <textarea
+        id="latex-input"
+        class="latex-textarea"
+        spellcheck="false"
+        autocorrect="off"
+        autocapitalize="off"
+        placeholder={labels.inputPlaceholder}
+      ></textarea>
+    </div>
+
+    <div class="panel-section">
+      <span class="section-label">Mode</span>
+      <div class="mode-toggle-row">
+        <button id="display-mode-btn" class="mode-btn mode-active">
+          {labels.displayModeLabel}
+        </button>
+        <button id="inline-mode-btn" class="mode-btn">
+          {labels.inlineModeLabel}
+        </button>
+      </div>
+    </div>
+
+    <div class="panel-section">
+      <label class="section-label" for="font-size-slider">{labels.fontSizeLabel}</label>
+      <div class="font-size-row">
+        <input
+          type="range"
+          id="font-size-slider"
+          min="14"
+          max="48"
+          step="2"
+          value="24"
+        />
+        <span id="font-size-value" class="font-size-display">24px</span>
+      </div>
+    </div>
+
+    <button id="latex-reset-btn" class="btn-reset-small">{labels.resetButton}</button>
+  </div>
+
+  <div class="preview-panel">
+    <div class="preview-header">
+      <span class="preview-title">{labels.previewTitle}</span>
+      <span class="preview-badge">
+        <span class="preview-badge-dot"></span>
+        KaTeX
+      </span>
+    </div>
+
+    <div id="latex-preview" class="preview-box">
+      <p id="latex-empty-hint" class="preview-empty-hint">{labels.emptyPreviewHint}</p>
+    </div>
+
+    <div id="latex-error" class="preview-error-banner"></div>
+
+    <div class="actions-bar">
+      <button id="copy-png-btn" class="action-btn action-btn-png">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <circle cx="8.5" cy="8.5" r="1.5"></circle>
+          <polyline points="21 15 16 10 5 21"></polyline>
+        </svg>
+        {labels.copyPngButton}
+      </button>
+      <button id="copy-md-btn" class="action-btn action-btn-md">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+        </svg>
+        {labels.copyMarkdownButton}
+      </button>
+      <button id="copy-latex-btn" class="action-btn action-btn-latex">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+        {labels.copyLatexButton}
+      </button>
+    </div>
+  </div>
+</div>
+
+<div id="latex-toast" class="latex-toast"></div>
+
+<script is:inline define:vars={{ labels }}>
+  window.latexRendererLabels = labels;
+</script>
+
+<script>
+  import { initLatexRenderer } from './script';
+
+  const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+  async function boot() {
+    let attempts = 0;
+    while (!window.katex && attempts < 20) {
+      await wait(100);
+      attempts++;
+    }
+    const { init } = initLatexRenderer(window.latexRendererLabels);
+    init();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
+</script>
+
+<script
+  src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.js"
+  integrity="sha384-cMkvdD8LoxVzGF/RPUKAcvmm49FQ0oxwDF3BGKtDXcEc+T1b2N+teh/OJfpU0jr6"
+  crossorigin="anonymous"
+  defer
+></script>
