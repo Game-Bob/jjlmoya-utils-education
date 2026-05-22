@@ -24,6 +24,28 @@
   padding: 1rem;
 }
 
+.theme-dark .transcript-gpa-calc {
+  --color-bg-white: #1e293b;
+  --color-bg-gray: #0f172a;
+  --color-bg-hover: #334155;
+  --color-border: #475569;
+  --color-border-light: #334155;
+  --color-border-row: #1e293b;
+  --color-text-gray: #94a3b8;
+  --color-text-dark: #cbd5e1;
+  --color-text-title: #f8fafc;
+  --color-error-bg: #7f1d1d;
+  --color-error: #fca5a5;
+}
+
+.theme-dark .cell-grade {
+  background-color: rgba(79, 70, 229, 0.1);
+}
+
+.theme-dark .cell-credits {
+  background-color: rgba(16, 185, 129, 0.1);
+}
+
 .gpa-calc-card.main-calc-card {
   background: var(--card-bg, var(--color-bg-white));
   border: 1px solid var(--border-color, var(--color-border-light));
