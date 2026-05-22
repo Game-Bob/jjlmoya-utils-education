@@ -2,7 +2,7 @@ import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { ExamCountdownUI } from '../types';
 
-const slug = 'exam-countdown-session-predictor-spanish' as const;
+const slug = 'cuenta-atras-planificador-examenes' as const;
 const title = 'Cuenta atrás y planificador de sesiones de examen';
 const description = 'Calcula tu ritmo de estudio diario exacto para llegar al día del examen totalmente preparado. Introduce tu material, establece días de descanso y genera un calendario personalizado.';
 
