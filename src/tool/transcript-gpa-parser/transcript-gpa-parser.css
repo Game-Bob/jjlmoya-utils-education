@@ -14,6 +14,11 @@
   --color-text-gray: #64748b;
   --color-text-dark: #1e293b;
   --color-text-title: #0f172a;
+  --color-focus-ring: rgba(79, 70, 229, 0.12);
+  --color-highlight-bg-start: #4f46e5;
+  --color-highlight-bg-end: #7c3aed;
+  --color-white: #fff;
+  --color-white-translucent: rgba(255, 255, 255, 0.9);
 
   display: flex;
   flex-direction: column;
@@ -25,6 +30,10 @@
 }
 
 .theme-dark .transcript-gpa-calc {
+  --color-primary: #a5b4fc;
+  --color-primary-dark: #818cf8;
+  --color-accent: #d8b4fe;
+  --color-success: #4ade80;
   --color-bg-white: #1e293b;
   --color-bg-gray: #0f172a;
   --color-bg-hover: #334155;
@@ -36,19 +45,22 @@
   --color-text-title: #f8fafc;
   --color-error-bg: #7f1d1d;
   --color-error: #fca5a5;
+  --color-focus-ring: rgba(165, 180, 252, 0.2);
+  --color-highlight-bg-start: #3730a3;
+  --color-highlight-bg-end: #5b21b6;
 }
 
 .theme-dark .cell-grade {
-  background-color: rgba(79, 70, 229, 0.1);
+  background-color: rgba(165, 180, 252, 0.1);
 }
 
 .theme-dark .cell-credits {
-  background-color: rgba(16, 185, 129, 0.1);
+  background-color: rgba(74, 222, 128, 0.1);
 }
 
 .gpa-calc-card.main-calc-card {
-  background: var(--card-bg, var(--color-bg-white));
-  border: 1px solid var(--border-color, var(--color-border-light));
+  background: var(--color-bg-white);
+  border: 1px solid var(--color-border-light);
   border-radius: 1rem;
   padding: 2rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
@@ -69,7 +81,7 @@
 .section-label {
   font-size: 1.125rem;
   font-weight: 600;
-  color: var(--text-primary, var(--color-text-dark));
+  color: var(--color-text-title);
 }
 
 .scale-selector-wrapper {
@@ -81,7 +93,7 @@
 .scale-label {
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--text-secondary, var(--color-text-gray));
+  color: var(--color-text-gray);
 }
 
 .scale-select-field {
@@ -89,26 +101,26 @@
   font-size: 0.875rem;
   font-weight: 500;
   border-radius: 0.5rem;
-  border: 1px solid var(--border-color, var(--color-border));
-  background-color: var(--input-bg, var(--color-bg-white));
-  color: var(--text-primary, var(--color-text-dark));
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-white);
+  color: var(--color-text-dark);
   cursor: pointer;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .scale-select-field:focus {
-  border-color: var(--primary-color, var(--color-primary));
+  border-color: var(--color-primary);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  box-shadow: 0 0 0 3px var(--color-focus-ring);
 }
 
 .text-input-field {
   width: 100%;
   padding: 1.25rem;
   border-radius: 0.75rem;
-  border: 1px solid var(--border-color, var(--color-border));
-  background-color: var(--input-bg, var(--color-bg-gray));
-  color: var(--text-primary, var(--color-text-dark));
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg-gray);
+  color: var(--color-text-dark);
   font-size: 0.95rem;
   line-height: 1.6;
   resize: vertical;
@@ -117,9 +129,9 @@
 }
 
 .text-input-field:focus {
-  border-color: var(--primary-color, var(--color-primary));
+  border-color: var(--color-primary);
   background-color: var(--color-bg-white);
-  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.12);
+  box-shadow: 0 0 0 4px var(--color-focus-ring);
 }
 
 .input-actions-bar {
@@ -172,17 +184,17 @@
 }
 
 .compact-stat-tile.highlight-stat {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  background: linear-gradient(135deg, var(--color-highlight-bg-start) 0%, var(--color-highlight-bg-end) 100%);
   border: none;
-  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .compact-stat-tile.highlight-stat .stat-label {
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--color-white-translucent);
 }
 
 .compact-stat-tile.highlight-stat .stat-value {
-  color: var(--color-bg-white);
+  color: var(--color-white);
 }
 
 .stat-label {
@@ -250,6 +262,11 @@
   border-color: var(--color-primary);
 }
 
+.column-role-selector option {
+  background-color: var(--color-bg-white);
+  color: var(--color-text-dark);
+}
+
 .data-row {
   border-bottom: 1px solid var(--color-border-row);
   transition: background-color 0.15s;
@@ -279,7 +296,7 @@
 .cell-value-input:focus {
   border-color: var(--color-primary);
   background-color: var(--color-bg-white);
-  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
+  box-shadow: 0 0 0 2px var(--color-focus-ring);
 }
 
 .cell-name .cell-value-input {
