@@ -1,5 +1,5 @@
 ---
-import { Bibliography } from '@jjlmoya/utils-shared';
+import { Bibliography as SharedBibliography } from '@jjlmoya/utils-shared';
 import { citationGenerator } from './index';
 import type { KnownLocale } from '../../types';
 
@@ -12,4 +12,4 @@ const content = await citationGenerator.i18n[locale]?.();
 if (!content) return null;
 ---
 
-{content && <Bibliography {content} />}
+{content && <SharedBibliography links={content.bibliography} />}

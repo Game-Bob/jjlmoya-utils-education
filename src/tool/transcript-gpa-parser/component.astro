@@ -1,0 +1,301 @@
+---
+import type { TranscriptGPAParserUI } from "./index";
+
+interface Props {
+  ui?: Partial<TranscriptGPAParserUI>;
+}
+
+const { ui = {} } = Astro.props;
+const labels = {
+  pasteAreaLabel: ui.pasteAreaLabel || "Paste your transcript here",
+  pasteAreaPlaceholder: ui.pasteAreaPlaceholder || "Paste text copied from Moodle, Canvas, or your university transcript page...",
+  parsedTitle: ui.parsedTitle || "Parsed Transcript Data",
+  columnSelect: ui.columnSelect || "Map column",
+  subjectName: ui.subjectName || "Course/Subject Name",
+  grade: ui.grade || "Grade",
+  credits: ui.credits || "Credits",
+  ignore: ui.ignore || "Ignore",
+  gpaResult: ui.gpaResult || "Cumulative GPA",
+  totalCredits: ui.totalCredits || "Total Credits",
+  emptyState: ui.emptyState || "Paste your transcript data above to preview and edit rows here.",
+  scaleLabel: ui.scaleLabel || "Grade Scale Limit",
+  customScale: ui.customScale || "Max Grade Scale",
+  exampleSubject: ui.exampleSubject || "Calculus I",
+  newSubjectPlaceholder: ui.newSubjectPlaceholder || "New course",
+  clearBtn: ui.clearBtn || "Clear text",
+  errorFormat: ui.errorFormat || "We could not detect clear columns. Try copy-pasting a table or list format."
+};
+---
+
+<div class="transcript-gpa-calc view-fade-in" id="gpa-parser-root" data-labels={JSON.stringify(labels)}>
+  <div class="gpa-calc-card main-calc-card">
+    <div class="card-header-row">
+      <label class="section-label" for="raw-transcript-input">{labels.pasteAreaLabel}</label>
+      <div class="scale-selector-wrapper">
+        <label class="scale-label" for="gpa-scale-select">{labels.scaleLabel}</label>
+        <select id="gpa-scale-select" class="scale-select-field">
+          <option value="10">Scale 0-10</option>
+          <option value="4">Scale 0-4 (US GPA)</option>
+          <option value="20">Scale 0-20</option>
+          <option value="100">Scale 0-100</option>
+        </select>
+      </div>
+    </div>
+    <textarea
+      id="raw-transcript-input"
+      class="text-input-field"
+      placeholder={labels.pasteAreaPlaceholder}
+      rows="8"
+    ></textarea>
+    <div class="input-actions-bar">
+      <button id="clear-gpa-btn" class="action-btn-secondary">
+        {labels.clearBtn}
+      </button>
+    </div>
+
+    <div id="gpa-results-panel" class="gpa-results-compact-bar" style="display: none;">
+      <div class="compact-stat-tile highlight-stat">
+        <span class="stat-label">{labels.gpaResult}</span>
+        <span id="gpa-output-val" class="stat-value">0.00</span>
+      </div>
+      <div class="compact-stat-tile">
+        <span class="stat-label">{labels.totalCredits}</span>
+        <span id="credits-output-val" class="stat-value">0.00</span>
+      </div>
+      <div class="compact-stat-tile">
+        <span class="stat-label">Total Courses</span>
+        <span id="courses-output-val" class="stat-value">0</span>
+      </div>
+    </div>
+
+    <div id="parsed-data-section" class="parsed-data-section" style="display: none;">
+      <hr class="section-divider" />
+      <h3 class="card-header-title">{labels.parsedTitle}</h3>
+      <div class="table-scroll-container">
+        <table class="parsed-data-table">
+          <thead>
+            <tr id="data-table-headers"></tr>
+          </thead>
+          <tbody id="data-table-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { parseTranscript, parseGrade, parseCredits } from "./parser";
+
+  const STORAGE_KEY = "jjlmoya_transcript_raw_text";
+  const MAPPING_KEY = "jjlmoya_transcript_mapping";
+  const SCALE_KEY = "jjlmoya_transcript_scale";
+
+  const root = document.getElementById("gpa-parser-root");
+  const rawInput = document.getElementById("raw-transcript-input") as HTMLTextAreaElement | null;
+  const clearBtn = document.getElementById("clear-gpa-btn");
+  const resultsPanel = document.getElementById("gpa-results-panel");
+  const dataSection = document.getElementById("parsed-data-section");
+  const tableHeaders = document.getElementById("data-table-headers");
+  const tableBody = document.getElementById("data-table-body");
+  const gpaOutput = document.getElementById("gpa-output-val");
+  const creditsOutput = document.getElementById("credits-output-val");
+  const coursesOutput = document.getElementById("courses-output-val");
+  const scaleSelect = document.getElementById("gpa-scale-select") as HTMLSelectElement | null;
+
+  if (root && rawInput && clearBtn && resultsPanel && dataSection && tableHeaders && tableBody && gpaOutput && creditsOutput && coursesOutput && scaleSelect) {
+    const labels = JSON.parse(root.dataset.labels || "{}");
+    let parsedGrid: string[][] = [];
+    let columnMapping = { name: -1, grade: -1, credits: -1 };
+
+    const resetDuplicateMapping = (colIdx: number, excludeKey: string) => {
+      if (excludeKey !== "name" && columnMapping.name === colIdx) columnMapping.name = -1;
+      if (excludeKey !== "grade" && columnMapping.grade === colIdx) columnMapping.grade = -1;
+      if (excludeKey !== "credits" && columnMapping.credits === colIdx) columnMapping.credits = -1;
+    };
+
+    const handleColumnRoleChange = (e: Event) => {
+      const target = e.target as HTMLSelectElement;
+      const colIdx = parseInt(target.getAttribute("data-col-index") || "-1");
+      const newRole = target.value;
+
+      resetDuplicateMapping(colIdx, newRole);
+
+      if (newRole === "name") columnMapping.name = colIdx;
+      else if (newRole === "grade") columnMapping.grade = colIdx;
+      else if (newRole === "credits") columnMapping.credits = colIdx;
+
+      localStorage.setItem(MAPPING_KEY, JSON.stringify(columnMapping));
+      renderTable();
+      calculateGPA();
+    };
+
+    const handleCellValueChange = (e: Event) => {
+      const target = e.target as HTMLInputElement;
+      const rowIdx = parseInt(target.getAttribute("data-row-index") || "-1");
+      const colIdx = parseInt(target.getAttribute("data-col-index") || "-1");
+      if (parsedGrid[rowIdx]) {
+        parsedGrid[rowIdx][colIdx] = target.value;
+      }
+      calculateGPA();
+    };
+
+    const renderHeaders = (maxCols: number) => {
+      tableHeaders.innerHTML = "";
+      for (let c = 0; c < maxCols; c++) {
+        const th = document.createElement("th");
+        th.className = "header-mapping-cell";
+        const select = document.createElement("select");
+        select.className = "column-role-selector";
+        select.setAttribute("data-col-index", c.toString());
+
+        const roles = [
+          { val: "name", label: labels.subjectName, active: columnMapping.name === c },
+          { val: "grade", label: labels.grade, active: columnMapping.grade === c },
+          { val: "credits", label: labels.credits, active: columnMapping.credits === c },
+          { val: "ignore", label: `${labels.ignore} (Col ${c + 1})`, active: columnMapping.name !== c && columnMapping.grade !== c && columnMapping.credits !== c }
+        ];
+
+        roles.forEach(r => {
+          const opt = document.createElement("option");
+          opt.value = r.val;
+          opt.textContent = r.label;
+          if (r.active) opt.selected = true;
+          select.appendChild(opt);
+        });
+
+        select.addEventListener("change", handleColumnRoleChange);
+        th.appendChild(select);
+        tableHeaders.appendChild(th);
+      }
+    };
+
+    const buildCellElement = (val: string, rowIndex: number, colIndex: number) => {
+      const td = document.createElement("td");
+      td.className = "data-cell";
+
+      let roleClass = "cell-ignored";
+      if (columnMapping.name === colIndex) roleClass = "cell-name";
+      else if (columnMapping.grade === colIndex) roleClass = "cell-grade";
+      else if (columnMapping.credits === colIndex) roleClass = "cell-credits";
+      td.classList.add(roleClass);
+
+      const input = document.createElement("input");
+      input.type = "text";
+      input.className = "cell-value-input";
+      input.value = val;
+      input.setAttribute("data-row-index", rowIndex.toString());
+      input.setAttribute("data-col-index", colIndex.toString());
+      input.addEventListener("input", handleCellValueChange);
+      td.appendChild(input);
+      return td;
+    };
+
+    const renderBody = (maxCols: number) => {
+      tableBody.innerHTML = "";
+      parsedGrid.forEach((row, rowIndex) => {
+        const tr = document.createElement("tr");
+        tr.className = "data-row";
+        for (let c = 0; c < maxCols; c++) {
+          const val = row[c] ?? "";
+          tr.appendChild(buildCellElement(val, rowIndex, c));
+        }
+        tableBody.appendChild(tr);
+      });
+    };
+
+    const renderTable = () => {
+      if (parsedGrid.length === 0) return;
+      dataSection.style.display = "block";
+      resultsPanel.style.display = "grid";
+      const maxCols = Math.max(...parsedGrid.map(row => row.length));
+      renderHeaders(maxCols);
+      renderBody(maxCols);
+    };
+
+    const adjustGradeToScale = (grade: number, scaleLimit: number): number => {
+      if (scaleLimit === 4 && grade > 4) return (grade / 10) * 4;
+      if (scaleLimit === 10 && grade > 10 && grade <= 100) return (grade / 100) * 10;
+      if (scaleLimit === 20 && grade > 20) return (grade / 100) * 20;
+      return grade;
+    };
+
+    const processRowForGPA = (row: string[], scaleLimit: number) => {
+      const gradeRaw = row[columnMapping.grade];
+      if (!gradeRaw) return null;
+
+      const gradeVal = parseGrade(gradeRaw);
+      if (gradeVal === null) return null;
+
+      const creditsRaw = row[columnMapping.credits];
+      const creditsVal = creditsRaw ? parseCredits(creditsRaw) : 1;
+      const adjustedGrade = adjustGradeToScale(gradeVal, scaleLimit);
+      const finalCredits = creditsVal || 1;
+
+      return { points: adjustedGrade * finalCredits, credits: finalCredits };
+    };
+
+    const calculateGPA = () => {
+      let totalWeightedPoints = 0;
+      let totalCredits = 0;
+      let coursesCount = 0;
+      const scaleLimit = parseFloat(scaleSelect.value);
+
+      parsedGrid.forEach(row => {
+        const res = processRowForGPA(row, scaleLimit);
+        if (res) {
+          totalWeightedPoints += res.points;
+          totalCredits += res.credits;
+          coursesCount++;
+        }
+      });
+
+      gpaOutput.textContent = totalCredits > 0 ? (totalWeightedPoints / totalCredits).toFixed(2) : "0.00";
+      creditsOutput.textContent = totalCredits.toFixed(1);
+      coursesOutput.textContent = coursesCount.toString();
+    };
+
+    const handleProcessInput = () => {
+      const text = rawInput.value;
+      localStorage.setItem(STORAGE_KEY, text);
+      if (!text.trim()) {
+        resultsPanel.style.display = "none";
+        dataSection.style.display = "none";
+        return;
+      }
+      const result = parseTranscript(text);
+      parsedGrid = result.rawGrid;
+      const loadedMapping = localStorage.getItem(MAPPING_KEY);
+      columnMapping = loadedMapping ? JSON.parse(loadedMapping) : result.mapping;
+      renderTable();
+      calculateGPA();
+    };
+
+    const clearAllData = () => {
+      rawInput.value = "";
+      localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(MAPPING_KEY);
+      parsedGrid = [];
+      columnMapping = { name: -1, grade: -1, credits: -1 };
+      resultsPanel.style.display = "none";
+      dataSection.style.display = "none";
+    };
+
+    const init = () => {
+      const savedScale = localStorage.getItem(SCALE_KEY);
+      if (savedScale) scaleSelect.value = savedScale;
+      scaleSelect.addEventListener("change", () => {
+        localStorage.setItem(SCALE_KEY, scaleSelect.value);
+        calculateGPA();
+      });
+      const savedText = localStorage.getItem(STORAGE_KEY);
+      if (savedText) {
+        rawInput.value = savedText;
+        handleProcessInput();
+      }
+      rawInput.addEventListener("input", handleProcessInput);
+      clearBtn.addEventListener("click", clearAllData);
+    };
+
+    init();
+  }
+</script>
