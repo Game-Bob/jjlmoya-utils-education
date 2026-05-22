@@ -1,6 +1,6 @@
 import { StateManager } from './stateManager';
 import { UIManager } from './uiManager';
-import { renderLatex, expressionToMarkdownBlock, svgNodeToPngDataUrl } from './logic';
+import { renderLatex, expressionToMarkdownBlock } from './logic';
 import type { LatexRendererUI, LatexRendererState } from './types';
 
 export class LatexRendererController {
@@ -85,18 +85,31 @@ export class LatexRendererController {
     });
   }
 
-  private bindCopyPng(): void {
+  private bindDownloadPng(): void {
     const el = this.uiManager.getElements();
-    el.copyPngBtn?.addEventListener('click', async () => {
+    el.downloadPngBtn?.addEventListener('click', async () => {
       if (!el.preview) return;
+      const mathElement = el.preview.querySelector('.katex') as HTMLElement | null;
+      const targetElement = mathElement || el.preview;
       this.uiManager.setButtonStates(true);
       try {
-        const dataUrl = await svgNodeToPngDataUrl(el.preview, 2);
+        const { default: html2canvas } = await import('html2canvas');
+        const canvas = await html2canvas(targetElement, {
+          scale: 2,
+          useCORS: true,
+          backgroundColor: null,
+          logging: false,
+        });
+        const dataUrl = canvas.toDataURL('image/png');
         if (!dataUrl) return;
-        const res = await fetch(dataUrl);
-        const blob = await res.blob();
-        await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
-        this.uiManager.showToast();
+        const a = document.createElement('a');
+        a.href = dataUrl;
+        a.download = 'latex-formula.png';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      } catch (error) {
+        console.error('Download error:', error);
       } finally {
         this.uiManager.setButtonStates(false);
       }
@@ -109,7 +122,7 @@ export class LatexRendererController {
     this.bindResetButton();
     this.bindCopyMarkdown();
     this.bindCopyLatex();
-    this.bindCopyPng();
+    this.bindDownloadPng();
   }
 }
 

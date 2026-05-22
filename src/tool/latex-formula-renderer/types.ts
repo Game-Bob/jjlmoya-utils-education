@@ -17,7 +17,7 @@ export interface LatexRendererUI {
   displayModeLabel: string;
   inlineModeLabel: string;
   fontSizeLabel: string;
-  copyPngButton: string;
+  downloadPngButton: string;
   copyMarkdownButton: string;
   copyLatexButton: string;
   resetButton: string;

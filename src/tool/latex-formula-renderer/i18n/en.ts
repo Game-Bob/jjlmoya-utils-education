@@ -11,14 +11,14 @@ const faqItems = [
   { question: 'Do I need to install anything to use this renderer?', answer: 'No. This tool runs entirely in your browser using KaTeX, an open-source JavaScript library. There is no server, no login, and no installation required. Your expressions never leave your device.' },
   { question: 'What is the difference between Block and Inline mode?', answer: 'Block mode (also called Display mode) renders the formula on its own centered line, which is ideal for standalone equations. Inline mode renders the formula within the flow of text, at a smaller size, which is useful for embedding symbols inside a sentence.' },
   { question: 'Why is my formula showing a syntax error?', answer: 'LaTeX syntax errors most commonly occur from unmatched braces (e.g., writing \\frac{1 without the closing brace), misspelled command names (e.g., \\Frac instead of \\frac), or unsupported commands. Check that all curly braces are balanced and that you are using standard KaTeX-supported commands.' },
-  { question: 'Can I use this tool to paste formulas into Word or Notion?', answer: 'Yes. Use "Copy as PNG" to paste a high-resolution image of the rendered formula directly into Word, Google Docs, or Notion. Use "Copy Markdown" to get a fenced LaTeX code block ready for Markdown editors that support LaTeX rendering.' },
+  { question: 'Can I use this tool to paste formulas into Word or Notion?', answer: 'Yes. Use "Download PNG" to download a high-resolution image of the rendered formula directly for use in Word, Google Docs, or Notion. Use "Copy Markdown" to get a fenced LaTeX code block ready for Markdown editors that support LaTeX rendering.' },
 ];
 
 const howToItems = [
   { name: 'Type your LaTeX expression', text: 'Enter any valid LaTeX math expression in the editor on the left. The formula renders in real-time as you type.' },
   { name: 'Choose a rendering mode', text: 'Select Block mode for a centered standalone equation, or Inline mode for a compact formula suitable for embedding within text.' },
   { name: 'Adjust the font size', text: 'Use the font size slider to scale the preview up or down to match the size you need for your document.' },
-  { name: 'Copy in your preferred format', text: 'Click "Copy as PNG" to get an image, "Copy Markdown" for a LaTeX code block, or "Copy LaTeX" to copy the raw source expression.' },
+  { name: 'Export in your preferred format', text: 'Click "Download PNG" to get an image, "Copy Markdown" for a LaTeX code block, or "Copy LaTeX" to copy the raw source expression.' },
 ];
 
 const faqSchema = {
@@ -64,7 +64,7 @@ export const content: ToolLocaleContent<LatexRendererUI> = {
     displayModeLabel: 'Block',
     inlineModeLabel: 'Inline',
     fontSizeLabel: 'Font Size',
-    copyPngButton: 'Copy as PNG',
+    downloadPngButton: 'Download PNG',
     copyMarkdownButton: 'Copy Markdown',
     copyLatexButton: 'Copy LaTeX',
     resetButton: 'Reset',
@@ -84,7 +84,7 @@ export const content: ToolLocaleContent<LatexRendererUI> = {
     { type: 'title', text: 'Common Use Cases for Students and Researchers', level: 3 },
     { type: 'list', items: [
       'Render equations from textbooks or lecture notes to verify your LaTeX syntax before submitting assignments.',
-      'Copy formulas as PNG images for pasting directly into Word, Google Docs, Notion, or presentation slides.',
+      'Download formulas as PNG images for pasting directly into Word, Google Docs, Notion, or presentation slides.',
       'Convert LaTeX expressions to Markdown code blocks for documentation, GitHub READMEs, or Jupyter notebooks.',
       'Preview how a formula will look before including it in a paper written with Overleaf or a local TeX distribution.',
     ] },

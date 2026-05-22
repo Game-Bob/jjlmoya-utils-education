@@ -17,7 +17,7 @@ export class UIManager {
       preview: document.getElementById('latex-preview') as HTMLElement | null,
       errorBanner: document.getElementById('latex-error') as HTMLElement | null,
       emptyHint: document.getElementById('latex-empty-hint') as HTMLElement | null,
-      copyPngBtn: document.getElementById('copy-png-btn') as HTMLButtonElement | null,
+      downloadPngBtn: document.getElementById('download-png-btn') as HTMLButtonElement | null,
       copyMdBtn: document.getElementById('copy-md-btn') as HTMLButtonElement | null,
       copyLatexBtn: document.getElementById('copy-latex-btn') as HTMLButtonElement | null,
       resetBtn: document.getElementById('latex-reset-btn') as HTMLButtonElement | null,
@@ -81,7 +81,7 @@ export class UIManager {
 
   public setButtonStates(loading: boolean): void {
     const el = this.getElements();
-    if (el.copyPngBtn) el.copyPngBtn.disabled = loading;
+    if (el.downloadPngBtn) el.downloadPngBtn.disabled = loading;
     if (el.copyMdBtn) el.copyMdBtn.disabled = loading;
     if (el.copyLatexBtn) el.copyLatexBtn.disabled = loading;
   }
