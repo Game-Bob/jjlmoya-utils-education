@@ -21,7 +21,7 @@ const faqItems = [
   },
   {
     question: 'Werden auch Buchstabennoten und verschiedene Notensysteme unterstützt?',
-    answer: 'Ja, es werden sowohl klassische Buchstabennoten (A, B, C, D, F) als auch numerische Notenskalen (0–10, 0–20, 0–100) unterstützt. Sie können die maximale Skala passend zum System Ihrer Hochschule einstellen.'
+    answer: 'Ja, es werden sowohl klassische Buchstabennoten (A, B, C, D, F) als auch numerische Notenskalen (0-10, 0-20, 0-100) unterstützt. Sie können die maximale Skala passend zum System Ihrer Hochschule einstellen.'
   }
 ];
 

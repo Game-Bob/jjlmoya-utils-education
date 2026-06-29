@@ -94,12 +94,12 @@ export const content: ToolLocaleContent<PomodoroFlowUI> = {
   },
   seo: [
     { type: 'title', text: 'Master Focus with Pomodoro Flow', level: 2 },
-    { type: 'paragraph', html: 'Productivity isn\'t about working harder—it\'s about working smarter. <strong>Pomodoro Flow</strong> combines the proven Pomodoro Technique with zen-focused design and real-time analytics to help you understand <em>how</em> you work best.' },
+    { type: 'paragraph', html: 'Productivity isn\'t about working harder-it\'s about working smarter. <strong>Pomodoro Flow</strong> combines the proven Pomodoro Technique with zen-focused design and real-time analytics to help you understand <em>how</em> you work best.' },
     { type: 'title', text: 'Why Pomodoro Works', level: 3 },
     { type: 'paragraph', html: 'Humans aren\'t built for 8-hour hyperfocus marathons. Our brains work best in cycles of focused work followed by restorative breaks. The Pomodoro Technique turns this into a simple ritual: work intensely for 25 minutes, break for 5, repeat.' },
     { type: 'paragraph', html: 'But every task is different. That\'s why Pomodoro Flow offers three cycles: <strong>Seed</strong> for quick tasks (25/5), <strong>Tree</strong> for your daily grind (50/10), and <strong>Mountain</strong> for deep work sessions (90/15).' },
     { type: 'title', text: 'The Real Power: Interruption Tracking', level: 3 },
-    { type: 'paragraph', html: 'You work for 50 minutes and think you crushed it. But did you get distracted 5 times? Each interruption costs you context-switching tax. Pomodoro Flow tracks this with a single button (Distraction Alert) and calculates your <strong>Focus Score</strong>—a real metric of your concentration.' },
+    { type: 'paragraph', html: 'You work for 50 minutes and think you crushed it. But did you get distracted 5 times? Each interruption costs you context-switching tax. Pomodoro Flow tracks this with a single button (Distraction Alert) and calculates your <strong>Focus Score</strong>-a real metric of your concentration.' },
     { type: 'paragraph', html: 'Over time, you\'ll see which tasks, times of day, or environments let you reach your best focus. That\'s where your highest-leverage work happens.' },
     { type: 'title', text: 'Features That Get Out of Your Way', level: 3 },
     { type: 'list', items: [
@@ -110,7 +110,7 @@ export const content: ToolLocaleContent<PomodoroFlowUI> = {
       'Monthly Heatmap: See your productivity patterns. Which days are your peak focus days?',
     ] },
     { type: 'title', text: 'The "Flow State" Psychology', level: 3 },
-    { type: 'paragraph', html: 'Psychologist Mihaly Csikszentmihalyi defines <strong>flow</strong> as the state where challenge meets skill, and time disappears. Pomodoro Flow removes distractions, sets clear time boundaries, and gives you immediate feedback—the three conditions for flow state.' },
+    { type: 'paragraph', html: 'Psychologist Mihaly Csikszentmihalyi defines <strong>flow</strong> as the state where challenge meets skill, and time disappears. Pomodoro Flow removes distractions, sets clear time boundaries, and gives you immediate feedback-the three conditions for flow state.' },
     { type: 'tip', html: '<strong>Pro Tip:</strong> When you\'re in flow, don\'t interrupt yourself. If the timer goes off but you\'re mid-thought, hit resume and keep going. The beauty of tracking interruptions is you\'ll see the difference between external chaos and your own momentum.' },
   ],
   faq: faqItems,

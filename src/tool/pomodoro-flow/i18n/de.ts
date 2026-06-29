@@ -94,12 +94,12 @@ export const content: ToolLocaleContent<PomodoroFlowUI> = {
   },
   seo: [
     { type: 'title', text: 'Meistern Sie den Fokus mit Pomodoro Flow', level: 2 },
-    { type: 'paragraph', html: 'Bei Produktivität geht es nicht darum, härter zu arbeiten – sondern klüger. <strong>Pomodoro Flow</strong> kombiniert die bewährte Pomodoro-Technik mit Zen-fokussiertem Design und Echtzeit-Analysen, um Ihnen zu helfen zu verstehen, <em>wie</em> Sie am besten arbeiten.' },
+    { type: 'paragraph', html: 'Bei Produktivität geht es nicht darum, härter zu arbeiten - sondern klüger. <strong>Pomodoro Flow</strong> kombiniert die bewährte Pomodoro-Technik mit Zen-fokussiertem Design und Echtzeit-Analysen, um Ihnen zu helfen zu verstehen, <em>wie</em> Sie am besten arbeiten.' },
     { type: 'title', text: 'Warum Pomodoro funktioniert', level: 3 },
     { type: 'paragraph', html: 'Menschen sind nicht für 8-stündige Hyperfokus-Marathons gemacht. Unsere Gehirne funktionieren am besten in Zyklen aus fokussierter Arbeit gefolgt von erholsamen Pausen. Die Pomodoro-Technik macht daraus ein einfaches Ritual: 25 Minuten intensiv arbeiten, 5 Minuten Pause, wiederholen.' },
     { type: 'paragraph', html: 'Aber jede Aufgabe ist anders. Deshalb bietet Pomodoro Flow drei Zyklen: <strong>Samen</strong> für schnelle Aufgaben (25/5), <strong>Baum</strong> für Ihren Alltag (50/10) und <strong>Berg</strong> für Deep-Work-Sitzungen (90/15).' },
     { type: 'title', text: 'Die wahre Kraft: Erfassung von Unterbrechungen', level: 3 },
-    { type: 'paragraph', html: 'Sie arbeiten 50 Minuten lang und denken, Sie hätten es geschafft. Aber wurden Sie 5 Mal abgelenkt? Jede Unterbrechung kostet Sie kognitive Energie durch Kontextwechsel. Pomodoro Flow erfasst dies mit einer einzigen Taste (Ablenkungs-Alarm) und berechnet Ihren <strong>Fokus-Score</strong> – eine reale Kennzahl für Ihre Konzentration.' },
+    { type: 'paragraph', html: 'Sie arbeiten 50 Minuten lang und denken, Sie hätten es geschafft. Aber wurden Sie 5 Mal abgelenkt? Jede Unterbrechung kostet Sie kognitive Energie durch Kontextwechsel. Pomodoro Flow erfasst dies mit einer einzigen Taste (Ablenkungs-Alarm) und berechnet Ihren <strong>Fokus-Score</strong> - eine reale Kennzahl für Ihre Konzentration.' },
     { type: 'paragraph', html: 'Mit der Zeit werden Sie sehen, welche Aufgaben, Tageszeiten oder Umgebungen Ihnen den besten Fokus ermöglichen. Dort findet Ihre wertvollste Arbeit statt.' },
     { type: 'title', text: 'Funktionen, die Ihnen nicht im Weg stehen', level: 3 },
     { type: 'list', items: [
@@ -110,7 +110,7 @@ export const content: ToolLocaleContent<PomodoroFlowUI> = {
       'Monatliche Heatmap: Sehen Sie Ihre Produktivitätsmuster. Welche Tage sind Ihre Spitzenfokustage?',
     ] },
     { type: 'title', text: 'Die Psychologie des "Flow-Zustands"', level: 3 },
-    { type: 'paragraph', html: 'Der Psychologe Mihaly Csikszentmihalyi definiert <strong>Flow</strong> als den Zustand, in dem Herausforderung auf Können trifft und die Zeit verschwindet. Pomodoro Flow entfernt Ablenkungen, setzt klare Zeitgrenzen und gibt Ihnen sofortiges Feedback – die drei Bedingungen für den Flow-Zustand.' },
+    { type: 'paragraph', html: 'Der Psychologe Mihaly Csikszentmihalyi definiert <strong>Flow</strong> als den Zustand, in dem Herausforderung auf Können trifft und die Zeit verschwindet. Pomodoro Flow entfernt Ablenkungen, setzt klare Zeitgrenzen und gibt Ihnen sofortiges Feedback - die drei Bedingungen für den Flow-Zustand.' },
     { type: 'tip', html: '<strong>Pro-Tipp:</strong> Wenn Sie im Flow sind, unterbrechen Sie sich nicht selbst. Wenn der Timer abläuft, Sie aber mitten in einem Gedanken sind, klicken Sie auf Fortsetzen und machen Sie weiter. Das Schöne an der Erfassung von Unterbrechungen ist, dass Sie den Unterschied zwischen externem Chaos und Ihrem eigenen Schwung sehen werden.' },
   ],
   faq: faqItems,

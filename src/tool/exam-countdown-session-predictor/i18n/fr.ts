@@ -117,12 +117,12 @@ export const content: ToolLocaleContent<ExamCountdownUI> = {
       'Ajustez vos jours de repos en cas de conflits d\'agenda inattendus.',
       'Privilégiez la régularité plutôt que d\'essayer de compenser de gros retards en une seule journée.'
     ] },
-    { type: 'title', text: 'Flexibilité : intégrer des jours de repos', level: 3 },
+    { type: 'title', text: 'Flexibilité: intégrer des jours de repos', level: 3 },
     { type: 'paragraph', html: 'Le repos ne doit pas être vu comme une récompense, mais comme une phase intégrante de l\'apprentissage. En programmant consciemment des jours de relâche dans votre calendrier, vous préservez votre motivation. Ce planificateur adapte automatiquement le volume d\'étude pour les jours restants.' },
     { type: 'tip', html: '<strong>Prévoyez l\'imprévu.</strong> Laissez toujours au moins un jour de repos par semaine. Ce jour sert de soupape de sécurité pour rattraper un éventuel retard dû à une fatigue ou une urgence, sans bousculer tout votre calendrier.' },
     { type: 'title', text: 'Comment calculer manuellement son rythme d\'étude', level: 3 },
     { type: 'paragraph', html: 'Pour calculer votre rythme d\'étude quotidien manuellement, appliquez une formule mathématique simple. D\'abord, soustrayez la part déjà étudiée du volume total de travail pour connaître la charge restante. Comptez ensuite le nombre de jours qui vous séparent de l\'examen, puis soustrayez vos jours de repos et votre marge de révision. Enfin, divisez votre charge restante par le nombre de jours d\'étude disponibles.' },
-    { type: 'paragraph', html: 'Par exemple, si vous devez étudier 400 pages, que vous en avez déjà complété 50, qu\'il vous reste 20 jours avant l\'examen, que vous prévoyez 4 jours de repos et 2 jours de marge : votre charge restante est de 350 pages et vos jours d\'étude effectifs sont au nombre de 14. Votre rythme quotidien sera de 350 divisé par 14, soit exactement 25 pages par jour.' }
+    { type: 'paragraph', html: 'Par exemple, si vous devez étudier 400 pages, que vous en avez déjà complété 50, qu\'il vous reste 20 jours avant l\'examen, que vous prévoyez 4 jours de repos et 2 jours de marge: votre charge restante est de 350 pages et vos jours d\'étude effectifs sont au nombre de 14. Votre rythme quotidien sera de 350 divisé par 14, soit exactement 25 pages par jour.' }
   ],
   faq: faqItems,
   howTo: howToItems,

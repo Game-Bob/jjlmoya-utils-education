@@ -9,14 +9,14 @@ const description = 'Najdokładniejsze narzędzie do przeliczania ocen akademick
 const faqItems = [
   { 
     question: 'Jak działa międzynarodowe przeliczanie ocen?', 
-    answer: 'Narzędzie wykorzystuje matematyczne mapowanie liniowe oparte na minimalnej ocenie zaliczającej i maksymalnym możliwym wyniku dla każdego kraju. Gwarantuje to, że „zaliczenie” w jednym systemie odpowiada „zaliczeniu” w innym, zachowując akademicką proporcjonalność w różnych skalach.' 
+    answer: 'Narzędzie wykorzystuje matematyczne mapowanie liniowe oparte na minimalnej ocenie zaliczającej i maksymalnym możliwym wyniku dla każdego kraju. Gwarantuje to, że "zaliczenie" w jednym systemie odpowiada "zaliczeniu" w innym, zachowując akademicką proporcjonalność w różnych skalach.' 
   },
   { 
     question: 'Czy ten konwerter jest oficjalny przy rekrutacji na studia?', 
     answer: 'Choć nasze algorytmy opierają się na standardowych międzynarodowych tabelach ekwiwalentów (takich jak stosowane przez ECTS czy WES), narzędzie to ma charakter informacyjny. W celu oficjalnego uznania punktów należy zawsze skonsultować się z uczelnią przyjmującą lub akredytowaną instytucją oceniającą.' 
   },
   { 
-    question: 'Czym jest funkcja „Trybu Zbiorczego” (Bulk Mode)?', 
+    question: 'Czym jest funkcja "Trybu Zbiorczego" (Bulk Mode)?', 
     answer: 'Tryb Zbiorczy pozwala studentom z długimi transkryptami na jednoczesne przetwarzanie wielu ocen. Wystarczy wkleić kolumnę liczb z pliku PDF lub Excel, a narzędzie błyskawicznie obliczy poszczególne konwersje i ogólną średnią GPA.' 
   },
   { 
@@ -135,7 +135,7 @@ export const content: ToolLocaleContent<InternationalGradeConverterUI> = {
       '<strong>Francja (0-20):</strong> Precyzyjna konwersja dla francuskich Grande Écoles i uniwersytetów.',
       '<strong>Klasyfikacja w Wielkiej Brytanii:</strong> Przeliczanie procentów na stopnie z wyróżnieniem (Honours Degree).'
     ] },
-    { type: 'tip', html: '<strong>Wskazówka akademicka:</strong> Użyj „Trybu Zbiorczego”, aby znaleźć swoje skumulowane GPA z wielu semestrów. Oszczędza to godziny ręcznej pracy w arkuszach kalkulacyjnych!' },
+    { type: 'tip', html: '<strong>Wskazówka akademicka:</strong> Użyj "Trybu Zbiorczego", aby znaleźć swoje skumulowane GPA z wielu semestrów. Oszczędza to godziny ręcznej pracy w arkuszach kalkulacyjnych!' },
     { type: 'title', text: 'Oblicz swój ekwiwalent WES', level: 3 },
     { type: 'paragraph', html: 'Chociaż oficjalna ocena WES jest usługą płatną, nasze narzędzie zapewnia <strong>wysokiej wierności szacunek</strong> Twojego GPA według WES, pomagając Ci zdecydować, gdzie aplikować przed poniesieniem kosztów oceny.' },
   ],

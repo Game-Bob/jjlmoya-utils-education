@@ -77,7 +77,7 @@ export const content: ToolLocaleContent<WeightedGradeCalculatorUI> = {
     { type: 'paragraph', html: 'Que tu calcules tes points pour le <strong>Brevet</strong>, le <strong>Baccalauréat</strong> ou tes crédits <strong>ECTS</strong> à la fac, cette calculatrice est ton meilleur allié.' },
     { type: 'title', text: '3 étapes pour calculer ta moyenne', level: 3 },
     { type: 'list', items: ['Regarde le coefficient de chaque évaluation (ex: DM coeff 1, Partiel coeff 4).', 'Multiplie ta note par son coefficient.', 'Divise la somme totale par la somme des coefficients.'] },
-    { type: 'title', text: 'Astuce : Joue au jeu du "Et si ?"', level: 3 },
+    { type: 'title', text: 'Astuce: Joue au jeu du "Et si ?"', level: 3 },
     { type: 'paragraph', html: 'Utilise cet outil pour simuler tes futurs résultats. "Et si j\'ai 12 au prochain DS de maths ?" Visualiser l\'impact direct sur ta moyenne générale te permet de mieux cibler tes révisions là où ça compte vraiment.' },
     { type: 'tip', html: '<strong>Petit conseil :</strong> Si tes coefficients ne font pas encore 100%, pas de souci. L\'outil calcule automatiquement ta moyenne actuelle sur ce qui est déjà fait. C\'est parfait pour suivre ton évolution tout au long du semestre !' },
     { type: 'title', text: 'Moyenne Arithmétique vs Moyenne Coefficientée', level: 3 },

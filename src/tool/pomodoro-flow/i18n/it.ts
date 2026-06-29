@@ -99,7 +99,7 @@ export const content: ToolLocaleContent<PomodoroFlowUI> = {
     { type: 'paragraph', html: 'Gli esseri umani non sono fatti per maratone di iper-concentrazione di 8 ore. Il nostro cervello funziona meglio in cicli di lavoro focalizzato seguiti da pause ristoratrici. La Tecnica Pomodoro trasforma questo in un semplice rituale: lavora intensamente per 25 minuti, fai una pausa di 5, ripeti.' },
     { type: 'paragraph', html: 'Ma ogni compito è diverso. Ecco perché Pomodoro Flow offre tre cicli: <strong>Seme</strong> per compiti rapidi (25/5), <strong>Albero</strong> per la routine quotidiana (50/10) e <strong>Montagna</strong> per sessioni di lavoro profondo (90/15).' },
     { type: 'title', text: 'Il Vero Potere: Tracciamento delle Interruzioni', level: 3 },
-    { type: 'paragraph', html: 'Lavori per 50 minuti e pensi di aver dato il massimo. Ma ti sei distratto 5 volte? Ogni interruzione ti costa una "tassa" di cambio di contesto. Pomodoro Flow traccia tutto questo con un unico pulsante (Allerta Distrazione) e calcola il tuo <strong>Focus Score</strong> — una metrica reale della tua concentrazione.' },
+    { type: 'paragraph', html: 'Lavori per 50 minuti e pensi di aver dato il massimo. Ma ti sei distratto 5 volte? Ogni interruzione ti costa una "tassa" di cambio di contesto. Pomodoro Flow traccia tutto questo con un unico pulsante (Allerta Distrazione) e calcola il tuo <strong>Focus Score</strong> - una metrica reale della tua concentrazione.' },
     { type: 'paragraph', html: 'Con il tempo, vedrai quali compiti, momenti della giornata o ambienti ti permettono di raggiungere il tuo miglior focus. È lì che avviene il tuo lavoro di maggior valore.' },
     { type: 'title', text: 'Funzioni che non intralciano', level: 3 },
     { type: 'list', items: [
@@ -110,7 +110,7 @@ export const content: ToolLocaleContent<PomodoroFlowUI> = {
       'Heatmap Mensile: Guarda i tuoi modelli di produttività. Quali giorni sono i tuoi picchi di concentrazione?',
     ] },
     { type: 'title', text: 'La Psicologia dello "Stato di Flow"', level: 3 },
-    { type: 'paragraph', html: 'Lo psicologo Mihaly Csikszentmihalyi definisce il <strong>flow</strong> come lo stato in cui la sfida incontra l\'abilità e il tempo scompare. Pomodoro Flow rimuove le distrazioni, imposta chiari confini temporali e ti dà un feedback immediato — le tre condizioni per lo stato di flow.' },
+    { type: 'paragraph', html: 'Lo psicologo Mihaly Csikszentmihalyi definisce il <strong>flow</strong> come lo stato in cui la sfida incontra l\'abilità e il tempo scompare. Pomodoro Flow rimuove le distrazioni, imposta chiari confini temporali e ti dà un feedback immediato - le tre condizioni per lo stato di flow.' },
     { type: 'tip', html: '<strong>Pro Tip:</strong> Quando sei in flow, non interromperti. Se il timer suona ma sei a metà di un pensiero, premi riprendi e continua. Il bello del tracciamento delle interruzioni è che vedrai la differenza tra il caos esterno e il tuo slancio.' },
   ],
   faq: faqItems,

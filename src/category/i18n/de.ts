@@ -22,7 +22,7 @@ export const content: CategoryLocaleContent = {
     { type: 'title', text: 'Jenseits der Noten: Akademische Exzellenz', level: 2 },
     { type: 'paragraph', html: 'Erfolg in der Hochschulbildung geht nicht nur um gute Noten. Es geht darum, Gewohnheiten rigoroser Forschung, kritischen Denkens und klarer Kommunikation zu entwickeln. Werkzeuge zur Verwaltung deiner akademischen Daten sind das Gerüst, das es dir ermöglicht, wertvollere Kompetenzen aufzubauen.' },
     { type: 'title', text: 'Bildung im KI-Zeitalter 2026', level: 2 },
-    { type: 'paragraph', html: 'Im Jahr 2026 hat sich die Bildung von der Memorierung zum <strong>unterstützten kritischen Denken</strong> gewandelt. Zugang zu Werkzeugen zu haben, die die „Infrastruktur" des Studiums verwalten (Berechnungen, Formate, Organisation), entlastet deine kognitive Last, sodass du tiefer in Konzepte und Kreativität eintauchen kannst. Diese Dienstprogramme sind deine technischen Begleiter auf dem Weg zur Bildungsexzellenz.' },
+    { type: 'paragraph', html: 'Im Jahr 2026 hat sich die Bildung von der Memorierung zum <strong>unterstützten kritischen Denken</strong> gewandelt. Zugang zu Werkzeugen zu haben, die die "Infrastruktur" des Studiums verwalten (Berechnungen, Formate, Organisation), entlastet deine kognitive Last, sodass du tiefer in Konzepte und Kreativität eintauchen kannst. Diese Dienstprogramme sind deine technischen Begleiter auf dem Weg zur Bildungsexzellenz.' },
     { type: 'stats', items: [
       { label: 'Durchschnitte', value: 'Gewichtet', icon: 'mdi:calculator-variant' },
       { label: 'Zitationen', value: 'APA/MLA/VAN', icon: 'mdi:format-quote-open' },

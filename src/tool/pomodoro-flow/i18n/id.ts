@@ -94,12 +94,12 @@ export const content: ToolLocaleContent<PomodoroFlowUI> = {
   },
   seo: [
     { type: 'title', text: 'Kuasai Fokus dengan Pomodoro Flow', level: 2 },
-    { type: 'paragraph', html: 'Produktivitas bukan tentang bekerja lebih keras—ini tentang bekerja lebih cerdas. <strong>Pomodoro Flow</strong> menggabungkan Teknik Pomodoro yang terbukti dengan desain yang berfokus pada zen dan analitik real-time untuk membantu Anda memahami <em>bagaimana</em> Anda bekerja dengan baik.' },
+    { type: 'paragraph', html: 'Produktivitas bukan tentang bekerja lebih keras-ini tentang bekerja lebih cerdas. <strong>Pomodoro Flow</strong> menggabungkan Teknik Pomodoro yang terbukti dengan desain yang berfokus pada zen dan analitik real-time untuk membantu Anda memahami <em>bagaimana</em> Anda bekerja dengan baik.' },
     { type: 'title', text: 'Mengapa Pomodoro Bekerja', level: 3 },
     { type: 'paragraph', html: 'Manusia tidak diciptakan untuk maraton hiper-fokus selama 8 jam. Otak kita bekerja paling baik dalam siklus kerja terfokus yang diikuti oleh istirahat pemulihan. Teknik Pomodoro mengubah ini menjadi ritual sederhana: bekerja secara intens selama 25 menit, istirahat selama 5 menit, ulangi.' },
     { type: 'paragraph', html: 'Tetapi setiap tugas berbeda. Itulah mengapa Pomodoro Flow menawarkan tiga siklus: <strong>Seed</strong> untuk tugas cepat (25/5), <strong>Tree</strong> untuk pekerjaan harian Anda (50/10), dan <strong>Mountain</strong> untuk sesi kerja mendalam (90/15).' },
     { type: 'title', text: 'Kekuatan Sebenarnya: Pelacakan Interupsi', level: 3 },
-    { type: 'paragraph', html: 'Anda bekerja selama 50 menit dan mengira Anda telah menyelesaikannya dengan baik. Tetapi apakah Anda teralihkan 5 kali? Setiap interupsi merugikan Anda biaya peralihan konteks. Pomodoro Flow melacak hal ini dengan satu tombol (Peringatan Distraksi) dan menghitung <strong>Skor Fokus</strong> Anda—metrik nyata dari konsentrasi Anda.' },
+    { type: 'paragraph', html: 'Anda bekerja selama 50 menit dan mengira Anda telah menyelesaikannya dengan baik. Tetapi apakah Anda teralihkan 5 kali? Setiap interupsi merugikan Anda biaya peralihan konteks. Pomodoro Flow melacak hal ini dengan satu tombol (Peringatan Distraksi) dan menghitung <strong>Skor Fokus</strong> Anda-metrik nyata dari konsentrasi Anda.' },
     { type: 'paragraph', html: 'Seiring waktu, Anda akan melihat tugas, waktu, atau lingkungan mana yang memungkinkan Anda mencapai fokus terbaik. Di situlah pekerjaan dengan pengaruh tertinggi Anda terjadi.' },
     { type: 'title', text: 'Fitur yang Tidak Menghalangi Anda', level: 3 },
     { type: 'list', items: [
@@ -110,7 +110,7 @@ export const content: ToolLocaleContent<PomodoroFlowUI> = {
       'Heatmap Bulanan: Lihat pola produktivitas Anda. Hari apa yang menjadi puncak fokus Anda?',
     ] },
     { type: 'title', text: 'Psikologi "State of Flow"', level: 3 },
-    { type: 'paragraph', html: 'Psikolog Mihaly Csikszentmihalyi mendefinisikan <strong>flow</strong> sebagai keadaan di mana tantangan bertemu dengan keterampilan, dan waktu seakan menghilang. Pomodoro Flow menghilangkan gangguan, menetapkan batasan waktu yang jelas, dan memberi Anda umpan balik segera—tiga syarat untuk keadaan flow.' },
+    { type: 'paragraph', html: 'Psikolog Mihaly Csikszentmihalyi mendefinisikan <strong>flow</strong> sebagai keadaan di mana tantangan bertemu dengan keterampilan, dan waktu seakan menghilang. Pomodoro Flow menghilangkan gangguan, menetapkan batasan waktu yang jelas, dan memberi Anda umpan balik segera-tiga syarat untuk keadaan flow.' },
     { type: 'tip', html: '<strong>Tips Pro:</strong> Saat Anda dalam kondisi flow, jangan menginterupsi diri sendiri. Jika timer berbunyi tetapi Anda sedang di tengah pemikiran, klik lanjutkan dan teruslah bekerja. Keindahan dari melacak interupsi adalah Anda akan melihat perbedaan antara kekacauan eksternal dan momentum Anda sendiri.' },
   ],
   faq: faqItems,

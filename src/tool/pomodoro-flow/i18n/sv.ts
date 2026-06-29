@@ -94,12 +94,12 @@ export const content: ToolLocaleContent<PomodoroFlowUI> = {
   },
   seo: [
     { type: 'title', text: 'Bemästra fokus med Pomodoro Flow', level: 2 },
-    { type: 'paragraph', html: 'Produktivitet handlar inte om att arbeta hårdare – det handlar om att arbeta smartare. <strong>Pomodoro Flow</strong> kombinerar den beprövade Pomodoro-tekniken med zen-fokuserad design och realtidsanalys för att hjälpa dig förstå <em>hur</em> du arbetar bäst.' },
+    { type: 'paragraph', html: 'Produktivitet handlar inte om att arbeta hårdare - det handlar om att arbeta smartare. <strong>Pomodoro Flow</strong> kombinerar den beprövade Pomodoro-tekniken med zen-fokuserad design och realtidsanalys för att hjälpa dig förstå <em>hur</em> du arbetar bäst.' },
     { type: 'title', text: 'Varför Pomodoro fungerar', level: 3 },
     { type: 'paragraph', html: 'Människor är inte byggda för 8-timmarsmaraton av hyperfokus. Våra hjärnor fungerar bäst i cykler av fokuserat arbete följt av återhämtande pauser. Pomodoro-tekniken förvandlar detta till en enkel ritual: arbeta intensivt i 25 minuter, pausa i 5, upprepa.' },
     { type: 'paragraph', html: 'Men varje uppgift är annorlunda. Det är därför Pomodoro Flow erbjuder tre cykler: <strong>Frö</strong> för snabba uppgifter (25/5), <strong>Träd</strong> för din vardag (50/10) och <strong>Berg</strong> för djupt fokus (90/15).' },
     { type: 'title', text: 'Den verkliga kraften: Spårning av avbrott', level: 3 },
-    { type: 'paragraph', html: 'Du arbetar i 50 minuter och tror att du har krossat allt. Men blev du distraherad 5 gånger? Varje avbrott kostar dig en "kontextbytesskatt". Pomodoro Flow spårar detta med en enda knapp (Distraktionsvarning) och beräknar din <strong>Fokuspoäng</strong> – ett verkligt mått på din koncentration.' },
+    { type: 'paragraph', html: 'Du arbetar i 50 minuter och tror att du har krossat allt. Men blev du distraherad 5 gånger? Varje avbrott kostar dig en "kontextbytesskatt". Pomodoro Flow spårar detta med en enda knapp (Distraktionsvarning) och beräknar din <strong>Fokuspoäng</strong> - ett verkligt mått på din koncentration.' },
     { type: 'paragraph', html: 'Med tiden kommer du att se vilka uppgifter, tider på dygnet eller miljöer som ger dig bäst fokus. Det är där ditt arbete med störst inflytande sker.' },
     { type: 'title', text: 'Funktioner som inte är i vägen', level: 3 },
     { type: 'list', items: [
@@ -110,7 +110,7 @@ export const content: ToolLocaleContent<PomodoroFlowUI> = {
       'Månatlig Heatmap: Se dina produktivitetsmönster. Vilka dagar är dina toppdagar för fokus?',
     ] },
     { type: 'title', text: 'Psykologin bakom "Flow-tillståndet"', level: 3 },
-    { type: 'paragraph', html: 'Psykologen Mihaly Csikszentmihalyi definierar <strong>flow</strong> som det tillstånd där utmaning möter skicklighet och tiden försvinner. Pomodoro Flow tar bort distraktioner, sätter tydliga tidsgränser och ger dig omedelbar feedback – de tre förutsättningarna för flow-tillstånd.' },
+    { type: 'paragraph', html: 'Psykologen Mihaly Csikszentmihalyi definierar <strong>flow</strong> som det tillstånd där utmaning möter skicklighet och tiden försvinner. Pomodoro Flow tar bort distraktioner, sätter tydliga tidsgränser och ger dig omedelbar feedback - de tre förutsättningarna för flow-tillstånd.' },
     { type: 'tip', html: '<strong>Proffstips:</strong> När du är i flow, avbryt inte dig själv. Om timern går av men du är mitt i en tanke, tryck på återuppta och fortsätt. Skönheten med att spåra avbrott är att du kommer att se skillnaden mellan externt kaos och ditt eget momentum.' },
   ],
   faq: faqItems,

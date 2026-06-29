@@ -94,12 +94,12 @@ export const content: ToolLocaleContent<PomodoroFlowUI> = {
   },
   seo: [
     { type: 'title', text: 'Domine o Foco com o Pomodoro Flow', level: 2 },
-    { type: 'paragraph', html: 'Produtividade não é trabalhar mais — é trabalhar de forma mais inteligente. O <strong>Pomodoro Flow</strong> combina a comprovada Técnica Pomodoro com um design focado no zen e análises em tempo real para o ajudar a compreender <em>como</em> trabalha melhor.' },
+    { type: 'paragraph', html: 'Produtividade não é trabalhar mais - é trabalhar de forma mais inteligente. O <strong>Pomodoro Flow</strong> combina a comprovada Técnica Pomodoro com um design focado no zen e análises em tempo real para o ajudar a compreender <em>como</em> trabalha melhor.' },
     { type: 'title', text: 'Por que o Pomodoro Funciona', level: 3 },
     { type: 'paragraph', html: 'Os seres humanos não foram feitos para maratonas de 8 horas de hiperfoco. Os nossos cérebros funcionam melhor em ciclos de trabalho focado seguidos de pausas restauradoras. A Técnica Pomodoro transforma isto num ritual simples: trabalhe intensamente durante 25 minutos, faça uma pausa de 5, repita.' },
     { type: 'paragraph', html: 'Mas cada tarefa é diferente. É por isso que o Pomodoro Flow oferece três ciclos: <strong>Semente</strong> para tarefas rápidas (25/5), <strong>Árvore</strong> para o seu dia a dia (50/10) e <strong>Montanha</strong> para sessões de trabalho profundo (90/15).' },
     { type: 'title', text: 'O Verdadeiro Poder: Acompanhamento de Interrupções', level: 3 },
-    { type: 'paragraph', html: 'Você trabalha durante 50 minutos e acha que arrasou. Mas distraiu-se 5 vezes? Cada interrupção custa-lhe uma taxa de mudança de contexto. O Pomodoro Flow acompanha isto com um único botão (Alerta de Distração) e calcula o seu <strong>Focus Score</strong> — uma métrica real da sua concentração.' },
+    { type: 'paragraph', html: 'Você trabalha durante 50 minutos e acha que arrasou. Mas distraiu-se 5 vezes? Cada interrupção custa-lhe uma taxa de mudança de contexto. O Pomodoro Flow acompanha isto com um único botão (Alerta de Distração) e calcula o seu <strong>Focus Score</strong> - uma métrica real da sua concentração.' },
     { type: 'paragraph', html: 'Com o tempo, verá quais tarefas, momentos do dia ou ambientes lhe permitem alcançar o seu melhor foco. É aí que o seu trabalho de maior impacto acontece.' },
     { type: 'title', text: 'Funcionalidades que não o Atrapalham', level: 3 },
     { type: 'list', items: [
@@ -110,7 +110,7 @@ export const content: ToolLocaleContent<PomodoroFlowUI> = {
       'Mapa de Calor Mensual: Veja os seus padrões de produtividade. Quais os dias em que o seu foco atinge o pico?',
     ] },
     { type: 'title', text: 'A Psicologia do "Estado de Flow"', level: 3 },
-    { type: 'paragraph', html: 'O psicólogo Mihaly Csikszentmihalyi define <strong>flow</strong> como o estado onde o desafio encontra a habilidade, e o tempo desaparece. O Pomodoro Flow remove distrações, define limites de tempo claros e dá-lhe feedback imediato — as três condições para o estado de flow.' },
+    { type: 'paragraph', html: 'O psicólogo Mihaly Csikszentmihalyi define <strong>flow</strong> como o estado onde o desafio encontra a habilidade, e o tempo desaparece. O Pomodoro Flow remove distrações, define limites de tempo claros e dá-lhe feedback imediato - as três condições para o estado de flow.' },
     { type: 'tip', html: '<strong>Pro Tip:</strong> Quando estiver em flow, não se interrompa. Se o temporizador tocar mas estiver a meio de um raciocínio, clique em retomar e continue. A beleza de acompanhar as interrupções é que verá a diferença entre o caos externo e o seu próprio impulso.' },
   ],
   faq: faqItems,

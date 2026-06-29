@@ -4,7 +4,7 @@ import type { LatexRendererUI } from '../types';
 
 const slug = 'latex-formula-renderer' as const;
 const title = 'LaTeX Formula Renderer';
-const description = 'Render LaTeX math expressions instantly in your browser. Type any formula and copy the result as a PNG image, a Markdown code block, or raw LaTeX source — no server needed.';
+const description = 'Render LaTeX math expressions instantly in your browser. Type any formula and copy the result as a PNG image, a Markdown code block, or raw LaTeX source - no server needed.';
 
 const faqItems = [
   { question: 'What is LaTeX and why do students use it?', answer: 'LaTeX is a typesetting language widely used in mathematics, physics, engineering, and economics for writing professional-quality equations. Unlike Word or Google Docs, LaTeX lets you write complex formulas like integrals, matrices, and Greek symbols with precise control over formatting.' },
@@ -77,7 +77,7 @@ export const content: ToolLocaleContent<LatexRendererUI> = {
   },
   seo: [
     { type: 'title', text: 'How to Write and Render Mathematical Formulas in Your Browser', level: 2 },
-    { type: 'paragraph', html: 'LaTeX is the standard for scientific and mathematical typesetting, used by universities, journals, and researchers worldwide. But most LaTeX environments require complex installations. This tool renders LaTeX formulas instantly in your browser using KaTeX — one of the fastest math rendering engines available — with zero setup.' },
+    { type: 'paragraph', html: 'LaTeX is the standard for scientific and mathematical typesetting, used by universities, journals, and researchers worldwide. But most LaTeX environments require complex installations. This tool renders LaTeX formulas instantly in your browser using KaTeX - one of the fastest math rendering engines available - with zero setup.' },
     { type: 'title', text: 'What is KaTeX and Why is it the Best Choice for Browser Rendering?', level: 3 },
     { type: 'paragraph', html: 'KaTeX is an open-source JavaScript library created by Khan Academy that renders LaTeX math expressions in the browser with remarkable speed and accuracy. Unlike alternatives that require server-side processing or produce inconsistent output across platforms, KaTeX renders entirely client-side, making it ideal for real-time interactive tools.' },
     { type: 'paragraph', html: 'KaTeX produces clean, accessible HTML and SVG output that scales perfectly at any size. Its output is indistinguishable from professionally typeset mathematics, covering thousands of LaTeX commands including integrals, summations, matrices, Greek letters, and custom operators.' },
@@ -92,7 +92,7 @@ export const content: ToolLocaleContent<LatexRendererUI> = {
     { type: 'paragraph', html: 'The most commonly used LaTeX commands include: <strong>\\frac{a}{b}</strong> for fractions, <strong>\\sqrt{x}</strong> for square roots, <strong>\\sum_{i=1}^{n}</strong> for summations, <strong>\\int_a^b</strong> for integrals, <strong>\\lim_{x \\to 0}</strong> for limits, and Greek letters such as <strong>\\alpha</strong>, <strong>\\beta</strong>, <strong>\\theta</strong>, and <strong>\\Omega</strong>. Superscripts use the caret (x^2) and subscripts use the underscore (x_i).' },
     { type: 'title', text: 'Block Mode vs Inline Mode: When to Use Each', level: 3 },
     { type: 'paragraph', html: 'Block mode (Display mode) centers the formula on its own line and renders it at a larger scale, which is the standard presentation for standalone equations in academic papers and textbooks. Inline mode shrinks the formula to fit within the current line of text, which is appropriate for embedding short expressions like variables or simple operations within a paragraph.' },
-    { type: 'tip', html: '<strong>Quick tip for debugging syntax errors:</strong> In LaTeX, every opening brace must have a matching closing brace. If the error message says "Expected \'}\' but got end of input", count the curly braces in your expression — you are likely missing a closing one.' },
+    { type: 'tip', html: '<strong>Quick tip for debugging syntax errors:</strong> In LaTeX, every opening brace must have a matching closing brace. If the error message says "Expected \'}\' but got end of input", count the curly braces in your expression - you are likely missing a closing one.' },
     { type: 'title', text: 'Exporting Formulas: PNG vs Markdown vs LaTeX Source', level: 3 },
     { type: 'paragraph', html: 'The PNG export uses the browser Canvas API to rasterize the SVG output from KaTeX at double resolution (2x scale), producing a crisp transparent-background image suitable for high-DPI displays and print. The Markdown export wraps your LaTeX expression in a fenced code block tagged as <strong>latex</strong>, which is rendered by platforms like GitHub, Jupyter, and most modern Markdown editors that support math extensions.' },
   ],

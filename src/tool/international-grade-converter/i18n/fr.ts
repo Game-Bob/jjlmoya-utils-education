@@ -107,7 +107,7 @@ export const content: ToolLocaleContent<InternationalGradeConverterUI> = {
     gradesIgnored: '{count} notes ignorées (hors plage)',
     bulkHelp: 'Collez votre relevé directement. Nous détectons les notes séparées par des espaces, virgules ou retours à la ligne.',
     copiedLabel: 'Copié !',
-    germanyExpl: 'Système inversé : 1,0 est la meilleure note, 4,0 est le minimum pour valider.',
+    germanyExpl: 'Système inversé: 1,0 est la meilleure note, 4,0 est le minimum pour valider.',
     spainExpl: 'Échelle standard 0-10. 5,0 est le minimum pour valider.',
     usaExpl: 'Échelle GPA de 0,0 à 4,0. Habituellement, 2,0 est le minimum pour valider.',
     ukExpl: 'Classification par pourcentage. 40% est le minimum pour valider.',
@@ -124,7 +124,7 @@ export const content: ToolLocaleContent<InternationalGradeConverterUI> = {
   },
   seo: [
     { type: 'title', text: 'Conversion de Notes de Précision pour la Mobilité Mondiale', level: 2 },
-    { type: 'paragraph', html: 'Que vous soyez un <strong>étudiant Erasmus+</strong> ou que vous postuliez pour un <strong>Master de l\'Ivy League</strong>, comprendre votre classement académique mondial est la première étape. Les notes varient énormément : alors qu\'un 10 en Espagne est parfait, en France c\'est juste un passage. Notre moteur clarifie ces différences.' },
+    { type: 'paragraph', html: 'Que vous soyez un <strong>étudiant Erasmus+</strong> ou que vous postuliez pour un <strong>Master de l\'Ivy League</strong>, comprendre votre classement académique mondial est la première étape. Les notes varient énormément: alors qu\'un 10 en Espagne est parfait, en France c\'est juste un passage. Notre moteur clarifie ces différences.' },
     { type: 'title', text: 'Pourquoi l\'exactitude compte dans la conversion GPA', level: 3 },
     { type: 'paragraph', html: 'Les comités d\'admission utilisent les GPA convertis pour filtrer des milliers de candidatures. Une légère erreur de calcul manuel pourrait vous coûter une bourse. Notre outil utilise des <strong>algorithmes de correspondance linéaire officiels</strong> utilisés par les grands bureaux d\'éducation internationale.' },
     { type: 'title', text: 'Systèmes Majeurs Supportés', level: 3 },

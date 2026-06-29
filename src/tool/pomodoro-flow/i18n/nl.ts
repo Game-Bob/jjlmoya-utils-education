@@ -94,12 +94,12 @@ export const content: ToolLocaleContent<PomodoroFlowUI> = {
   },
   seo: [
     { type: 'title', text: 'Beheers je Focus met Pomodoro Flow', level: 2 },
-    { type: 'paragraph', html: 'Productiviteit gaat niet over harder werken — het gaat over slimmer werken. <strong>Pomodoro Flow</strong> combineert de bewezen Pomodoro-techniek met een zen-gericht ontwerp en realtime analyses om je te helpen begrijpen <em>hoe</em> je het beste werkt.' },
+    { type: 'paragraph', html: 'Productiviteit gaat niet over harder werken - het gaat over slimmer werken. <strong>Pomodoro Flow</strong> combineert de bewezen Pomodoro-techniek met een zen-gericht ontwerp en realtime analyses om je te helpen begrijpen <em>hoe</em> je het beste werkt.' },
     { type: 'title', text: 'Waarom Pomodoro werkt', level: 3 },
     { type: 'paragraph', html: 'Mensen zijn niet gebouwd voor marathons van 8 uur hyperfocus. Onze hersenen werken het beste in cycli van gefocust werk gevolgd door herstellende pauzes. De Pomodoro-techniek verandert dit in een eenvoudig ritueel: werk intensief gedurende 25 minuten, pauzeer 5 minuten, herhaal.' },
     { type: 'paragraph', html: 'Maar elke taak is anders. Daarom biedt Pomodoro Flow drie cycli: <strong>Zaadje</strong> voor snelle taken (25/5), <strong>Boom</strong> voor je dagelijkse routine (50/10) en <strong>Berg</strong> voor diepe focussessies (90/15).' },
     { type: 'title', text: 'De Echte Kracht: Onderbrekingen Bijhouden', level: 3 },
-    { type: 'paragraph', html: 'Je werkt 50 minuten en denkt dat je het geweldig hebt gedaan. Maar ben je 5 keer afgeleid? Elke onderbreking kost je een "context-switching belasting". Pomodoro Flow houdt dit bij met een enkele knop (Afleidingsalarm) en berekent je <strong>Focus Score</strong> — een reële maatstaf voor je concentratie.' },
+    { type: 'paragraph', html: 'Je werkt 50 minuten en denkt dat je het geweldig hebt gedaan. Maar ben je 5 keer afgeleid? Elke onderbreking kost je een "context-switching belasting". Pomodoro Flow houdt dit bij met een enkele knop (Afleidingsalarm) en berekent je <strong>Focus Score</strong> - een reële maatstaf voor je concentratie.' },
     { type: 'paragraph', html: 'Na verloop van tijd zul je zien welke taken, tijdstippen of omgevingen je de beste focus geven. Dat is waar je werk met de hoogste impact plaatsvindt.' },
     { type: 'title', text: 'Functies die je niet in de weg zitten', level: 3 },
     { type: 'list', items: [
@@ -110,7 +110,7 @@ export const content: ToolLocaleContent<PomodoroFlowUI> = {
       'Maandelijkse Heatmap: Bekijk je productiviteitspatronen. Welke dagen zijn je piekdagen voor focus?',
     ] },
     { type: 'title', text: 'De Psychologie van de "Flow-staat"', level: 3 },
-    { type: 'paragraph', html: 'Psycholoog Mihaly Csikszentmihalyi definieert <strong>flow</strong> als de staat waarin uitdaging en vaardigheid samenkomen en de tijd verdwijnt. Pomodoro Flow verwijdert afleidingen, stelt duidelijke tijdgrenzen en geeft je onmiddellijke feedback — de drie voorwaarden voor de flow-staat.' },
+    { type: 'paragraph', html: 'Psycholoog Mihaly Csikszentmihalyi definieert <strong>flow</strong> als de staat waarin uitdaging en vaardigheid samenkomen en de tijd verdwijnt. Pomodoro Flow verwijdert afleidingen, stelt duidelijke tijdgrenzen en geeft je onmiddellijke feedback - de drie voorwaarden voor de flow-staat.' },
     { type: 'tip', html: '<strong>Pro-tip:</strong> Als je in flow bent, onderbreek jezelf dan niet. Als de timer afgaat maar je bent midden in een gedachte, klik dan op hervatten en ga door. Het mooie van het bijhouden van onderbrekingen is dat je het verschil zult zien tussen externe chaos en je eigen momentum.' },
   ],
   faq: faqItems,
