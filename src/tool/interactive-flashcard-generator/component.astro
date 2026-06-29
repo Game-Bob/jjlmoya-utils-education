@@ -305,6 +305,20 @@ const labels: InteractiveFlashcardGeneratorUI = {
     }
   }
 
+  function restartAnimation(className) {
+    activeCardEl.classList.remove(className);
+    void activeCardEl.offsetWidth;
+    activeCardEl.classList.add(className);
+  }
+
+  function animateCardFlip() {
+    restartAnimation('card-pulse');
+  }
+
+  function animateCardTravel(direction) {
+    restartAnimation(direction === 'prev' ? 'slide-prev' : 'slide-next');
+  }
+
   function render() {
     if (activeCardEl.classList.contains('flipped')) {
       activeCardEl.classList.remove('flipped');
@@ -331,6 +345,7 @@ const labels: InteractiveFlashcardGeneratorUI = {
 
   activeCardEl.addEventListener('click', () => {
     activeCardEl.classList.toggle('flipped');
+    animateCardFlip();
   });
 
   addCardBtn.addEventListener('click', () => {
@@ -350,17 +365,20 @@ const labels: InteractiveFlashcardGeneratorUI = {
       currentIndex = filteredDeck.findIndex(c => c.question === q && c.answer === a);
     }
     render();
+    animateCardFlip();
   });
 
   prevCardBtn.addEventListener('click', () => {
     if (filteredDeck.length === 0) return;
     currentIndex = (currentIndex - 1 + filteredDeck.length) % filteredDeck.length;
+    animateCardTravel('prev');
     render();
   });
 
   nextCardBtn.addEventListener('click', () => {
     if (filteredDeck.length === 0) return;
     currentIndex = (currentIndex + 1) % filteredDeck.length;
+    animateCardTravel('next');
     render();
   });
 
@@ -375,6 +393,7 @@ const labels: InteractiveFlashcardGeneratorUI = {
     updateFilteredDeck();
     currentIndex = (currentIndex + 1) % filteredDeck.length;
     render();
+    animateCardFlip();
   }
 
   scoreEasyBtn.addEventListener('click', () => rateCard('easy'));
@@ -479,11 +498,14 @@ const labels: InteractiveFlashcardGeneratorUI = {
     if (e.key === ' ' || e.key === 'ArrowUp' || e.key === 'ArrowDown') {
       e.preventDefault();
       activeCardEl.classList.toggle('flipped');
+      animateCardFlip();
     } else if (e.key === 'ArrowLeft') {
       currentIndex = (currentIndex - 1 + filteredDeck.length) % filteredDeck.length;
+      animateCardTravel('prev');
       render();
     } else if (e.key === 'ArrowRight') {
       currentIndex = (currentIndex + 1) % filteredDeck.length;
+      animateCardTravel('next');
       render();
     } else if (e.key === '1') {
       rateCard('easy');

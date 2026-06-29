@@ -9,13 +9,13 @@ const { labels } = Astro.props;
 ---
 
 <div class="category-manager-box">
-  <h3 class="creator-title">{labels.importExport || 'Categories'}</h3>
+  <h3 class="creator-title">{labels.importExport}</h3>
   
   <div class="category-creator-row">
     <input
       type="text"
       id="new-category-input"
-      placeholder="e.g., Exam 1"
+
       class="form-textarea category-input"
     />
     <button id="add-category-btn" class="primary-btn compact-btn">

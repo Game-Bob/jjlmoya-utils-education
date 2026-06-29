@@ -23,16 +23,16 @@ export interface HowToStep {
   text: string;
 }
 
-export interface ToolLocaleContent<TUI extends Record<string, string> = Record<string, string>> {
+export interface ToolLocaleContent<TUI extends Record<string, unknown> = Record<string, string>> {
   slug: string;
   title: string;
   description: string;
   ui: TUI;
-  seo: SEOSection[];
-  faq: FAQItem[];
-  bibliography: BibliographyEntry[];
-  howTo: HowToStep[];
-  schemas: WithContext<Thing>[];
+  seo: readonly SEOSection[];
+  faq: readonly FAQItem[];
+  bibliography: readonly BibliographyEntry[];
+  howTo: readonly HowToStep[];
+  schemas: readonly WithContext<Thing>[];
 }
 
 export interface CategoryLocaleContent {
@@ -46,7 +46,7 @@ export type LocaleLoader<T> = () => Promise<T>;
 
 export type LocaleMap<T> = Partial<Record<KnownLocale, LocaleLoader<T>>>;
 
-export interface EducationToolEntry<TUI extends Record<string, string> = Record<string, string>> {
+export interface EducationToolEntry<TUI extends Record<string, unknown> = Record<string, string>> {
   id: string;
   icons: {
     bg: string;

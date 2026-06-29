@@ -7,23 +7,23 @@ const { labels } = Astro.props;
 ---
 
 <div class="prompt-generator-box">
-  <h3 class="creator-title">{labels.aiPromptGenerator || 'AI Flashcard Assistant'}</h3>
+  <h3 class="creator-title">{labels.aiPromptGenerator}</h3>
   <div class="creator-form">
     <div class="form-field">
-      <label for="ai-topics-input">{labels.aiTopicsLabel || 'Enter your exam topics or notes'}</label>
+      <label for="ai-topics-input">{labels.aiTopicsLabel}</label>
       <textarea
         id="ai-topics-input"
-        placeholder={labels.aiTopicsPlaceholder || 'e.g., Math exam covering Derivatives, Integrals and Limits...'}
+        placeholder={labels.aiTopicsPlaceholder}
         rows="3"
         class="form-textarea"
       ></textarea>
     </div>
     <button id="generate-prompt-btn" class="primary-btn" disabled>
-      {labels.generatePromptBtn || 'Generate AI Prompt'}
+      {labels.generatePromptBtn}
     </button>
 
     <div id="generated-prompt-container" class="form-field" style="display: none;">
-      <label for="generated-prompt-output">{labels.aiPromptOutputLabel || 'Copy this prompt to ChatGPT/Gemini'}</label>
+      <label for="generated-prompt-output">{labels.aiPromptOutputLabel}</label>
       <textarea
         id="generated-prompt-output"
         readonly
@@ -31,7 +31,7 @@ const { labels } = Astro.props;
         class="form-textarea readonly-textarea"
       ></textarea>
       <button id="copy-prompt-btn" class="secondary-btn">
-        {labels.copyPromptBtn || 'Copy to Clipboard'}
+        {labels.copyPromptBtn}
       </button>
     </div>
   </div>

@@ -132,7 +132,7 @@ export const content: ToolLocaleContent<InteractiveFlashcardGeneratorUI> = {
     { type: 'title', text: 'Flexible Collaborative Studying: Selective Sharing and Merging', level: 3 },
     { type: 'paragraph', html: 'Studying in groups is more productive when you divide and conquer. Our deck manager lets you export only the categories you choose. When a classmate imports your file, the system dynamically <strong>merges</strong> the new categories and cards with their existing local deck instead of overwriting their data, preventing any loss of study history.' },
     { type: 'title', text: 'Summary of Best Practices', level: 3 },
-    { type: 'summary', items: [
+    { type: 'summary', title: 'Summary of Best Practices', items: [
       'Create custom categories to organize study decks for specific exams or modules.',
       'Review your cards daily or weekly, marking them accurately as Easy, Medium, or Hard.',
       'Export and backup your decks regularly to avoid losing progress.',
