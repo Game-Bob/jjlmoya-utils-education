@@ -6,8 +6,8 @@ export const bibliography: BibliographyEntry[] = [
     url: 'https://studentaid.gov',
   },
   {
-    name: 'Consumer Financial Protection Bureau - Student loans',
-    url: 'https://www.consumerfinance.gov/consumer-tools/student-loans/',
+    name: '¿Cuánto cuesta estudiar una carrera en España?',
+    url: 'https://www.bankinter.com/blog/finanzas-personales/cuanto-cuesta-carrera-espana',
   },
   {
     name: 'Investopedia - Amortization Schedule',
