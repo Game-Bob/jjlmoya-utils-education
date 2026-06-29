@@ -1,0 +1,46 @@
+---
+import type { InteractiveFlashcardGeneratorUI } from '../index';
+
+interface Props {
+  labels: Partial<InteractiveFlashcardGeneratorUI>;
+}
+
+const { labels } = Astro.props;
+---
+
+<div class="flashcard-viewer-box">
+  <div class="viewer-header">
+    <h3 class="viewer-title">{labels.reviewMode}</h3>
+    <span id="card-progress-indicator" class="progress-indicator">0 / 0</span>
+  </div>
+
+  <div class="deck-progress-bar-container">
+    <div id="deck-progress-fill" class="deck-progress-fill"></div>
+  </div>
+
+  <div class="card-scene">
+    <div id="active-flashcard" class="flashcard-inner">
+      <div class="card-side card-front">
+        <div class="card-side-label">{labels.questionLabel}</div>
+        <div id="card-front-content" class="card-text-content"></div>
+        <div class="card-hint-text">{labels.flipCard}</div>
+      </div>
+      <div class="card-side card-back">
+        <div class="card-side-label">{labels.answerLabel}</div>
+        <div id="card-back-content" class="card-text-content"></div>
+        <div class="card-hint-text">{labels.flipCard}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="deck-navigation">
+    <button id="prev-card-btn" class="nav-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      <span>{labels.prevCard}</span>
+    </button>
+    <button id="next-card-btn" class="nav-btn">
+      <span>{labels.nextCard}</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+    </button>
+  </div>
+</div>

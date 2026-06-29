@@ -1,0 +1,40 @@
+---
+import type { InteractiveFlashcardGeneratorUI } from '../index';
+
+interface Props {
+  labels: Partial<InteractiveFlashcardGeneratorUI>;
+}
+
+const { labels } = Astro.props;
+---
+
+<div class="flashcard-creator-box">
+  <h3 class="creator-title">{labels.cardCreator}</h3>
+  <div class="creator-form">
+    <div class="form-field">
+      <label for="card-category-select">Category</label>
+      <select id="card-category-select" class="form-textarea select-control"></select>
+    </div>
+    <div class="form-field">
+      <label for="card-question-input">{labels.questionLabel}</label>
+      <textarea
+        id="card-question-input"
+        placeholder={labels.questionPlaceholder}
+        rows="3"
+        class="form-textarea"
+      ></textarea>
+    </div>
+    <div class="form-field">
+      <label for="card-answer-input">{labels.answerLabel}</label>
+      <textarea
+        id="card-answer-input"
+        placeholder={labels.answerPlaceholder}
+        rows="3"
+        class="form-textarea"
+      ></textarea>
+    </div>
+    <button id="add-card-btn" class="primary-btn">
+      {labels.addCard}
+    </button>
+  </div>
+</div>

@@ -8,6 +8,7 @@ export { internationalGradeConverter, INTERNATIONAL_GRADE_CONVERTER_TOOL } from 
 export { examCountdownSessionPredictor, EXAM_COUNTDOWN_SESSION_PREDICTOR_TOOL } from './tool/exam-countdown-session-predictor';
 export { universityFinanceSimulator, UNIVERSITY_FINANCE_SIMULATOR_TOOL } from './tool/university-finance-simulator';
 export { curriculumProgressTracker, CURRICULUM_PROGRESS_TRACKER_TOOL } from './tool/curriculum-progress-tracker';
+export { interactiveFlashcardGenerator, INTERACTIVE_FLASHCARD_GENERATOR_TOOL } from './tool/interactive-flashcard-generator';
 
 
 export type {

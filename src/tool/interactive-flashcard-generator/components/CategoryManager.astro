@@ -1,0 +1,46 @@
+---
+import type { InteractiveFlashcardGeneratorUI } from '../index';
+
+interface Props {
+  labels: Partial<InteractiveFlashcardGeneratorUI>;
+}
+
+const { labels } = Astro.props;
+---
+
+<div class="category-manager-box">
+  <h3 class="creator-title">{labels.importExport || 'Categories'}</h3>
+  
+  <div class="category-creator-row">
+    <input
+      type="text"
+      id="new-category-input"
+      placeholder="e.g., Exam 1"
+      class="form-textarea category-input"
+    />
+    <button id="add-category-btn" class="primary-btn compact-btn">
+      +
+    </button>
+  </div>
+
+  <div class="category-list-container">
+    <div class="category-list-header">
+      <label class="checkbox-label">
+        <input type="checkbox" id="select-all-categories" checked />
+        <span>{labels.selectAll}</span>
+      </label>
+    </div>
+    <div id="categories-checkboxes-list" class="categories-checkboxes-list"></div>
+  </div>
+
+  <div id="delete-confirm-modal" class="modal-backdrop" style="display: none;">
+    <div class="modal-content">
+      <h4 class="modal-title">{labels.deleteCategory}</h4>
+      <p class="modal-body" id="delete-modal-message">{labels.deleteConfirmMsg}</p>
+      <div class="modal-actions">
+        <button id="delete-modal-cancel" class="secondary-btn">{labels.cancel}</button>
+        <button id="delete-modal-confirm" class="eval-btn score-hard">{labels.delete}</button>
+      </div>
+    </div>
+  </div>
+</div>

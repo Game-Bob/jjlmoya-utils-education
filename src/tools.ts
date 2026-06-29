@@ -9,6 +9,7 @@ import { EXAM_COUNTDOWN_SESSION_PREDICTOR_TOOL } from './tool/exam-countdown-ses
 import { LATEX_FORMULA_RENDERER_TOOL } from './tool/latex-formula-renderer';
 import { UNIVERSITY_FINANCE_SIMULATOR_TOOL } from './tool/university-finance-simulator';
 import { CURRICULUM_PROGRESS_TRACKER_TOOL } from './tool/curriculum-progress-tracker';
+import { INTERACTIVE_FLASHCARD_GENERATOR_TOOL } from './tool/interactive-flashcard-generator';
 
 export const ALL_TOOLS: ToolDefinition[] = [
   WEIGHTED_GRADE_CALCULATOR_TOOL,
@@ -20,5 +21,6 @@ export const ALL_TOOLS: ToolDefinition[] = [
   LATEX_FORMULA_RENDERER_TOOL,
   UNIVERSITY_FINANCE_SIMULATOR_TOOL,
   CURRICULUM_PROGRESS_TRACKER_TOOL,
+  INTERACTIVE_FLASHCARD_GENERATOR_TOOL,
 ];
 
