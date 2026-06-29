@@ -2,7 +2,7 @@ import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { InteractiveFlashcardGeneratorUI } from '../index';
 
-const slug = 'interactive-flashcard-generator' as const;
+const slug = 'pembuat-flashcard-interaktif' as const;
 const title = 'Pembuat Flashcard Interaktif & Dek Belajar';
 const description = 'Tingkatkan sesi belajar Anda dengan active recall dan spaced repetition. Buat kartu khusus, pelajari dengan efek putar 3D, dan ekspor/impor dek.';
 

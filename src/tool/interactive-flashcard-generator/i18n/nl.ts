@@ -2,7 +2,7 @@ import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { InteractiveFlashcardGeneratorUI } from '../index';
 
-const slug = 'interactive-flashcard-generator' as const;
+const slug = 'interactieve-flashcard-generator' as const;
 const title = 'Interactieve Flashcards Generator & Studiedeck';
 const description = 'Verbeter uw studiesessies met actieve herinnering en gespreide herhaling. Maak aangepaste flashcards, studeer met 3D-kaartflips en exporteer/importeer decks.';
 

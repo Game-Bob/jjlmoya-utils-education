@@ -2,8 +2,8 @@ import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { InteractiveFlashcardGeneratorUI } from '../index';
 
-const slug = 'interactive-flashcard-generator' as const;
-const title = 'Interaktiver Flashcard-Generator & Lerndeck';
+const slug = 'interaktywny-generator-fiszek' as const;
+const title = 'Interaktywny generator fiszek i talii nauki';
 const description = 'Usprawnij swoje sesje nauki dzięki aktywnemu przywoływaniu i powtórkom rozłożonym w czasie. Twórz własne fiszki, ucz się z obracaniem kart 3D i eksportuj/importuj talie.';
 
 const faqItems = [

@@ -19,6 +19,15 @@ const { labels } = Astro.props;
   </div>
 
   <div class="card-scene">
+    <div class="flashcard-overlay">
+      <div class="flashcard-hud">
+        <div class="flashcard-progress-chip">
+          <span id="flashcard-progress-percent" class="flashcard-progress-percent">0%</span>
+          <span class="flashcard-progress-label">mastered</span>
+        </div>
+        <div id="flashcard-streak-chip" class="flashcard-streak-chip" data-active="false">x0 streak</div>
+      </div>
+    </div>
     <div id="active-flashcard" class="flashcard-inner">
       <div class="card-side card-front">
         <div class="card-side-label">{labels.questionLabel}</div>

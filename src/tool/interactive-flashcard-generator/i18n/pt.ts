@@ -2,7 +2,7 @@ import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { InteractiveFlashcardGeneratorUI } from '../index';
 
-const slug = 'interactive-flashcard-generator' as const;
+const slug = 'gerador-interativo-de-flashcards' as const;
 const title = 'Gerador de Flashcards Interativo e Cartões de Estudo';
 const description = 'Melhore as suas sessões de estudo com lembrança ativa e repetição espaçada. Crie flashcards personalizados, estude com rotação 3D, avalie a dificuldade e exporte/importe baralhos.';
 

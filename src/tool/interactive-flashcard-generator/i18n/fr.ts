@@ -1,8 +1,8 @@
-import { bibliography } from '../bibliography';
+﻿import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { InteractiveFlashcardGeneratorUI } from '../index';
 
-const slug = 'interactive-flashcard-generator' as const;
+const slug = 'generateur-interactif-de-flashcards' as const;
 const title = 'Générateur de Flashcards Interactif & Deck d\'Étude';
 const description = 'Optimisez votre apprentissage grâce au rappel actif et à la répétition espacée. Créez des cartes personnalisées, étudiez avec des retournements 3D, notez la difficulté et exportez/importez vos decks.';
 
@@ -103,20 +103,24 @@ export const content: ToolLocaleContent<InteractiveFlashcardGeneratorUI> = {
     { type: 'paragraph', html: 'Les flashcards sont largement reconnues comme l\'un des outils les plus efficaces pour la mémorisation et la rétention à long terme. En combinant la récupération active avec une évaluation structurée, vous pouvez cibler vos lacunes et réviser de manière optimale.' },
     { type: 'title', text: 'Rappel actif vs. Apprentissage passif', level: 3 },
     { type: 'paragraph', html: 'De nombreux étudiants se limitent à relire leurs cours ou surligner des textes. Cependant, la science cognitive démontre que la véritable mémorisation s\'effectue lorsque le cerveau fait l\'effort de récupérer l\'information.' },
-    { type: 'table', headers: ['Méthode d\'Étude', 'Engagement Cognitif', 'Taux de Rétention', 'Idéal pour'], rows: [
-      ['Flashcards Interactives', 'Élevé (Rappel Actif)', 'Excellent', 'Vocabulaire, formules, concepts clés, dates.'],
-      ['Résumer le cours', 'Moyen (Synthèse)', 'Modéré', 'Compréhension globale des concepts et arguments.'],
-      ['Relire ses notes', 'Faible (Révision Passive)', 'Médiocre', 'Premier contact avec de nouvelles matières.'],
-    ] },
+    {
+      type: 'table', headers: ['Méthode d\'Étude', 'Engagement Cognitif', 'Taux de Rétention', 'Idéal pour'], rows: [
+        ['Flashcards Interactives', 'Élevé (Rappel Actif)', 'Excellent', 'Vocabulaire, formules, concepts clés, dates.'],
+        ['Résumer le cours', 'Moyen (Synthèse)', 'Modéré', 'Compréhension globale des concepts et arguments.'],
+        ['Relire ses notes', 'Faible (Révision Passive)', 'Médiocre', 'Premier contact avec de nouvelles matières.'],
+      ]
+    },
     { type: 'title', text: 'Avantages et limites de l\'apprentissage par flashcards', level: 3 },
-    { type: 'proscons', title: 'Comparatif des bénéfices et limitations', items: [
-      { pro: 'Force la récupération mentale active plutôt que la simple reconnaissance.', con: 'Peut être long à créer initialement.' },
-      { pro: 'Met en évidence immédiatement les lacunes de connaissances.', con: 'Moins adapté pour la compréhension de théories extrêmement complexes.' },
-      { pro: 'Très flexible et personnalisable pour tout sujet d\'examen.', con: 'Nécessite de la régularité pour bénéficier de la répétition espacée.' }
-    ] },
+    {
+      type: 'proscons', title: 'Comparatif des bénéfices et limitations', items: [
+        { pro: 'Force la récupération mentale active plutôt que la simple reconnaissance.', con: 'Peut être long à créer initialement.' },
+        { pro: 'Met en évidence immédiatement les lacunes de connaissances.', con: 'Moins adapté pour la compréhension de théories extrêmement complexes.' },
+        { pro: 'Très flexible et personnalisable pour tout sujet d\'examen.', con: 'Nécessite de la régularité pour bénéficier de la répétition espacée.' }
+      ]
+    },
     { type: 'title', text: 'Création de flashcards par Intelligence Artificielle', level: 3 },
     { type: 'paragraph', html: 'Créer manuellement vos decks peut être laborieux. Notre <strong>Assistant Flashcards IA</strong> vous permet de convertir instantanément vos notes de cours en paquets prêts à être importés. Saisissez vos sujets, générez le prompt et utilisez-le sur le modèle d\'IA de votre choix (ChatGPT, Gemini, Claude) pour recevoir la structure JSON adéquate.' },
-    { type: 'title', text: 'Partage collaboratif : Exportation sélective et fusion', level: 3 },
+    { type: 'title', text: 'Partage collaboratif: exportation sélective et fusion', level: 3 },
     { type: 'paragraph', html: 'Réviser en groupe permet de diviser la charge de travail. Notre gestionnaire vous permet de n\'exporter que certaines catégories. Lors de l\'importation par un camarade, le système <strong>fusionne</strong> dynamiquement les nouvelles cartes sans écraser ses données existantes, protégeant ainsi son historique.' }
   ],
   faq: faqItems,

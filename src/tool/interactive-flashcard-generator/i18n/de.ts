@@ -2,8 +2,8 @@ import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { InteractiveFlashcardGeneratorUI } from '../index';
 
-const slug = 'interactive-flashcard-generator' as const;
-const title = 'Interaktiver Flashcard-Generator & Lerndeck';
+const slug = 'interaktiver-flashcard-generator-lerndeck' as const;
+const title = 'Interaktiver Flashcard Generator und Lerndeck';
 const description = 'Steigern Sie Ihre Lernsitzungen mit aktivem Abrufen und verteilter Wiederholung. Erstellen Sie personalisierte Karteikarten, lernen Sie mit 3D-Kartenwendungen, bewerten Sie die Schwierigkeit und exportieren/importieren Sie Decks.';
 
 const faqItems = [

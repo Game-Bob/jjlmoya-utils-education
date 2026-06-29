@@ -2,8 +2,8 @@ import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { InteractiveFlashcardGeneratorUI } from '../index';
 
-const slug = 'interactive-flashcard-generator' as const;
-const title = 'Interaktiv Flashcard Generator & Studie-deck';
+const slug = 'interaktiv-flashcard-generator-studiekort' as const;
+const title = 'Interaktiv Flashcard Generator och studiekort';
 const description = 'Förbättra dina studier med aktivt minne och spridda repetitioner. Skapa anpassade flashcards, studera med 3D-kortvändningar och exportera/importera däck.';
 
 const faqItems = [

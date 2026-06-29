@@ -2,7 +2,7 @@ import { bibliography } from '../bibliography';
 import type { ToolLocaleContent } from '../../../types';
 import type { InteractiveFlashcardGeneratorUI } from '../index';
 
-const slug = 'interactive-flashcard-generator' as const;
+const slug = 'etkilesimli-flashcard-olusturucu' as const;
 const title = 'İnteraktif Flashcard Oluşturucu & Çalışma Destesi';
 const description = 'Aktif hatırlama ve aralıklı tekrarlama ile çalışma seanslarınızı geliştirin. Özel bilgi kartları oluşturun, 3D kart döndürme ile çalışın ve desteleri dışa/içe aktarın.';
 
