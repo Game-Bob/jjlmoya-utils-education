@@ -6,6 +6,7 @@ export { citationGenerator, CITATION_GENERATOR_TOOL } from './tool/citation-gene
 export { pomodoroFlow, POMODORO_FLOW_TOOL } from './tool/pomodoro-flow';
 export { internationalGradeConverter, INTERNATIONAL_GRADE_CONVERTER_TOOL } from './tool/international-grade-converter';
 export { examCountdownSessionPredictor, EXAM_COUNTDOWN_SESSION_PREDICTOR_TOOL } from './tool/exam-countdown-session-predictor';
+export { universityFinanceSimulator, UNIVERSITY_FINANCE_SIMULATOR_TOOL } from './tool/university-finance-simulator';
 
 
 export type {
@@ -23,4 +24,3 @@ export type {
 } from './types';
 
 export { ALL_ENTRIES, ALL_TOOLS } from './tools';
-

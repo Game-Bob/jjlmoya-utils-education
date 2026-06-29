@@ -5,6 +5,7 @@ import { pomodoroFlow } from '../tool/pomodoro-flow/entry';
 import { internationalGradeConverter } from '../tool/international-grade-converter/entry';
 import { transcriptGPAParser } from '../tool/transcript-gpa-parser/entry';
 import { examCountdownSessionPredictor } from '../tool/exam-countdown-session-predictor/entry';
+import { universityFinanceSimulator } from '../tool/university-finance-simulator/entry';
 
 export const educationCategory: EducationCategoryEntry = {
   icon: 'mdi:school',
@@ -15,6 +16,7 @@ export const educationCategory: EducationCategoryEntry = {
     internationalGradeConverter,
     transcriptGPAParser,
     examCountdownSessionPredictor,
+    universityFinanceSimulator,
   ],
   i18n: {
     en: () => import('./i18n/en').then((m) => m.content),

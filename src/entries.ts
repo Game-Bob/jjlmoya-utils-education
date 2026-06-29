@@ -12,6 +12,8 @@ export { examCountdownSessionPredictor } from './tool/exam-countdown-session-pre
 export type { ExamCountdownSessionPredictorUI, ExamCountdownSessionPredictorLocaleContent } from './tool/exam-countdown-session-predictor/entry';
 export { latexFormulaRenderer } from './tool/latex-formula-renderer/entry';
 export type { LatexRendererUI, LatexFormulaRendererLocaleContent } from './tool/latex-formula-renderer/entry';
+export { universityFinanceSimulator } from './tool/university-finance-simulator/entry';
+export type { UniversityFinanceSimulatorUI, UniversityFinanceSimulatorLocaleContent } from './tool/university-finance-simulator/entry';
 export { educationCategory } from './category';
 import { citationGenerator } from './tool/citation-generator/entry';
 import { weightedGradeCalculator } from './tool/weighted-grade-calculator/entry';
@@ -20,5 +22,5 @@ import { internationalGradeConverter } from './tool/international-grade-converte
 import { transcriptGPAParser } from './tool/transcript-gpa-parser/entry';
 import { examCountdownSessionPredictor } from './tool/exam-countdown-session-predictor/entry';
 import { latexFormulaRenderer } from './tool/latex-formula-renderer/entry';
-export const ALL_ENTRIES = [citationGenerator, weightedGradeCalculator, pomodoroFlow, internationalGradeConverter, transcriptGPAParser, examCountdownSessionPredictor, latexFormulaRenderer];
-
+import { universityFinanceSimulator } from './tool/university-finance-simulator/entry';
+export const ALL_ENTRIES = [citationGenerator, weightedGradeCalculator, pomodoroFlow, internationalGradeConverter, transcriptGPAParser, examCountdownSessionPredictor, latexFormulaRenderer, universityFinanceSimulator];

@@ -1,0 +1,237 @@
+---
+import type { UniversityFinanceSimulatorUI } from './index';
+import { DEFAULT_FINANCE_SCENARIO } from './logic';
+import './university-finance-simulator.css';
+
+interface Props {
+  ui?: Partial<UniversityFinanceSimulatorUI>;
+}
+
+const { ui = {} } = Astro.props;
+const labels = {
+  currency: ui.currency || 'Currency',
+  usdSymbol: ui.usdSymbol || '$',
+  eurSymbol: ui.eurSymbol || 'EUR',
+  gbpSymbol: ui.gbpSymbol || 'GBP',
+  jpySymbol: ui.jpySymbol || 'JPY',
+  rubSymbol: ui.rubSymbol || 'RUB',
+  inrSymbol: ui.inrSymbol || 'INR',
+  cnySymbol: ui.cnySymbol || 'CNY',
+  krwSymbol: ui.krwSymbol || 'KRW',
+  brlSymbol: ui.brlSymbol || 'R$',
+  mxnSymbol: ui.mxnSymbol || '$',
+  chfSymbol: ui.chfSymbol || 'CHF',
+  usd: ui.usd || 'USD',
+  eur: ui.eur || 'EUR',
+  gbp: ui.gbp || 'GBP',
+  jpy: ui.jpy || 'JPY',
+  rub: ui.rub || 'RUB',
+  inr: ui.inr || 'INR',
+  cny: ui.cny || 'CNY',
+  krw: ui.krw || 'KRW',
+  brl: ui.brl || 'BRL',
+  mxn: ui.mxn || 'MXN',
+  chf: ui.chf || 'CHF',
+  annualTuition: ui.annualTuition || 'Annual tuition',
+  monthlyLivingCost: ui.monthlyLivingCost || 'Monthly living cost',
+  studyYears: ui.studyYears || 'Study years',
+  studyMonthsPerYear: ui.studyMonthsPerYear || 'Months of living costs per year',
+  scholarshipPerYear: ui.scholarshipPerYear || 'Scholarship per year',
+  upfrontContribution: ui.upfrontContribution || 'Upfront contribution',
+  aprPercent: ui.aprPercent || 'APR',
+  repaymentYears: ui.repaymentYears || 'Repayment years',
+  quickProfiles: ui.quickProfiles || 'Quick profiles',
+  commuterProfile: ui.commuterProfile || 'Commuter',
+  balancedProfile: ui.balancedProfile || 'Balanced',
+  campusProfile: ui.campusProfile || 'Campus living',
+  stickerCost: ui.stickerCost || 'Full study cost',
+  borrowedPrincipal: ui.borrowedPrincipal || 'Borrowed principal',
+  monthlyPayment: ui.monthlyPayment || 'Estimated monthly payment',
+  totalInterest: ui.totalInterest || 'Total interest',
+  projectionTitle: ui.projectionTitle || 'Debt projection',
+  scheduleTitle: ui.scheduleTitle || 'Monthly amortization schedule',
+  chartBalance: ui.chartBalance || 'Remaining balance',
+  chartPaid: ui.chartPaid || 'Total paid',
+  chartInterest: ui.chartInterest || 'Interest paid',
+  openSchedule: ui.openSchedule || 'Open schedule',
+  closeSchedule: ui.closeSchedule || 'Close schedule',
+  monthColumn: ui.monthColumn || 'Month',
+  paymentColumn: ui.paymentColumn || 'Payment',
+  principalColumn: ui.principalColumn || 'Principal',
+  interestColumn: ui.interestColumn || 'Interest',
+  balanceColumn: ui.balanceColumn || 'Balance',
+  timelineLabel: ui.timelineLabel || 'Debt-free timeline',
+  affordabilityHint:
+    ui.affordabilityHint ||
+    'Keep your projected monthly payment in line with your likely first-year take-home pay, not only your current student budget.',
+  debtFreeLabel: ui.debtFreeLabel || 'Debt-free after',
+  scholarshipShare: ui.scholarshipShare || 'Scholarship coverage',
+  livingShare: ui.livingShare || 'Living-cost share',
+  degreeCostLabel: ui.degreeCostLabel || 'Tuition share',
+  blendedCost: ui.blendedCost || 'Average yearly cost',
+  totalPaid: ui.totalPaid || 'Total repaid',
+  averageYearlyCost: ui.averageYearlyCost || 'Average cost per year',
+  plannerLabel: ui.plannerLabel || 'Cost planner',
+  resultsLabel: ui.resultsLabel || 'Funding outlook',
+  assumptionsLabel: ui.assumptionsLabel || 'Loan assumptions',
+  scheduleHint:
+    ui.scheduleHint ||
+    'Month-by-month detail of how each payment is split between principal and interest.',
+  noDebtNeeded: ui.noDebtNeeded || 'No debt needed with the current setup',
+  exactAmount: ui.exactAmount || 'Exact amount',
+  monthWord: ui.monthWord || 'Month',
+  paymentWord: ui.paymentWord || 'payment',
+  principalWord: ui.principalWord || 'principal',
+  interestWord: ui.interestWord || 'interest',
+  remainingWord: ui.remainingWord || 'remaining',
+  perMonthSuffix: ui.perMonthSuffix || '/mo.',
+  yearsSuffix: ui.yearsSuffix || 'years',
+  monthsSuffix: ui.monthsSuffix || 'months',
+  axisStart: ui.axisStart || '0',
+  rowMetaSeparator: ui.rowMetaSeparator || '.',
+};
+---
+
+<div class="university-finance-simulator" id="ufs-root" data-labels={JSON.stringify(labels)}>
+  <section class="ufs-surface">
+    <div class="ufs-grid">
+      <aside class="ufs-column ufs-column-left">
+        <div class="ufs-meta-row">
+          <div>
+            <p class="ufs-kicker">{labels.plannerLabel}</p>
+            <h2 class="ufs-heading">{labels.quickProfiles}</h2>
+          </div>
+
+          <label class="ufs-currency-picker">
+            <span class="ufs-label">{labels.currency}</span>
+            <select class="ufs-select" data-currency-select>
+              <option value="USD">{labels.usdSymbol}</option>
+              <option value="EUR">{labels.eurSymbol}</option>
+              <option value="GBP">{labels.gbpSymbol}</option>
+              <option value="JPY">{labels.jpySymbol}</option>
+              <option value="RUB">{labels.rubSymbol}</option>
+              <option value="INR">{labels.inrSymbol}</option>
+              <option value="CNY">{labels.cnySymbol}</option>
+              <option value="KRW">{labels.krwSymbol}</option>
+              <option value="BRL">{labels.brlSymbol}</option>
+              <option value="MXN">{labels.mxnSymbol}</option>
+              <option value="CHF">{labels.chfSymbol}</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="ufs-profile-strip">
+          <button class="ufs-profile-btn is-active" type="button" data-profile="commuter">{labels.commuterProfile}</button>
+          <button class="ufs-profile-btn" type="button" data-profile="balanced">{labels.balancedProfile}</button>
+          <button class="ufs-profile-btn" type="button" data-profile="campus">{labels.campusProfile}</button>
+        </div>
+
+        <div class="ufs-control-section">
+          <div class="ufs-control-block">
+            <p class="ufs-label">{labels.plannerLabel}</p>
+            <label class="ufs-slider"><div class="ufs-slider-head"><span class="ufs-slider-label">{labels.annualTuition}</span><span class="ufs-slider-value" data-output="annualTuition"></span></div><input class="ufs-range" data-field="annualTuition" type="range" min="2000" max="40000" step="500" value={DEFAULT_FINANCE_SCENARIO.annualTuition} /></label>
+            <label class="ufs-slider"><div class="ufs-slider-head"><span class="ufs-slider-label">{labels.monthlyLivingCost}</span><span class="ufs-slider-value" data-output="monthlyLivingCost"></span></div><input class="ufs-range" data-field="monthlyLivingCost" type="range" min="150" max="2500" step="25" value={DEFAULT_FINANCE_SCENARIO.monthlyLivingCost} /></label>
+            <label class="ufs-slider"><div class="ufs-slider-head"><span class="ufs-slider-label">{labels.studyYears}</span><span class="ufs-slider-value" data-output="studyYears"></span></div><input class="ufs-range" data-field="studyYears" type="range" min="1" max="8" step="1" value={DEFAULT_FINANCE_SCENARIO.studyYears} /></label>
+            <label class="ufs-slider"><div class="ufs-slider-head"><span class="ufs-slider-label">{labels.studyMonthsPerYear}</span><span class="ufs-slider-value" data-output="studyMonthsPerYear"></span></div><input class="ufs-range" data-field="studyMonthsPerYear" type="range" min="6" max="12" step="1" value={DEFAULT_FINANCE_SCENARIO.studyMonthsPerYear} /></label>
+          </div>
+
+          <div class="ufs-control-block">
+            <p class="ufs-label">{labels.assumptionsLabel}</p>
+            <label class="ufs-slider"><div class="ufs-slider-head"><span class="ufs-slider-label">{labels.scholarshipPerYear}</span><span class="ufs-slider-value" data-output="scholarshipPerYear"></span></div><input class="ufs-range" data-field="scholarshipPerYear" type="range" min="0" max="20000" step="250" value={DEFAULT_FINANCE_SCENARIO.scholarshipPerYear} /></label>
+            <label class="ufs-slider"><div class="ufs-slider-head"><span class="ufs-slider-label">{labels.upfrontContribution}</span><span class="ufs-slider-value" data-output="upfrontContribution"></span></div><input class="ufs-range" data-field="upfrontContribution" type="range" min="0" max="50000" step="500" value={DEFAULT_FINANCE_SCENARIO.upfrontContribution} /></label>
+            <label class="ufs-slider"><div class="ufs-slider-head"><span class="ufs-slider-label">{labels.aprPercent}</span><span class="ufs-slider-value" data-output="aprPercent"></span></div><input class="ufs-range" data-field="aprPercent" type="range" min="0" max="15" step="0.1" value={DEFAULT_FINANCE_SCENARIO.aprPercent} /></label>
+            <label class="ufs-slider"><div class="ufs-slider-head"><span class="ufs-slider-label">{labels.repaymentYears}</span><span class="ufs-slider-value" data-output="repaymentYears"></span></div><input class="ufs-range" data-field="repaymentYears" type="range" min="1" max="20" step="1" value={DEFAULT_FINANCE_SCENARIO.repaymentYears} /></label>
+          </div>
+        </div>
+      </aside>
+
+      <main class="ufs-column ufs-column-right">
+        <header class="ufs-result-head">
+          <div>
+            <p class="ufs-kicker">{labels.resultsLabel}</p>
+            <h3 class="ufs-heading">{labels.timelineLabel}</h3>
+          </div>
+          <div class="ufs-payoff-note"><span>{labels.debtFreeLabel}</span><strong data-stat="payoffTimeline"></strong></div>
+        </header>
+
+        <section class="ufs-hero-line">
+          <div class="ufs-big-metric"><span class="ufs-label">{labels.borrowedPrincipal}</span><strong data-stat="principalBorrowed" class="ufs-mega-number"></strong></div>
+          <div class="ufs-big-metric"><span class="ufs-label">{labels.monthlyPayment}</span><strong data-stat="monthlyPayment" class="ufs-mega-number"></strong></div>
+        </section>
+
+        <section class="ufs-summary-rail">
+          <article class="ufs-summary-item"><span class="ufs-label">{labels.stickerCost}</span><strong data-stat="stickerCost"></strong></article>
+          <article class="ufs-summary-item"><span class="ufs-label">{labels.totalInterest}</span><strong data-stat="totalInterest"></strong></article>
+          <article class="ufs-summary-item"><span class="ufs-label">{labels.totalPaid}</span><strong data-stat="totalPaid"></strong></article>
+          <article class="ufs-summary-item"><span class="ufs-label">{labels.averageYearlyCost}</span><strong data-stat="averageYearlyCost"></strong></article>
+        </section>
+
+        <section class="ufs-share-grid">
+          <div class="ufs-share-item"><div class="ufs-share-top"><span>{labels.scholarshipShare}</span><strong data-meter-label="scholarshipShare">0%</strong></div><div class="ufs-meter-track"><div class="ufs-meter-fill" data-meter="scholarshipShare"></div></div></div>
+          <div class="ufs-share-item"><div class="ufs-share-top"><span>{labels.livingShare}</span><strong data-meter-label="livingShare">0%</strong></div><div class="ufs-meter-track"><div class="ufs-meter-fill" data-meter="livingShare"></div></div></div>
+          <div class="ufs-share-item"><div class="ufs-share-top"><span>{labels.degreeCostLabel}</span><strong data-meter-label="degreeCostShare">0%</strong></div><div class="ufs-meter-track"><div class="ufs-meter-fill" data-meter="degreeCostShare"></div></div></div>
+        </section>
+
+        <p class="ufs-affordability" data-stat="affordability">{labels.affordabilityHint}</p>
+
+        <section class="ufs-chart-stage">
+          <div class="ufs-chart-header">
+            <div>
+              <p class="ufs-kicker">{labels.projectionTitle}</p>
+              <h3 class="ufs-chart-title">{labels.debtFreeLabel}</h3>
+            </div>
+            <div class="ufs-chart-legend">
+              <span><i class="is-balance"></i>{labels.chartBalance}</span>
+              <span><i class="is-paid"></i>{labels.chartPaid}</span>
+              <span><i class="is-interest"></i>{labels.chartInterest}</span>
+            </div>
+          </div>
+
+          <div class="ufs-chart-wrap">
+            <button type="button" class="ufs-chart-trigger" data-action="toggle-schedule" aria-expanded="false">
+              <span class="ufs-chart-trigger-icon" aria-hidden="true"></span>
+              {labels.openSchedule}
+            </button>
+            <svg class="ufs-chart" viewBox="0 0 760 360" preserveAspectRatio="none" aria-hidden="true">
+              <g data-chart-grid></g>
+              <path data-area="balance" class="ufs-area-balance"></path>
+              <path data-line="balance" class="ufs-line-balance"></path>
+              <path data-line="paid" class="ufs-line-paid"></path>
+              <path data-line="interest" class="ufs-line-interest"></path>
+              <line data-scrub-line x1="36" y1="48" x2="36" y2="312" class="ufs-scrub-line"></line>
+              <circle data-pulse cx="0" cy="0" r="7" class="ufs-pulse"></circle>
+              <circle data-handle cx="0" cy="0" r="12" class="ufs-handle"></circle>
+            </svg>
+          </div>
+
+          <div class="ufs-axis-row"><span>{labels.axisStart}</span><span data-stat="axisEnd"></span></div>
+        </section>
+      </main>
+    </div>
+  </section>
+
+  <aside class="ufs-drawer" data-schedule-drawer hidden aria-hidden="true">
+    <div class="ufs-drawer-head">
+      <div>
+        <p class="ufs-kicker">{labels.scheduleTitle}</p>
+        <p class="ufs-drawer-copy">{labels.scheduleHint}</p>
+      </div>
+      <button type="button" class="ufs-drawer-close" data-action="toggle-schedule">{labels.closeSchedule}</button>
+    </div>
+    <div class="ufs-schedule-table-wrap">
+      <table class="ufs-schedule-table">
+        <thead><tr><th>{labels.monthColumn}</th><th>{labels.paymentColumn}</th><th>{labels.principalColumn}</th><th>{labels.interestColumn}</th><th>{labels.balanceColumn}</th></tr></thead>
+        <tbody data-schedule-body></tbody>
+      </table>
+    </div>
+  </aside>
+</div>
+
+<script>
+  import { initUniversityFinanceSimulator } from './script';
+  const root = document.getElementById('ufs-root');
+  const rawLabels = root?.getAttribute('data-labels');
+  if (rawLabels) {
+    initUniversityFinanceSimulator(JSON.parse(rawLabels));
+  }
+</script>
