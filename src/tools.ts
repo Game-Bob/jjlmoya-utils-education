@@ -8,6 +8,7 @@ import { TRANSCRIPT_GPA_PARSER_TOOL } from './tool/transcript-gpa-parser';
 import { EXAM_COUNTDOWN_SESSION_PREDICTOR_TOOL } from './tool/exam-countdown-session-predictor';
 import { LATEX_FORMULA_RENDERER_TOOL } from './tool/latex-formula-renderer';
 import { UNIVERSITY_FINANCE_SIMULATOR_TOOL } from './tool/university-finance-simulator';
+import { CURRICULUM_PROGRESS_TRACKER_TOOL } from './tool/curriculum-progress-tracker';
 
 export const ALL_TOOLS: ToolDefinition[] = [
   WEIGHTED_GRADE_CALCULATOR_TOOL,
@@ -18,6 +19,6 @@ export const ALL_TOOLS: ToolDefinition[] = [
   EXAM_COUNTDOWN_SESSION_PREDICTOR_TOOL,
   LATEX_FORMULA_RENDERER_TOOL,
   UNIVERSITY_FINANCE_SIMULATOR_TOOL,
+  CURRICULUM_PROGRESS_TRACKER_TOOL,
 ];
-
 

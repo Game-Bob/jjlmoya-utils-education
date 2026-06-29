@@ -1,0 +1,16 @@
+---
+interface Props {
+  label: string;
+  valueId: string;
+  initialValue: string;
+}
+
+const { label, valueId, initialValue } = Astro.props;
+---
+
+<article class="tracker-metric-card">
+  <div class="tracker-metric-card__info">
+    <span class="tracker-metric-card__label">{label}</span>
+    <strong class="tracker-metric-card__value" data-stat={valueId}>{initialValue}</strong>
+  </div>
+</article>

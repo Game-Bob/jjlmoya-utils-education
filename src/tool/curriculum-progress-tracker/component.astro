@@ -1,0 +1,100 @@
+---
+import type { CurriculumProgressTrackerUI } from './index';
+import DashboardHeader from './components/DashboardHeader.astro';
+import GradeStats from './components/GradeStats.astro';
+import SemesterBlock from './components/SemesterBlock.astro';
+import './degree-credit-progress-and-projected-grade-calculator.css';
+
+interface Props {
+  ui?: Partial<CurriculumProgressTrackerUI>;
+}
+
+const { ui = {} } = Astro.props;
+const labels = {
+  degreeNameLabel: ui.degreeNameLabel || 'Degree Program Name',
+  graduationCreditsLabel: ui.graduationCreditsLabel || 'Graduation Credits Goal',
+  targetGpaLabel: ui.targetGpaLabel || 'Target GPA',
+  realGpaLabel: ui.realGpaLabel || 'Real GPA',
+  projectedGpaLabel: ui.projectedGpaLabel || 'Projected GPA',
+  creditsCompletedLabel: ui.creditsCompletedLabel || 'Credits Completed',
+  requiredGradeLabel: ui.requiredGradeLabel || 'Required Grade (Remaining)',
+  addSemesterButton: ui.addSemesterButton || 'Add Semester',
+  addCourseButton: ui.addCourseButton || 'Add Course',
+  exportPlanButton: ui.exportPlanButton || 'Export Plan',
+  importPlanButton: ui.importPlanButton || 'Import Plan',
+  semesterNamePlaceholder: ui.semesterNamePlaceholder || 'Semester name (e.g., Autumn Year 1)',
+  courseNamePlaceholder: ui.courseNamePlaceholder || 'Course title',
+  creditsPlaceholder: ui.creditsPlaceholder || 'Credits',
+  gradePlaceholder: ui.gradePlaceholder || 'Grade',
+  statusCompleted: ui.statusCompleted || 'Completed',
+  statusInProgress: ui.statusInProgress || 'In Progress',
+  statusPlanned: ui.statusPlanned || 'Planned',
+  importError: ui.importError || 'The degree plan could not be imported. Please verify the file format.',
+  uploadHint: ui.uploadHint || 'All data is stored locally in your web browser. Import and export processes are processed entirely on your device.',
+  statusMessageSuccess: ui.statusMessageSuccess || 'You are on track to achieve your target GPA.',
+  statusMessageWarning: ui.statusMessageWarning || 'You need an average grade of {grade} or higher in remaining courses to reach your target GPA.',
+  statusMessageImpossible: ui.statusMessageImpossible || 'It is mathematically impossible to reach your target GPA with your current course settings.',
+  degreeNamePlaceholder: ui.degreeNamePlaceholder || 'e.g., BSc Computer Science',
+  deleteSemesterLabel: ui.deleteSemesterLabel || 'Delete Semester',
+  deleteCourseLabel: ui.deleteCourseLabel || 'Delete Course',
+  semesterTitleTemplate: ui.semesterTitleTemplate || 'Semester {num}',
+};
+---
+
+<div class="curriculum-progress-tracker" id="curriculum-progress-tracker" data-labels={JSON.stringify(labels)}>
+  <input type="file" accept="application/json" hidden data-import-input />
+
+  <div class="tracker-status-banner" data-status-banner hidden></div>
+
+  <DashboardHeader
+    degreeNameLabel={labels.degreeNameLabel}
+    graduationCreditsLabel={labels.graduationCreditsLabel}
+    targetGpaLabel={labels.targetGpaLabel}
+    exportPlanButton={labels.exportPlanButton}
+    importPlanButton={labels.importPlanButton}
+    degreeNamePlaceholder={labels.degreeNamePlaceholder}
+  />
+
+  <GradeStats
+    realGpaLabel={labels.realGpaLabel}
+    projectedGpaLabel={labels.projectedGpaLabel}
+    creditsCompletedLabel={labels.creditsCompletedLabel}
+    requiredGradeLabel={labels.requiredGradeLabel}
+  />
+
+  <main class="tracker-workspace">
+    <div class="tracker-semesters-container" data-semesters-container></div>
+
+    <div class="tracker-workspace-actions">
+      <button type="button" class="tracker-btn tracker-btn-primary" data-action="add-semester">
+        {labels.addSemesterButton}
+      </button>
+    </div>
+  </main>
+
+  <p class="tracker-security-hint">{labels.uploadHint}</p>
+
+  <SemesterBlock
+    addCourseButton={labels.addCourseButton}
+    semesterNamePlaceholder={labels.semesterNamePlaceholder}
+    courseNamePlaceholder={labels.courseNamePlaceholder}
+    creditsPlaceholder={labels.creditsPlaceholder}
+    gradePlaceholder={labels.gradePlaceholder}
+    statusCompleted={labels.statusCompleted}
+    statusInProgress={labels.statusInProgress}
+    statusPlanned={labels.statusPlanned}
+    deleteSemesterLabel={labels.deleteSemesterLabel}
+    deleteCourseLabel={labels.deleteCourseLabel}
+  />
+</div>
+
+<script>
+  import { initCurriculumProgressTracker } from './script';
+
+  const root = document.getElementById('curriculum-progress-tracker');
+  const rawLabels = root?.getAttribute('data-labels');
+
+  if (rawLabels) {
+    initCurriculumProgressTracker(JSON.parse(rawLabels));
+  }
+</script>

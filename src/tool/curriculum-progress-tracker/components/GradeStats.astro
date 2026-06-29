@@ -1,0 +1,49 @@
+---
+interface Props {
+  realGpaLabel: string;
+  projectedGpaLabel: string;
+  creditsCompletedLabel: string;
+  requiredGradeLabel: string;
+}
+
+const {
+  realGpaLabel,
+  projectedGpaLabel,
+  creditsCompletedLabel,
+  requiredGradeLabel,
+} = Astro.props;
+---
+
+<section class="tracker-precision-dashboard">
+  <div class="tracker-kpi-row">
+    <div class="tracker-kpi">
+      <span class="tracker-kpi-label">{realGpaLabel}</span>
+      <strong class="tracker-kpi-value" data-stat="real-gpa">0.00</strong>
+    </div>
+
+    <div class="tracker-kpi">
+      <span class="tracker-kpi-label">{projectedGpaLabel}</span>
+      <strong class="tracker-kpi-value" data-stat="projected-gpa">0.00</strong>
+    </div>
+
+    <div class="tracker-kpi">
+      <span class="tracker-kpi-label">{requiredGradeLabel}</span>
+      <strong class="tracker-kpi-value" data-stat="required-grade">--</strong>
+    </div>
+  </div>
+
+  <div class="tracker-progress-section">
+    <div class="tracker-progress-info">
+      <span class="tracker-progress-info-label">{creditsCompletedLabel}</span>
+      <strong class="tracker-progress-info-value" data-stat="credits-progress">0 / 0</strong>
+    </div>
+    <div class="tracker-dynamic-progress">
+      <svg class="tracker-progress-svg" viewBox="0 0 100 2" preserveAspectRatio="none">
+        <line x1="0" y1="1" x2="100" y2="1" class="tracker-progress-svg-track" />
+        <line x1="0" y1="1" x2="0" y2="1" class="tracker-progress-svg-fill" data-stat-bar="credits-svg" />
+      </svg>
+    </div>
+  </div>
+
+  <div class="tracker-advisor-banner" data-advisor-banner hidden></div>
+</section>

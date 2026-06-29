@@ -6,6 +6,7 @@ import { internationalGradeConverter } from '../tool/international-grade-convert
 import { transcriptGPAParser } from '../tool/transcript-gpa-parser/entry';
 import { examCountdownSessionPredictor } from '../tool/exam-countdown-session-predictor/entry';
 import { universityFinanceSimulator } from '../tool/university-finance-simulator/entry';
+import { curriculumProgressTracker } from '../tool/curriculum-progress-tracker/entry';
 
 export const educationCategory: EducationCategoryEntry = {
   icon: 'mdi:school',
@@ -17,6 +18,7 @@ export const educationCategory: EducationCategoryEntry = {
     transcriptGPAParser,
     examCountdownSessionPredictor,
     universityFinanceSimulator,
+    curriculumProgressTracker,
   ],
   i18n: {
     en: () => import('./i18n/en').then((m) => m.content),

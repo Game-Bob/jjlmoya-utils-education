@@ -1,0 +1,72 @@
+---
+interface Props {
+  degreeNameLabel: string;
+  graduationCreditsLabel: string;
+  targetGpaLabel: string;
+  exportPlanButton: string;
+  importPlanButton: string;
+  degreeNamePlaceholder: string;
+}
+
+const {
+  degreeNameLabel,
+  graduationCreditsLabel,
+  targetGpaLabel,
+  exportPlanButton,
+  importPlanButton,
+  degreeNamePlaceholder,
+} = Astro.props;
+---
+
+<header class="tracker-header">
+  <div class="tracker-header-title-section">
+    <div class="tracker-input-group">
+      <label for="tracker-degree-input">{degreeNameLabel}</label>
+      <input
+        type="text"
+        id="tracker-degree-input"
+        class="tracker-title-input"
+        data-degree-name-input
+        placeholder={degreeNamePlaceholder}
+      />
+    </div>
+  </div>
+
+  <div class="tracker-header-controls">
+    <div class="tracker-input-group">
+      <label for="tracker-graduation-credits">{graduationCreditsLabel}</label>
+      <input
+        type="number"
+        id="tracker-graduation-credits"
+        class="tracker-number-input"
+        data-graduation-credits-input
+        min="1"
+        max="1000"
+        value="180"
+      />
+    </div>
+
+    <div class="tracker-input-group">
+      <label for="tracker-target-gpa">{targetGpaLabel}</label>
+      <input
+        type="number"
+        id="tracker-target-gpa"
+        class="tracker-number-input"
+        data-target-gpa-input
+        min="0"
+        max="10"
+        step="0.1"
+        value="8.0"
+      />
+    </div>
+
+    <div class="tracker-header-actions">
+      <button type="button" class="tracker-btn tracker-btn-primary" data-action="import">
+        {importPlanButton}
+      </button>
+      <button type="button" class="tracker-btn tracker-btn-ghost" data-action="export">
+        {exportPlanButton}
+      </button>
+    </div>
+  </div>
+</header>
