@@ -10,6 +10,7 @@ import { curriculumProgressTracker } from '../tool/curriculum-progress-tracker/e
 import { interactiveFlashcardGenerator } from '../tool/interactive-flashcard-generator/entry';
 import { academicScheduleOptimizer } from '../tool/academic-schedule-optimizer/entry';
 import { readingTimeNoteDensityPlanner } from '../tool/reading-time-note-density-planner/entry';
+import { rubricMatrixDesigner } from '../tool/rubric-matrix-designer/entry';
 
 export const educationCategory: EducationCategoryEntry = {
   icon: 'mdi:school',
@@ -25,6 +26,7 @@ export const educationCategory: EducationCategoryEntry = {
     interactiveFlashcardGenerator,
     academicScheduleOptimizer,
     readingTimeNoteDensityPlanner,
+    rubricMatrixDesigner,
   ],
   i18n: {
     en: () => import('./i18n/en').then((m) => m.content),

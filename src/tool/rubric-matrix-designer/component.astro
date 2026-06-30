@@ -1,0 +1,54 @@
+---
+import type { RubricMatrixDesignerUI } from './entry';
+import './rubric-matrix-designer.css';
+
+interface Props {
+  ui: RubricMatrixDesignerUI;
+}
+
+const { ui: labels } = Astro.props;
+---
+
+<div class="rubric-designer view-fade-in" data-rubric-designer data-labels={JSON.stringify(labels)}>
+  <div class="rd-toolbar">
+    <div class="rd-weight-card" data-rd-status="balanced">
+      <svg class="rd-orbit" viewBox="0 0 120 120" role="img" aria-label={labels.totalWeight}>
+        <path class="rd-orbit-ghost" d="M60 14 C85 14 106 35 106 60 C106 85 85 106 60 106 C35 106 14 85 14 60 C14 35 35 14 60 14" />
+        <path class="rd-orbit-line" data-rd-orbit d="M60 14 C85 14 106 35 106 60 C106 85 85 106 60 106 C35 106 14 85 14 60 C14 35 35 14 60 14" />
+      </svg>
+      <div class="rd-weight-copy">
+        <span>{labels.totalWeight}</span>
+        <strong data-rd-total>100%</strong>
+        <em data-rd-message>{labels.balanced}</em>
+      </div>
+    </div>
+    <div class="rd-actions">
+      <button type="button" data-rd-add-criterion>{labels.addCriterion}</button>
+      <button type="button" data-rd-add-level>{labels.addLevel}</button>
+      <button type="button" data-rd-export>{labels.exportCsv}</button>
+      <button type="button" data-rd-print>{labels.printRubric}</button>
+    </div>
+  </div>
+
+  <div class="rd-table-shell">
+    <table class="rd-table">
+      <thead data-rd-head></thead>
+      <tbody data-rd-body></tbody>
+    </table>
+  </div>
+
+  <div class="rd-mobile-board" data-rd-mobile></div>
+
+  <div class="rd-confirm-backdrop" data-rd-confirm hidden>
+    <div class="rd-confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="rd-confirm-title">
+      <strong id="rd-confirm-title">{labels.confirmDeleteTitle}</strong>
+      <p data-rd-confirm-text>{labels.confirmDeleteText}</p>
+      <div class="rd-confirm-actions">
+        <button type="button" data-rd-cancel-delete>{labels.cancelDelete}</button>
+        <button type="button" data-rd-confirm-delete>{labels.confirmDelete}</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="./controller.ts"></script>

@@ -22,6 +22,8 @@ export { academicScheduleOptimizer } from './tool/academic-schedule-optimizer/en
 export type { AcademicScheduleOptimizerUI, AcademicScheduleOptimizerLocaleContent } from './tool/academic-schedule-optimizer/entry';
 export { readingTimeNoteDensityPlanner } from './tool/reading-time-note-density-planner/entry';
 export type { ReadingTimeNoteDensityPlannerUI, ReadingTimeNoteDensityPlannerLocaleContent } from './tool/reading-time-note-density-planner/entry';
+export { rubricMatrixDesigner } from './tool/rubric-matrix-designer/entry';
+export type { RubricMatrixDesignerUI, RubricMatrixDesignerLocaleContent } from './tool/rubric-matrix-designer/entry';
 export { educationCategory } from './category';
 import { citationGenerator } from './tool/citation-generator/entry';
 import { weightedGradeCalculator } from './tool/weighted-grade-calculator/entry';
@@ -35,4 +37,5 @@ import { curriculumProgressTracker } from './tool/curriculum-progress-tracker/en
 import { interactiveFlashcardGenerator } from './tool/interactive-flashcard-generator/entry';
 import { academicScheduleOptimizer } from './tool/academic-schedule-optimizer/entry';
 import { readingTimeNoteDensityPlanner } from './tool/reading-time-note-density-planner/entry';
-export const ALL_ENTRIES = [citationGenerator, weightedGradeCalculator, pomodoroFlow, internationalGradeConverter, transcriptGPAParser, examCountdownSessionPredictor, latexFormulaRenderer, universityFinanceSimulator, curriculumProgressTracker, interactiveFlashcardGenerator, academicScheduleOptimizer, readingTimeNoteDensityPlanner];
+import { rubricMatrixDesigner } from './tool/rubric-matrix-designer/entry';
+export const ALL_ENTRIES = [citationGenerator, weightedGradeCalculator, pomodoroFlow, internationalGradeConverter, transcriptGPAParser, examCountdownSessionPredictor, latexFormulaRenderer, universityFinanceSimulator, curriculumProgressTracker, interactiveFlashcardGenerator, academicScheduleOptimizer, readingTimeNoteDensityPlanner, rubricMatrixDesigner];
