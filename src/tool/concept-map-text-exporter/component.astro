@@ -1,0 +1,55 @@
+---
+import type { ConceptMapTextExporterUI } from './entry';
+import './concept-map-text-exporter.css';
+
+interface Props {
+  ui: ConceptMapTextExporterUI;
+}
+
+const { ui: labels } = Astro.props;
+---
+
+<div class="concept-map-tool view-fade-in" data-concept-map-tool data-labels={JSON.stringify(labels)}>
+  <section class="cmt-editor">
+    <div class="cmt-editor-actions">
+      <label for="concept-map-input">{labels.inputLabel}</label>
+      <div>
+        <button type="button" data-cmt-sample>{labels.sampleButton}</button>
+        <button type="button" data-cmt-clear>{labels.clearButton}</button>
+      </div>
+    </div>
+    <textarea id="concept-map-input" data-cmt-input spellcheck="true">{labels.sampleOutline}</textarea>
+  </section>
+
+  <section class="cmt-stage">
+    <div class="cmt-canvas-shell" data-cmt-shell>
+      <div class="cmt-metrics" aria-live="polite">
+        <span><strong data-cmt-node-count>0</strong>{labels.nodeCount}</span>
+        <span><strong data-cmt-depth-count>0</strong>{labels.depthCount}</span>
+        <span><strong data-cmt-branch-count>0</strong>{labels.branchCount}</span>
+      </div>
+      <svg class="cmt-canvas" data-cmt-canvas role="img" aria-label={labels.inputLabel}>
+        <defs>
+          <pattern id="cmt-dot-grid" width="24" height="24" patternUnits="userSpaceOnUse">
+            <circle cx="2" cy="2" r="1.15"></circle>
+          </pattern>
+        </defs>
+        <rect class="cmt-grid" x="-4000" y="-4000" width="8000" height="8000"></rect>
+        <g data-cmt-viewport></g>
+      </svg>
+      <div class="cmt-empty" data-cmt-empty hidden>
+        <strong>{labels.emptyStateTitle}</strong>
+        <span>{labels.emptyStateText}</span>
+      </div>
+      <div class="cmt-toolbar">
+        <button type="button" data-cmt-zoom-out aria-label={labels.zoomOut}>{labels.zoomOutMark}</button>
+        <button type="button" data-cmt-reset>{labels.resetView}</button>
+        <button type="button" data-cmt-zoom-in aria-label={labels.zoomIn}>{labels.zoomInMark}</button>
+        <button type="button" data-cmt-export-svg>{labels.exportSvg}</button>
+        <button type="button" data-cmt-export-png>{labels.exportPng}</button>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="./controller.ts"></script>

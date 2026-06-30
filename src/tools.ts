@@ -13,6 +13,7 @@ import { INTERACTIVE_FLASHCARD_GENERATOR_TOOL } from './tool/interactive-flashca
 import { ACADEMIC_SCHEDULE_OPTIMIZER_TOOL } from './tool/academic-schedule-optimizer';
 import { READING_TIME_NOTE_DENSITY_PLANNER_TOOL } from './tool/reading-time-note-density-planner';
 import { RUBRIC_MATRIX_DESIGNER_TOOL } from './tool/rubric-matrix-designer';
+import { CONCEPT_MAP_TEXT_EXPORTER_TOOL } from './tool/concept-map-text-exporter';
 
 export const ALL_TOOLS: ToolDefinition[] = [
   WEIGHTED_GRADE_CALCULATOR_TOOL,
@@ -28,5 +29,6 @@ export const ALL_TOOLS: ToolDefinition[] = [
   ACADEMIC_SCHEDULE_OPTIMIZER_TOOL,
   READING_TIME_NOTE_DENSITY_PLANNER_TOOL,
   RUBRIC_MATRIX_DESIGNER_TOOL,
+  CONCEPT_MAP_TEXT_EXPORTER_TOOL,
 ];
 

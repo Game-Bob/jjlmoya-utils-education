@@ -24,6 +24,8 @@ export { readingTimeNoteDensityPlanner } from './tool/reading-time-note-density-
 export type { ReadingTimeNoteDensityPlannerUI, ReadingTimeNoteDensityPlannerLocaleContent } from './tool/reading-time-note-density-planner/entry';
 export { rubricMatrixDesigner } from './tool/rubric-matrix-designer/entry';
 export type { RubricMatrixDesignerUI, RubricMatrixDesignerLocaleContent } from './tool/rubric-matrix-designer/entry';
+export { conceptMapTextExporter } from './tool/concept-map-text-exporter/entry';
+export type { ConceptMapTextExporterUI, ConceptMapTextExporterLocaleContent } from './tool/concept-map-text-exporter/entry';
 export { educationCategory } from './category';
 import { citationGenerator } from './tool/citation-generator/entry';
 import { weightedGradeCalculator } from './tool/weighted-grade-calculator/entry';
@@ -38,4 +40,5 @@ import { interactiveFlashcardGenerator } from './tool/interactive-flashcard-gene
 import { academicScheduleOptimizer } from './tool/academic-schedule-optimizer/entry';
 import { readingTimeNoteDensityPlanner } from './tool/reading-time-note-density-planner/entry';
 import { rubricMatrixDesigner } from './tool/rubric-matrix-designer/entry';
-export const ALL_ENTRIES = [citationGenerator, weightedGradeCalculator, pomodoroFlow, internationalGradeConverter, transcriptGPAParser, examCountdownSessionPredictor, latexFormulaRenderer, universityFinanceSimulator, curriculumProgressTracker, interactiveFlashcardGenerator, academicScheduleOptimizer, readingTimeNoteDensityPlanner, rubricMatrixDesigner];
+import { conceptMapTextExporter } from './tool/concept-map-text-exporter/entry';
+export const ALL_ENTRIES = [citationGenerator, weightedGradeCalculator, pomodoroFlow, internationalGradeConverter, transcriptGPAParser, examCountdownSessionPredictor, latexFormulaRenderer, universityFinanceSimulator, curriculumProgressTracker, interactiveFlashcardGenerator, academicScheduleOptimizer, readingTimeNoteDensityPlanner, rubricMatrixDesigner, conceptMapTextExporter];

@@ -12,6 +12,7 @@ export { interactiveFlashcardGenerator, INTERACTIVE_FLASHCARD_GENERATOR_TOOL } f
 export { academicScheduleOptimizer, ACADEMIC_SCHEDULE_OPTIMIZER_TOOL } from './tool/academic-schedule-optimizer';
 export { readingTimeNoteDensityPlanner, READING_TIME_NOTE_DENSITY_PLANNER_TOOL } from './tool/reading-time-note-density-planner';
 export { rubricMatrixDesigner, RUBRIC_MATRIX_DESIGNER_TOOL } from './tool/rubric-matrix-designer';
+export { conceptMapTextExporter, CONCEPT_MAP_TEXT_EXPORTER_TOOL } from './tool/concept-map-text-exporter';
 
 
 export type {

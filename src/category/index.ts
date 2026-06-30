@@ -11,6 +11,7 @@ import { interactiveFlashcardGenerator } from '../tool/interactive-flashcard-gen
 import { academicScheduleOptimizer } from '../tool/academic-schedule-optimizer/entry';
 import { readingTimeNoteDensityPlanner } from '../tool/reading-time-note-density-planner/entry';
 import { rubricMatrixDesigner } from '../tool/rubric-matrix-designer/entry';
+import { conceptMapTextExporter } from '../tool/concept-map-text-exporter/entry';
 
 export const educationCategory: EducationCategoryEntry = {
   icon: 'mdi:school',
@@ -27,6 +28,7 @@ export const educationCategory: EducationCategoryEntry = {
     academicScheduleOptimizer,
     readingTimeNoteDensityPlanner,
     rubricMatrixDesigner,
+    conceptMapTextExporter,
   ],
   i18n: {
     en: () => import('./i18n/en').then((m) => m.content),
