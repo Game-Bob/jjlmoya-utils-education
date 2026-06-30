@@ -8,6 +8,7 @@ import { examCountdownSessionPredictor } from '../tool/exam-countdown-session-pr
 import { universityFinanceSimulator } from '../tool/university-finance-simulator/entry';
 import { curriculumProgressTracker } from '../tool/curriculum-progress-tracker/entry';
 import { interactiveFlashcardGenerator } from '../tool/interactive-flashcard-generator/entry';
+import { academicScheduleOptimizer } from '../tool/academic-schedule-optimizer/entry';
 
 export const educationCategory: EducationCategoryEntry = {
   icon: 'mdi:school',
@@ -21,6 +22,7 @@ export const educationCategory: EducationCategoryEntry = {
     universityFinanceSimulator,
     curriculumProgressTracker,
     interactiveFlashcardGenerator,
+    academicScheduleOptimizer,
   ],
   i18n: {
     en: () => import('./i18n/en').then((m) => m.content),

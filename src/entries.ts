@@ -18,6 +18,8 @@ export { curriculumProgressTracker } from './tool/curriculum-progress-tracker/en
 export type { CurriculumProgressTrackerUI, CurriculumProgressTrackerLocaleContent } from './tool/curriculum-progress-tracker/entry';
 export { interactiveFlashcardGenerator } from './tool/interactive-flashcard-generator/entry';
 export type { InteractiveFlashcardGeneratorUI, InteractiveFlashcardGeneratorLocaleContent } from './tool/interactive-flashcard-generator/entry';
+export { academicScheduleOptimizer } from './tool/academic-schedule-optimizer/entry';
+export type { AcademicScheduleOptimizerUI, AcademicScheduleOptimizerLocaleContent } from './tool/academic-schedule-optimizer/entry';
 export { educationCategory } from './category';
 import { citationGenerator } from './tool/citation-generator/entry';
 import { weightedGradeCalculator } from './tool/weighted-grade-calculator/entry';
@@ -29,4 +31,5 @@ import { latexFormulaRenderer } from './tool/latex-formula-renderer/entry';
 import { universityFinanceSimulator } from './tool/university-finance-simulator/entry';
 import { curriculumProgressTracker } from './tool/curriculum-progress-tracker/entry';
 import { interactiveFlashcardGenerator } from './tool/interactive-flashcard-generator/entry';
-export const ALL_ENTRIES = [citationGenerator, weightedGradeCalculator, pomodoroFlow, internationalGradeConverter, transcriptGPAParser, examCountdownSessionPredictor, latexFormulaRenderer, universityFinanceSimulator, curriculumProgressTracker, interactiveFlashcardGenerator];
+import { academicScheduleOptimizer } from './tool/academic-schedule-optimizer/entry';
+export const ALL_ENTRIES = [citationGenerator, weightedGradeCalculator, pomodoroFlow, internationalGradeConverter, transcriptGPAParser, examCountdownSessionPredictor, latexFormulaRenderer, universityFinanceSimulator, curriculumProgressTracker, interactiveFlashcardGenerator, academicScheduleOptimizer];

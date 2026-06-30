@@ -1,0 +1,65 @@
+---
+import type { AcademicScheduleOptimizerUI } from './index';
+import { content as englishContent } from './i18n/en';
+
+interface Props {
+  ui?: Partial<AcademicScheduleOptimizerUI>;
+}
+
+const { ui = {} } = Astro.props;
+const labels = {
+  ...englishContent.ui,
+  ...ui,
+};
+const durationChoices = labels.durationValues.map((value, index) => ({
+  value,
+  label: labels.durationOptions[index],
+}));
+---
+
+<div class="academic-schedule-optimizer view-fade-in" id="academic-schedule-root" data-labels={JSON.stringify(labels)}>
+  <div class="schedule-shell">
+    <section class="schedule-form" aria-label={labels.classEditorAriaLabel}>
+      <div class="form-grid">
+        <label>{labels.subjectLabel}<input id="subject-input" value={labels.defaultSubject} /></label>
+        <label>{labels.roomLabel}<input id="room-input" value={labels.defaultRoom} /></label>
+        <label>{labels.dayLabel}<select id="day-input"></select></label>
+        <label>{labels.startLabel}<select id="start-input"></select></label>
+        <label>{labels.durationLabel}<select id="duration-input">
+          {durationChoices.map((choice) => (
+            <option value={choice.value} selected={labels.defaultFormDuration === choice.value}>{choice.label}</option>
+          ))}
+        </select></label>
+        <label>{labels.colorLabel}<input id="color-input" type="color" value={labels.defaultColor} /></label>
+      </div>
+      <fieldset class="weekend-options">
+        <legend>{labels.weekendDaysLabel}</legend>
+        <label><input id="saturday-toggle" type="checkbox" /> {labels.saturdayLabel}</label>
+        <label><input id="sunday-toggle" type="checkbox" /> {labels.sundayLabel}</label>
+      </fieldset>
+      <div class="schedule-actions">
+        <button type="button" id="add-event-button">{labels.addClass}</button>
+        <button type="button" id="new-event-button">{labels.newClass}</button>
+        <button type="button" id="export-ics-button">{labels.exportICS}</button>
+      </div>
+      <div class="conflict-panel">
+        <strong>{labels.conflictLabel}</strong>
+        <p id="conflict-output">{labels.noConflicts}</p>
+        <small>{labels.editHint}</small>
+      </div>
+    </section>
+
+    <div class="week-scroll-wrap">
+      <section class="week-board" id="week-board" aria-label={labels.weeklyScheduleAriaLabel}>
+        <div class="time-rail" id="time-rail"></div>
+        <div class="day-grid" id="day-grid"></div>
+      </section>
+      <div class="custom-scrollbar" id="custom-scrollbar" aria-hidden="true">
+        <div class="custom-scrollbar-thumb" id="custom-scrollbar-thumb"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="./controller.ts"></script>
+
