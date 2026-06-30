@@ -9,6 +9,7 @@ import { universityFinanceSimulator } from '../tool/university-finance-simulator
 import { curriculumProgressTracker } from '../tool/curriculum-progress-tracker/entry';
 import { interactiveFlashcardGenerator } from '../tool/interactive-flashcard-generator/entry';
 import { academicScheduleOptimizer } from '../tool/academic-schedule-optimizer/entry';
+import { readingTimeNoteDensityPlanner } from '../tool/reading-time-note-density-planner/entry';
 
 export const educationCategory: EducationCategoryEntry = {
   icon: 'mdi:school',
@@ -23,6 +24,7 @@ export const educationCategory: EducationCategoryEntry = {
     curriculumProgressTracker,
     interactiveFlashcardGenerator,
     academicScheduleOptimizer,
+    readingTimeNoteDensityPlanner,
   ],
   i18n: {
     en: () => import('./i18n/en').then((m) => m.content),

@@ -20,6 +20,8 @@ export { interactiveFlashcardGenerator } from './tool/interactive-flashcard-gene
 export type { InteractiveFlashcardGeneratorUI, InteractiveFlashcardGeneratorLocaleContent } from './tool/interactive-flashcard-generator/entry';
 export { academicScheduleOptimizer } from './tool/academic-schedule-optimizer/entry';
 export type { AcademicScheduleOptimizerUI, AcademicScheduleOptimizerLocaleContent } from './tool/academic-schedule-optimizer/entry';
+export { readingTimeNoteDensityPlanner } from './tool/reading-time-note-density-planner/entry';
+export type { ReadingTimeNoteDensityPlannerUI, ReadingTimeNoteDensityPlannerLocaleContent } from './tool/reading-time-note-density-planner/entry';
 export { educationCategory } from './category';
 import { citationGenerator } from './tool/citation-generator/entry';
 import { weightedGradeCalculator } from './tool/weighted-grade-calculator/entry';
@@ -32,4 +34,5 @@ import { universityFinanceSimulator } from './tool/university-finance-simulator/
 import { curriculumProgressTracker } from './tool/curriculum-progress-tracker/entry';
 import { interactiveFlashcardGenerator } from './tool/interactive-flashcard-generator/entry';
 import { academicScheduleOptimizer } from './tool/academic-schedule-optimizer/entry';
-export const ALL_ENTRIES = [citationGenerator, weightedGradeCalculator, pomodoroFlow, internationalGradeConverter, transcriptGPAParser, examCountdownSessionPredictor, latexFormulaRenderer, universityFinanceSimulator, curriculumProgressTracker, interactiveFlashcardGenerator, academicScheduleOptimizer];
+import { readingTimeNoteDensityPlanner } from './tool/reading-time-note-density-planner/entry';
+export const ALL_ENTRIES = [citationGenerator, weightedGradeCalculator, pomodoroFlow, internationalGradeConverter, transcriptGPAParser, examCountdownSessionPredictor, latexFormulaRenderer, universityFinanceSimulator, curriculumProgressTracker, interactiveFlashcardGenerator, academicScheduleOptimizer, readingTimeNoteDensityPlanner];

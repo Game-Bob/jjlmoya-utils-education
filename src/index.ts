@@ -10,6 +10,7 @@ export { universityFinanceSimulator, UNIVERSITY_FINANCE_SIMULATOR_TOOL } from '.
 export { curriculumProgressTracker, CURRICULUM_PROGRESS_TRACKER_TOOL } from './tool/curriculum-progress-tracker';
 export { interactiveFlashcardGenerator, INTERACTIVE_FLASHCARD_GENERATOR_TOOL } from './tool/interactive-flashcard-generator';
 export { academicScheduleOptimizer, ACADEMIC_SCHEDULE_OPTIMIZER_TOOL } from './tool/academic-schedule-optimizer';
+export { readingTimeNoteDensityPlanner, READING_TIME_NOTE_DENSITY_PLANNER_TOOL } from './tool/reading-time-note-density-planner';
 
 
 export type {

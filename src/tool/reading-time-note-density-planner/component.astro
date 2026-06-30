@@ -1,0 +1,132 @@
+---
+import type { ReadingTimeNoteDensityPlannerUI } from './entry';
+import './reading-time-note-density-planner.css';
+
+interface Props {
+  ui: ReadingTimeNoteDensityPlannerUI;
+}
+
+const { ui: labels } = Astro.props;
+---
+
+<div class="reading-note-planner view-fade-in" data-reading-note-planner>
+  <div class="rnp-controls" aria-label={labels.controlsAriaLabel}>
+    <label class="rnp-field">
+      <span>{labels.pagesLabel}</span>
+      <input data-rnp-input="pages" type="number" min="0" step="1" value="86" />
+    </label>
+    <label class="rnp-field">
+      <span>{labels.minutesLabel}</span>
+      <input data-rnp-input="minutesAvailable" type="number" min="0" step="5" value="360" />
+    </label>
+    <label class="rnp-field">
+      <span>{labels.speedLabel}</span>
+      <input data-rnp-input="pagesPerHour" type="range" min="8" max="70" step="1" value="28" />
+      <strong data-rnp-value="pagesPerHour">28</strong>
+    </label>
+    <label class="rnp-field">
+      <span>{labels.densityLabel}</span>
+      <input data-rnp-input="noteDensity" type="range" min="0" max="8" step="0.25" value="2.5" />
+      <strong data-rnp-value="noteDensity">2.5</strong>
+    </label>
+    <label class="rnp-field">
+      <span>{labels.sessionsLabel}</span>
+      <input data-rnp-input="sessions" type="number" min="1" step="1" value="5" />
+    </label>
+    <button class="rnp-reset" type="button" data-rnp-reset>{labels.resetButton}</button>
+  </div>
+
+  <div class="rnp-results" aria-live="polite">
+    <div class="rnp-gauge">
+      <div class="rnp-gauge-ring" data-rnp-ring>
+        <span data-rnp-output="coverage">0%</span>
+      </div>
+      <p>{labels.coverageLabel}</p>
+      <strong data-rnp-output="status">{labels.statusLabels.comfortable}</strong>
+    </div>
+
+    <div class="rnp-total-card">
+      <span>{labels.totalTimeLabel}</span>
+      <strong data-rnp-output="totalTime">0 {labels.minuteUnit}</strong>
+      <div class="rnp-stack" aria-hidden="true">
+        <span data-rnp-reading-bar></span>
+        <span data-rnp-note-bar></span>
+      </div>
+      <div class="rnp-split">
+        <span>{labels.readingTimeLabel}: <b data-rnp-output="readingTime">0 {labels.minuteUnit}</b></span>
+        <span>{labels.noteTimeLabel}: <b data-rnp-output="noteTime">0 {labels.minuteUnit}</b></span>
+      </div>
+    </div>
+
+    <div class="rnp-metrics">
+      <div><span>{labels.pagesSessionLabel}</span><strong data-rnp-output="pagesSession">0</strong></div>
+      <div><span>{labels.minutesSessionLabel}</span><strong data-rnp-output="minutesSession">0</strong></div>
+      <div><span>{labels.notesSessionLabel}</span><strong data-rnp-output="notesSession">0</strong></div>
+    </div>
+  </div>
+</div>
+
+<script is:inline define:vars={{ labels }}>
+  window.readingNotePlannerLabels = labels;
+</script>
+
+<script>
+  import { calculateReadingPlan } from './logic';
+
+  const root = document.querySelector('[data-reading-note-planner]');
+  const labels = window.readingNotePlannerLabels;
+  const defaults = { pages: 86, minutesAvailable: 360, pagesPerHour: 28, noteDensity: 2.5, sessions: 5 };
+  const inputs = root ? Array.from(root.querySelectorAll<HTMLInputElement>('[data-rnp-input]')) : [];
+
+  function minutes(value: number): string {
+    if (value >= 90) {
+      return `${(value / 60).toFixed(1)} ${labels.hourUnit}`;
+    }
+    return `${Math.round(value)} ${labels.minuteUnit}`;
+  }
+
+  function stateFromInputs() {
+    return inputs.reduce((state, input) => {
+      state[input.dataset.rnpInput as keyof typeof defaults] = Number(input.value);
+      return state;
+    }, { ...defaults });
+  }
+
+  function setOutput(name: string, value: string) {
+    root?.querySelector(`[data-rnp-output="${name}"]`)?.replaceChildren(value);
+  }
+
+  function render() {
+    if (!root) return;
+    const result = calculateReadingPlan(stateFromInputs());
+    const readingShare = result.totalMinutes > 0 ? (result.totalReadingMinutes / result.totalMinutes) * 100 : 50;
+    const coverage = Math.round(result.coveragePercent);
+    const statusLabel = labels.statusLabels[result.status];
+
+    root.dataset.status = result.status;
+    setOutput('coverage', `${coverage}%`);
+    setOutput('status', statusLabel);
+    setOutput('totalTime', minutes(result.totalMinutes));
+    setOutput('readingTime', minutes(result.totalReadingMinutes));
+    setOutput('noteTime', minutes(result.totalNoteMinutes));
+    setOutput('pagesSession', result.pagesPerSession.toFixed(1));
+    setOutput('minutesSession', minutes(result.minutesPerSession));
+    setOutput('notesSession', minutes(result.notesPerSession));
+
+    root.querySelector('[data-rnp-value="pagesPerHour"]')?.replaceChildren(String(stateFromInputs().pagesPerHour));
+    root.querySelector('[data-rnp-value="noteDensity"]')?.replaceChildren(stateFromInputs().noteDensity.toFixed(2));
+    root.querySelector<HTMLElement>('[data-rnp-ring]')?.style.setProperty('--rnp-progress', `${coverage}%`);
+    root.querySelector<HTMLElement>('[data-rnp-reading-bar]')?.style.setProperty('--rnp-share', `${readingShare}%`);
+    root.querySelector<HTMLElement>('[data-rnp-note-bar]')?.style.setProperty('--rnp-share', `${100 - readingShare}%`);
+  }
+
+  inputs.forEach((input) => input.addEventListener('input', render));
+  root?.querySelector('[data-rnp-reset]')?.addEventListener('click', () => {
+    inputs.forEach((input) => {
+      const key = input.dataset.rnpInput as keyof typeof defaults;
+      input.value = String(defaults[key]);
+    });
+    render();
+  });
+  render();
+</script>

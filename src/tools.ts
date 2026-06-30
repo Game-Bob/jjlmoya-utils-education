@@ -11,6 +11,7 @@ import { UNIVERSITY_FINANCE_SIMULATOR_TOOL } from './tool/university-finance-sim
 import { CURRICULUM_PROGRESS_TRACKER_TOOL } from './tool/curriculum-progress-tracker';
 import { INTERACTIVE_FLASHCARD_GENERATOR_TOOL } from './tool/interactive-flashcard-generator';
 import { ACADEMIC_SCHEDULE_OPTIMIZER_TOOL } from './tool/academic-schedule-optimizer';
+import { READING_TIME_NOTE_DENSITY_PLANNER_TOOL } from './tool/reading-time-note-density-planner';
 
 export const ALL_TOOLS: ToolDefinition[] = [
   WEIGHTED_GRADE_CALCULATOR_TOOL,
@@ -24,5 +25,6 @@ export const ALL_TOOLS: ToolDefinition[] = [
   CURRICULUM_PROGRESS_TRACKER_TOOL,
   INTERACTIVE_FLASHCARD_GENERATOR_TOOL,
   ACADEMIC_SCHEDULE_OPTIMIZER_TOOL,
+  READING_TIME_NOTE_DENSITY_PLANNER_TOOL,
 ];
 
