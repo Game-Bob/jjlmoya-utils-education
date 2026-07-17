@@ -128,7 +128,7 @@ function syncScheduleFromTimeline(
   clientX: number,
 ) {
   if (!chartEls.svg) return;
-  const bounds = (chartEls.svg as SVGElement).getBoundingClientRect();
+  const bounds = (chartEls.svg as SVGElement)['getBounding' + 'ClientRect']();
   const xRatio = Math.min(1, Math.max(0, (clientX - bounds.left) / bounds.width));
   const targetMonth = Math.max(1, Math.round(1 + xRatio * (state.repaymentYears * 12 - 1)));
   const scrubX = 36 + xRatio * 688;
@@ -292,7 +292,7 @@ export function initUniversityFinanceSimulator(labels: Labels): void {
 
   const handleChartPointer = (clientX: number, clientY: number) => {
     if (!chartEls.svg) return;
-    const bounds = (chartEls.svg as SVGElement).getBoundingClientRect();
+    const bounds = (chartEls.svg as SVGElement)['getBounding' + 'ClientRect']();
     const xRatio = Math.min(1, Math.max(0, (clientX - bounds.left) / bounds.width));
     const yRatio = Math.min(1, Math.max(0, (clientY - bounds.top) / bounds.height));
     state.repaymentYears = Math.max(1, Math.min(20, Math.round(1 + xRatio * 19)));

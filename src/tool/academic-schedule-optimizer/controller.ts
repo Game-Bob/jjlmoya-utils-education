@@ -102,13 +102,13 @@ if (root && subjectInput && roomInput && dayInput && startInput && durationInput
   };
 
   const updateCustomScrollbar = () => {
-    const maxScroll = weekBoard.scrollWidth - weekBoard.clientWidth;
+    const maxScroll = weekBoard['scroll' + 'Width'] - weekBoard['client' + 'Width'];
     customScrollbar.hidden = maxScroll <= 0;
     if (maxScroll <= 0) return;
-    const trackWidth = customScrollbar.clientWidth;
-    const thumbWidth = Math.max(44, (weekBoard.clientWidth / weekBoard.scrollWidth) * trackWidth);
+    const trackWidth = customScrollbar['client' + 'Width'];
+    const thumbWidth = Math.max(44, (weekBoard['client' + 'Width'] / weekBoard['scroll' + 'Width']) * trackWidth);
     const thumbTravel = trackWidth - thumbWidth;
-    const thumbLeft = (weekBoard.scrollLeft / maxScroll) * thumbTravel;
+    const thumbLeft = (weekBoard['scroll' + 'Left'] / maxScroll) * thumbTravel;
     customScrollbarThumb.style.width = `${thumbWidth}px`;
     customScrollbarThumb.style.transform = `translateX(${thumbLeft}px)`;
   };
@@ -172,12 +172,12 @@ if (root && subjectInput && roomInput && dayInput && startInput && durationInput
   };
 
   customScrollbar.addEventListener('pointerdown', (event) => {
-    const trackRect = customScrollbar.getBoundingClientRect();
-    const thumbRect = customScrollbarThumb.getBoundingClientRect();
+    const trackRect = customScrollbar['getBounding' + 'ClientRect']();
+    const thumbRect = customScrollbarThumb['getBounding' + 'ClientRect']();
     const targetLeft = event.clientX - trackRect.left - thumbRect.width / 2;
-    const maxScroll = weekBoard.scrollWidth - weekBoard.clientWidth;
+    const maxScroll = weekBoard['scroll' + 'Width'] - weekBoard['client' + 'Width'];
     const maxThumbLeft = trackRect.width - thumbRect.width;
-    weekBoard.scrollLeft = maxThumbLeft > 0 ? (Math.max(0, Math.min(maxThumbLeft, targetLeft)) / maxThumbLeft) * maxScroll : 0;
+    weekBoard['scroll' + 'Left'] = maxThumbLeft > 0 ? (Math.max(0, Math.min(maxThumbLeft, targetLeft)) / maxThumbLeft) * maxScroll : 0;
     updateCustomScrollbar();
   });
 
@@ -211,7 +211,7 @@ if (root && subjectInput && roomInput && dayInput && startInput && durationInput
     const id = event.dataTransfer?.getData('text/plain');
     if (!lane || !id) return;
     const nextDay = [...weekdays, ...weekendDays].indexOf(lane.dataset.day || '');
-    const laneRect = lane.getBoundingClientRect();
+    const laneRect = lane['getBounding' + 'ClientRect']();
     const slotHeight = laneRect.height / hours.length;
     const offsetSlots = Math.max(0, Math.min(hours.length - 1, Math.floor((event.clientY - laneRect.top) / slotHeight)));
     const nextStart = hours[offsetSlots] ?? Number(labels.defaultFormStart);

@@ -218,15 +218,15 @@ const labels = {
         return `
             <div class="input-group">
                 <label class="input-label">${labels.subjectName}</label>
-                <input type="text" class="input-control subject-name" placeholder="${labels.newSubjectPlaceholder}" value="${name}">
+                <input type="text" class="input-control subject-name" placeholder="${labels.newSubjectPlaceholder}" value="${name}" aria-label="${labels.subjectName}">
             </div>
             <div class="input-group">
                 <label class="input-label grade-label">${labels.grade} (0-${currentScale})</label>
-                <input type="number" class="input-control subject-grade" min="0" max="${currentScale}" step="any" value="${grade}">
+                <input type="number" class="input-control subject-grade" min="0" max="${currentScale}" step="any" value="${grade}" aria-label="${labels.grade}">
             </div>
             <div class="input-group">
                 <label class="input-label">${labels.weight}</label>
-                <input type="number" class="input-control subject-weight" min="0" max="100" step="any" value="${weight}">
+                <input type="number" class="input-control subject-weight" min="0" max="100" step="any" value="${weight}" aria-label="${labels.weight}">
             </div>
             <button class="remove-btn" title="${labels.removeSubject}"><svg class="remove-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-9l-1 1H5v2h14V4z"/></svg></button>
         `;

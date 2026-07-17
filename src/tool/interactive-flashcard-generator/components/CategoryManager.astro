@@ -15,7 +15,7 @@ const { labels } = Astro.props;
     <input
       type="text"
       id="new-category-input"
-
+      aria-label={labels.deleteCategory || "New Category"}
       class="form-textarea category-input"
     />
     <button id="add-category-btn" class="primary-btn compact-btn">

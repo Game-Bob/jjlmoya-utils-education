@@ -18,7 +18,7 @@ const { approveLabel } = Astro.props;
           <input type="checkbox" data-complete-subject />
           <span>{approveLabel}</span>
         </label>
-        <input type="number" min="5" max="10" step="0.1" class="tracker-grade-input" data-grade-input placeholder="7.0" />
+        <input type="number" min="5" max="10" step="0.1" class="tracker-grade-input" data-grade-input placeholder="7.0" aria-label="Grade" />
         <span class="tracker-status"></span>
       </div>
     </div>

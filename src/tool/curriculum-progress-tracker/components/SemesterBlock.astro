@@ -34,6 +34,7 @@ const {
         class="tracker-semester-title-input"
         data-semester-name-input
         placeholder={semesterNamePlaceholder}
+        aria-label={semesterNamePlaceholder}
       />
       <button type="button" class="tracker-btn-delete" data-action="delete-semester" aria-label={deleteSemesterLabel}>
         &times;
@@ -58,6 +59,7 @@ const {
         class="tracker-course-name"
         data-course-name-input
         placeholder={courseNamePlaceholder}
+        aria-label={courseNamePlaceholder}
       />
 
       <input
@@ -67,9 +69,10 @@ const {
         placeholder={creditsPlaceholder}
         min="1"
         max="30"
+        aria-label={creditsPlaceholder}
       />
 
-      <select class="tracker-course-status" data-course-status-input>
+      <select class="tracker-course-status" data-course-status-input aria-label="Status">
         <option value="completed">{statusCompleted}</option>
         <option value="in-progress">{statusInProgress}</option>
         <option value="planned">{statusPlanned}</option>
@@ -83,6 +86,7 @@ const {
         min="0"
         max="10"
         step="0.1"
+        aria-label={gradePlaceholder}
       />
 
       <button type="button" class="tracker-btn-delete-course" data-action="delete-course" aria-label={deleteCourseLabel}>

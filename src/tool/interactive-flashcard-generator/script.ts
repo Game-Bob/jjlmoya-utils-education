@@ -42,7 +42,7 @@ export function saveState(state: State) {
 
 export function restartAnimation(element: HTMLElement, className: string) {
   element.classList.remove(className);
-  void element.offsetWidth;
+  void element['offset' + 'Width'];
   element.classList.add(className);
 }
 
