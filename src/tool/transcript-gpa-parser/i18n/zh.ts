@@ -105,7 +105,8 @@ export const content: ToolLocaleContent<TranscriptGPAParserUI> = {
     { type: 'title', text: '为什么要使用原始成绩单解析器？', level: 3 },
     { type: 'paragraph', html: '大学门户网站通常将成绩报告排版为复杂的 HTML 表格。将它们直接复制并粘贴到此工具中，我们的启发式引擎即可立即提取课程、成绩和学分，避免手动输入错误。' },
     { type: 'title', text: '安全、私密且快捷', level: 3 },
-    { type: 'paragraph', html: '由于解析引擎通过 JavaScript 在本地运行，您的学术记录绝不会离开您的浏览器。您可以在几毫秒内解析包含数百行的页面。' }
+    { type: 'paragraph', html: '由于解析引擎通过 JavaScript 在本地运行，您的学术记录绝不会离开您的浏览器。您可以在几毫秒内解析包含数百行的页面。' },
+    { type: 'paragraph', html: '粘贴成绩单后，请核对课程名称、学分和成绩，再使用计算结果。' }
   ],
   faq: faqItems,
   howTo: howToItems,
