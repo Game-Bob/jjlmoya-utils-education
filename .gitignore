@@ -4,3 +4,4 @@ node_modules/
 .astro/
 .gemini/
 .claude/
+public/_utilities/education/styles/

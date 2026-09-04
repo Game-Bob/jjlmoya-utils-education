@@ -1,3 +1,4 @@
+import type { ToolDefinition } from '../../types';
 import { citationGenerator } from './entry';
 export * from './entry';
 export const CITATION_GENERATOR_TOOL: ToolDefinition = {

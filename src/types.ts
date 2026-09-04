@@ -1,12 +1,10 @@
 import type { SEOSection } from '@jjlmoya/utils-shared';
+import type { UtilityLocale } from '@jjlmoya/utils-shared/routing';
 import type { WithContext, Thing } from 'schema-dts';
 
 export type { SEOSection };
 
-export type KnownLocale =
-  | 'ar' | 'da' | 'de' | 'en' | 'es' | 'fi'
-  | 'fr' | 'id' | 'it' | 'ja' | 'ko' | 'nb' | 'nl'
-  | 'pl' | 'pt' | 'ru' | 'sv' | 'tr' | 'zh';
+export type KnownLocale = UtilityLocale;
 
 export interface FAQItem {
   question: string;
