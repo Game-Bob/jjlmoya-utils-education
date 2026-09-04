@@ -1,0 +1,906 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-04T11:07:17.267Z",
+  "pages": {
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/bildung/exam-countdown-session-predictor-german/": {
+      "hash": "c1225d57021f64a34fad4371dd6e29a24874ac9868a53ccb0b1fa2f5bb2f604b",
+      "route": "/de/werkzeuge/kategorien/bildung/exam-countdown-session-predictor-german/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/bildung/gewichteter-notenrechner-abschlussnoten-rechner/": {
+      "hash": "0622ede68dc2a796814c3b658a52c04ad22ffe4f9ae2260a0d7cdad0cdd7dc34",
+      "route": "/de/werkzeuge/kategorien/bildung/gewichteter-notenrechner-abschlussnoten-rechner/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/bildung/": {
+      "hash": "27bc9e4b01f083182925abc908a33e9dec04cba183235217e3499eca53b71760",
+      "route": "/de/werkzeuge/kategorien/bildung/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/bildung/interaktiver-flashcard-generator-lerndeck/": {
+      "hash": "e96f5c3375a51b83b552faafdc8ea425045782d694bccf2732d6e27680acafa5",
+      "route": "/de/werkzeuge/kategorien/bildung/interaktiver-flashcard-generator-lerndeck/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/bildung/internationaler-notenumrechner/": {
+      "hash": "90511a3389af5c45ea5e568ca1f0d351c9a6dab86cba2fc5fc2e539214a17636",
+      "route": "/de/werkzeuge/kategorien/bildung/internationaler-notenumrechner/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/bildung/konzept-map-text-exporter/": {
+      "hash": "9c4b6de9682c0e59b9b12c22d501450d8dfd330d597967b14fd471be3506e216",
+      "route": "/de/werkzeuge/kategorien/bildung/konzept-map-text-exporter/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/bildung/latex-formel-renderer/": {
+      "hash": "452f3b0035fed44aa30afa910da9b1bda60a095fc6c007624d7761f10bfe5adf",
+      "route": "/de/werkzeuge/kategorien/bildung/latex-formel-renderer/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/bildung/leistungsnachweis-gpa-parser/": {
+      "hash": "df207bc77a021ac8a41dfd6fe5e17e487d6421c26dad083650b3a385720dc5f3",
+      "route": "/de/werkzeuge/kategorien/bildung/leistungsnachweis-gpa-parser/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/bildung/lesezeit-notizendichte-planer/": {
+      "hash": "d001121d89e88744c39eaf472d17a1d9203b47b079a3f67098718abc758781e7",
+      "route": "/de/werkzeuge/kategorien/bildung/lesezeit-notizendichte-planer/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/bildung/pomodoro-fluss/": {
+      "hash": "e0be7b254bce77d844f78871f10f10f76f6bec870dd139139a44be57bcbd824c",
+      "route": "/de/werkzeuge/kategorien/bildung/pomodoro-fluss/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/bildung/rechner-fuer-studienfortschritt-und-voraussichtliche-abschlussnote/": {
+      "hash": "d97ad4cf5b46cf070674add54c9a9bce42b97ec01ef1d7517ad82caa41aa766e",
+      "route": "/de/werkzeuge/kategorien/bildung/rechner-fuer-studienfortschritt-und-voraussichtliche-abschlussnote/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/bildung/rubrik-matrix-designer/": {
+      "hash": "a9672543657a8a8ee1e0c9b7b7206f3585cb6a237f4bb2e112edb352ce680e8f",
+      "route": "/de/werkzeuge/kategorien/bildung/rubrik-matrix-designer/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/bildung/studienfinanzierungs-simulator/": {
+      "hash": "f4105f43c0506234d56f4642a159b28da47d7e35d06c1f21d0a3692b5501b08f",
+      "route": "/de/werkzeuge/kategorien/bildung/studienfinanzierungs-simulator/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/bildung/stundenplan-optimierer/": {
+      "hash": "97745385637254c35694ff08d2461882ba197e1e580de486e0f6797c3b0afc88",
+      "route": "/de/werkzeuge/kategorien/bildung/stundenplan-optimierer/"
+    },
+    "https://www.gamebob.dev/de/werkzeuge/kategorien/bildung/zitiergenerator/": {
+      "hash": "1340d91739317839fbc707647a6e9bb5d6a5e64773208b0300179d358590da38",
+      "route": "/de/werkzeuge/kategorien/bildung/zitiergenerator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/education/academic-schedule-optimizer/": {
+      "hash": "e7f6104985de2b875e9ebf8313ae13ef8c1614db952227e8308e04673ebcf5ae",
+      "route": "/en/utilities/categories/education/academic-schedule-optimizer/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/education/citation-generator/": {
+      "hash": "01fa817ee1d987409fa0cf06af4be3acef537d30fd403aba77d1a048b03124e2",
+      "route": "/en/utilities/categories/education/citation-generator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/education/concept-map-text-exporter/": {
+      "hash": "604c0cfdf564d5a70da5d0e6f21bcfa6849336c96d0099db2c32311006329a1b",
+      "route": "/en/utilities/categories/education/concept-map-text-exporter/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/education/degree-credit-progress-and-projected-grade-calculator/": {
+      "hash": "5f1a58a48c76380f5ff307c0e4eca3db0892f9aabbacec8ad5f0597fff9d1d11",
+      "route": "/en/utilities/categories/education/degree-credit-progress-and-projected-grade-calculator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/education/exam-countdown-session-predictor/": {
+      "hash": "ec4aeb7a1c7686004e47ea23ad1a1090bf650d5c1b879cb16dd0478cd0072440",
+      "route": "/en/utilities/categories/education/exam-countdown-session-predictor/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/education/": {
+      "hash": "36583ef1d69f11078ff84ef7166d9c8ded71cb690884e70b70890f6f5a549ab6",
+      "route": "/en/utilities/categories/education/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/education/interactive-flashcard-generator/": {
+      "hash": "2a1e4af0c3dc30976d95de7217403e881242a2dccdcd599dcb26ff13a32f2c4c",
+      "route": "/en/utilities/categories/education/interactive-flashcard-generator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/education/international-grade-converter/": {
+      "hash": "d8d0be4bbb68dacd3b0a209c100bf6c7b54996cb46e05ba4a9afc09f88c2410d",
+      "route": "/en/utilities/categories/education/international-grade-converter/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/education/latex-formula-renderer/": {
+      "hash": "e2f8a7081d51bd6b2cc7ed799c3bf4084a44943e319776ee10290ce2583a52ba",
+      "route": "/en/utilities/categories/education/latex-formula-renderer/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/education/pomodoro-flow/": {
+      "hash": "5dce6ad6981f99bb3c7c859e052fec8f72b6144b69f6036dad200740abcd3cd8",
+      "route": "/en/utilities/categories/education/pomodoro-flow/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/education/reading-time-note-density-planner/": {
+      "hash": "bb2a5dffc33aa55332c5f6c6c3dad685a022e17904e7b86d8bcd7d754e7a56fd",
+      "route": "/en/utilities/categories/education/reading-time-note-density-planner/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/education/rubric-matrix-designer/": {
+      "hash": "026e23c5261bf11ccbdfcd70db4d3a30c6c7b5ea80e120591d0d3ad150c5d330",
+      "route": "/en/utilities/categories/education/rubric-matrix-designer/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/education/transcript-gpa-parser/": {
+      "hash": "10ab6f0dcdd05fb4be804997ba58fbda81de4e445b3d35700a5d5225dc988b27",
+      "route": "/en/utilities/categories/education/transcript-gpa-parser/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/education/university-finance-simulator/": {
+      "hash": "5075f38cb65211247006036211ce4009d10c79f36ebbf9ceb6a18f10da7c687f",
+      "route": "/en/utilities/categories/education/university-finance-simulator/"
+    },
+    "https://www.gamebob.dev/en/utilities/categories/education/weighted-grade-calculator/": {
+      "hash": "e31b3da501266a4e7916f77fc7650b33bf8a861a15f458741605aeb5a5414caf",
+      "route": "/en/utilities/categories/education/weighted-grade-calculator/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/education/analyseur-releve-notes-gpa/": {
+      "hash": "1bbb41d52ddd895c22dcac1d29b0456bea763f04b92c8fee45983a9f4c898bd9",
+      "route": "/fr/utilitaires/categories/education/analyseur-releve-notes-gpa/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/education/calculateur-de-moyenne-coefficients/": {
+      "hash": "d37623c6507c1e554b8f276f8e3b9d7d5404dd0ff16ee0531ce2224a78fe05a2",
+      "route": "/fr/utilitaires/categories/education/calculateur-de-moyenne-coefficients/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/education/calculateur-de-progression-de-credits-et-de-note-moyenne-previsionnelle/": {
+      "hash": "c608f2b9c2dd27f1e028c0718f8253a6e3951f1ef817961ee6fd11e6cb1dbafe",
+      "route": "/fr/utilitaires/categories/education/calculateur-de-progression-de-credits-et-de-note-moyenne-previsionnelle/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/education/carte-conceptuelle-texte/": {
+      "hash": "80678612f61811d07958619a2caada6b17f91e87f91b9e9a27c489d1bcefe8b9",
+      "route": "/fr/utilitaires/categories/education/carte-conceptuelle-texte/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/education/concepteur-matrice-rubrique/": {
+      "hash": "1ba9352a501f641b63e1bcf8958ba80b4c3a7e3c9710bead32da7e5c618093cf",
+      "route": "/fr/utilitaires/categories/education/concepteur-matrice-rubrique/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/education/convertisseur-notes-international/": {
+      "hash": "8a204f569f0b5180011e2cab37459776c67af6b29de70745198681146cccfe10",
+      "route": "/fr/utilitaires/categories/education/convertisseur-notes-international/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/education/exam-countdown-session-predictor-french/": {
+      "hash": "bdc3349305be413e18742d386d4274613b827e0962b5c9a6037d70d596f35f49",
+      "route": "/fr/utilitaires/categories/education/exam-countdown-session-predictor-french/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/education/flux-pomodoro/": {
+      "hash": "e01a32009623715cc28847d6a3f6e90297261277084eda41b16c450ec4cf30c3",
+      "route": "/fr/utilitaires/categories/education/flux-pomodoro/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/education/generateur-de-citations-bibliographiques/": {
+      "hash": "eaebc34d58d34b93a9b6cca3c66ad2b399aad6d407ed10faf543d766e8dfe9b5",
+      "route": "/fr/utilitaires/categories/education/generateur-de-citations-bibliographiques/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/education/generateur-interactif-de-flashcards/": {
+      "hash": "eba58c6fe71b242aad32577a5ada4aba3f454990d5e09b8f09f25964660923b1",
+      "route": "/fr/utilitaires/categories/education/generateur-interactif-de-flashcards/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/education/": {
+      "hash": "5ec1c5d9c73bee618fb35b7800c7c7eff5da91115098311f5b3977069569c6b1",
+      "route": "/fr/utilitaires/categories/education/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/education/optimiseur-emploi-du-temps/": {
+      "hash": "3f4e0dcf63826ea81238ef300285e677c04087246d5400ba8921537e9c2d1922",
+      "route": "/fr/utilitaires/categories/education/optimiseur-emploi-du-temps/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/education/planificateur-temps-lecture-densite-notes/": {
+      "hash": "e6d9f0413de20b7408a497662bf61d186bccea7727f32129d8edeee7d444d3c7",
+      "route": "/fr/utilitaires/categories/education/planificateur-temps-lecture-densite-notes/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/education/rendu-formules-latex/": {
+      "hash": "191e06e38736a295ff3624a9caa434f88a3dc8cac910bd3e7c8837e54bbc282a",
+      "route": "/fr/utilitaires/categories/education/rendu-formules-latex/"
+    },
+    "https://www.gamebob.dev/fr/utilitaires/categories/education/simulateur-financement-universitaire/": {
+      "hash": "640b5050440f01b030e5b42dc7c2dc5034ed27c207821b0e36e7349838d54a90",
+      "route": "/fr/utilitaires/categories/education/simulateur-financement-universitaire/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/pendidikan/aliran-pomodoro/": {
+      "hash": "e5589454d35dfa6d7e410e905ad0e8ecd7493f9d44bdf0d0b4f3e16a679303db",
+      "route": "/id/utilitas/kategori/pendidikan/aliran-pomodoro/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/pendidikan/exam-countdown-session-predictor-indonesian/": {
+      "hash": "075569bac6b367566b025b3c76596c17c8c7ae21aed21277ebb61473070f3aef",
+      "route": "/id/utilitas/kategori/pendidikan/exam-countdown-session-predictor-indonesian/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/pendidikan/": {
+      "hash": "147dec2aff558a9c4f1e43fe89260fbeb625e5811830f467da54f25a8774c0f0",
+      "route": "/id/utilitas/kategori/pendidikan/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/pendidikan/kalkulator-kemajuan-sks-dan-proyeksi-ipk/": {
+      "hash": "2abb9e24a05009a0257ccc883c2bdb87a8936547204a685cd38fe2e59774a9f4",
+      "route": "/id/utilitas/kategori/pendidikan/kalkulator-kemajuan-sks-dan-proyeksi-ipk/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/pendidikan/kalkulator-nilai-tertimbang-skor-akhir/": {
+      "hash": "804b94b93a393a3de79ced001ae349152279aa4bcdf189eddaabc9fd27a16778",
+      "route": "/id/utilitas/kategori/pendidikan/kalkulator-nilai-tertimbang-skor-akhir/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/pendidikan/konverter-nilai-internasional/": {
+      "hash": "643f3c4d2cd221064005396bfb522f25f56bafc360d446ff1a9149afc79c1b04",
+      "route": "/id/utilitas/kategori/pendidikan/konverter-nilai-internasional/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/pendidikan/pembaca-transkrip-nilai-gpa/": {
+      "hash": "39fcce90d6789098f9af9a145695efd674df6c676bc39e100a3c250e4a5926ed",
+      "route": "/id/utilitas/kategori/pendidikan/pembaca-transkrip-nilai-gpa/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/pendidikan/pembuat-flashcard-interaktif/": {
+      "hash": "4da24fd4c48844678cb04a710eb3a035cc14397f464b61c261f37a7f287935b3",
+      "route": "/id/utilitas/kategori/pendidikan/pembuat-flashcard-interaktif/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/pendidikan/pembuat-sitasi/": {
+      "hash": "7d2c26fe971d4a15f3e8b6d99dbe5477d4822c682ac89d28cc4b8426c25fc81e",
+      "route": "/id/utilitas/kategori/pendidikan/pembuat-sitasi/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/pendidikan/pengoptimal-jadwal-akademik/": {
+      "hash": "4fa9de18b73dcbd450142ff93d0f4c782cab291dd0f599d588ad69473fd2c9d6",
+      "route": "/id/utilitas/kategori/pendidikan/pengoptimal-jadwal-akademik/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/pendidikan/perancang-matriks-rubrik/": {
+      "hash": "4f7d37c7a337d5a007a8731b23495dbe82715cb2847ad707bd4f10c5a6321508",
+      "route": "/id/utilitas/kategori/pendidikan/perancang-matriks-rubrik/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/pendidikan/perencana-waktu-baca-kepadatan-catatan/": {
+      "hash": "b045f3e6bb8eb474599b00ec7dcfb00fe62ed668b92edc3dbb95257a93f40a24",
+      "route": "/id/utilitas/kategori/pendidikan/perencana-waktu-baca-kepadatan-catatan/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/pendidikan/peta-konsep-teks/": {
+      "hash": "c0208c7873e0e51bd65b8f1ca097411d4021a6a4dfaa98928d795135cf55574f",
+      "route": "/id/utilitas/kategori/pendidikan/peta-konsep-teks/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/pendidikan/render-rumus-latex/": {
+      "hash": "da3f53ea5a31bb24442f84937e285e2e4128b07afaf44a0f8d0eb1a1b25cb930",
+      "route": "/id/utilitas/kategori/pendidikan/render-rumus-latex/"
+    },
+    "https://www.gamebob.dev/id/utilitas/kategori/pendidikan/simulator-keuangan-universitas/": {
+      "hash": "0d07ad23e9ff83cc27c0972fd0a5703b7a6a4f94b00f97fc1663f4165b2ab127",
+      "route": "/id/utilitas/kategori/pendidikan/simulator-keuangan-universitas/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/istruzione/analizzatore-carriera-accademica-gpa/": {
+      "hash": "b597889957131e9568b75dc6c205c091f79eea1617768d428d0c8fbd689d4916",
+      "route": "/it/utilita/categorie/istruzione/analizzatore-carriera-accademica-gpa/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/istruzione/calcolatore-di-progresso-crediti-e-media-voti-prevista/": {
+      "hash": "ab56386e234009cee25bdf5d5fbfc4ab0da82b7059457d41a966ef4d90a541e3",
+      "route": "/it/utilita/categorie/istruzione/calcolatore-di-progresso-crediti-e-media-voti-prevista/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/istruzione/calcolatore-media-voti-ponderata/": {
+      "hash": "51776ce9ad3351e3bd09b77f60a73acbf4667eb62eb32ec7548f8004c81fda30",
+      "route": "/it/utilita/categorie/istruzione/calcolatore-media-voti-ponderata/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/istruzione/convertitore-voti-internazionale/": {
+      "hash": "3e75c031ba957a39850a78a3dc9f19b72de872d7373e958d4d81a28026d0d575",
+      "route": "/it/utilita/categorie/istruzione/convertitore-voti-internazionale/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/istruzione/creatore-matrice-rubrica/": {
+      "hash": "2fe09497bd1b66c47ecdf08247e68f2510e80f14e6f142657326b19a1a307cb6",
+      "route": "/it/utilita/categorie/istruzione/creatore-matrice-rubrica/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/istruzione/exam-countdown-session-predictor-italian/": {
+      "hash": "d66b9279060513f03d0a1328e9c8eb36f6af7294752208c8b4d42d06c8547b1d",
+      "route": "/it/utilita/categorie/istruzione/exam-countdown-session-predictor-italian/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/istruzione/flusso-pomodoro/": {
+      "hash": "8f73ba0b59ccd7bcda7e47f8e9638d88b8d8e9d3e0060c19ec32c54a8965eebe",
+      "route": "/it/utilita/categorie/istruzione/flusso-pomodoro/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/istruzione/generatore-di-citazioni/": {
+      "hash": "f19cc7c4d0fb6d9c7d5d5e50cbebf031c7db406825d77b2f61bf2ea45d995f01",
+      "route": "/it/utilita/categorie/istruzione/generatore-di-citazioni/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/istruzione/generatore-interattivo-di-flashcard/": {
+      "hash": "ff60340244875ddeb328b05125acf8ae7e76d5339c1b98f743ce9fae6cee5586",
+      "route": "/it/utilita/categorie/istruzione/generatore-interattivo-di-flashcard/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/istruzione/": {
+      "hash": "7ece59c3809677d20d2373bc323fe99607d33827eb3a6cbbd3fca22f4732fda8",
+      "route": "/it/utilita/categorie/istruzione/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/istruzione/mappa-concettuale-testo/": {
+      "hash": "362339b59024ba2231648bd16b72ec3b3f3a27d4e793fc7c0ba78b70357dcc6b",
+      "route": "/it/utilita/categorie/istruzione/mappa-concettuale-testo/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/istruzione/ottimizzatore-orario-scolastico/": {
+      "hash": "831f4fe2e6d1ee0a2490297f5315687af05521919560d7557259cdc7f50ff5de",
+      "route": "/it/utilita/categorie/istruzione/ottimizzatore-orario-scolastico/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/istruzione/pianificatore-tempo-lettura-densita-note/": {
+      "hash": "38a5004b6ee8d7c557946e7ac1c79460e8f6f0cec1d0c1bf67dfba16a579d1ec",
+      "route": "/it/utilita/categorie/istruzione/pianificatore-tempo-lettura-densita-note/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/istruzione/simulatore-finanziario-universitario/": {
+      "hash": "98e5f68b80da27da864658b419a49a6fc0417437091c6e1f224d5dedab8adfa2",
+      "route": "/it/utilita/categorie/istruzione/simulatore-finanziario-universitario/"
+    },
+    "https://www.gamebob.dev/it/utilita/categorie/istruzione/visualizzatore-formule-latex/": {
+      "hash": "27d4a95942723270442ea9bcd8ff6ecc9cb6e90eab31e2b06b6235ecbc981d97",
+      "route": "/it/utilita/categorie/istruzione/visualizzatore-formule-latex/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/education/academic-schedule-optimizer/": {
+      "hash": "f309d7ca770447086130fd7aeea2391759568add28c8926729e3210bb378163e",
+      "route": "/ja/utilities/categories/education/academic-schedule-optimizer/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/education/citation-generator/": {
+      "hash": "bebf0e8d4d0aa6ba8627cf1ad20505855af70dde190a9e281028a1cdf50959cb",
+      "route": "/ja/utilities/categories/education/citation-generator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/education/concept-map-text-exporter/": {
+      "hash": "5073800e3f68283c6b0dcb1f9be73fcd33b748d77a4525b9f62bae35a66a537c",
+      "route": "/ja/utilities/categories/education/concept-map-text-exporter/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/education/degree-credit-progress-and-projected-grade-calculator/": {
+      "hash": "8cbccdcf2932782a99a3459cae2ede3703b1f5954630daa9751d364db4986e9d",
+      "route": "/ja/utilities/categories/education/degree-credit-progress-and-projected-grade-calculator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/education/exam-countdown-session-predictor/": {
+      "hash": "78d5e7d23e6045e22847997950e82ec2e7f602a0f215c7bc4edbb97db3bd07c0",
+      "route": "/ja/utilities/categories/education/exam-countdown-session-predictor/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/education/": {
+      "hash": "0e8fc90171be9e8705ad028c80066391087f76b2308e46e796ecb36ca092c7fe",
+      "route": "/ja/utilities/categories/education/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/education/interactive-flashcard-generator/": {
+      "hash": "b884a1de2eb37d5347ad574fa9a080772653acdb2d63336228febe363a00d182",
+      "route": "/ja/utilities/categories/education/interactive-flashcard-generator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/education/international-grade-converter/": {
+      "hash": "05448e7290930fb7b4492caa23b70e6a0319c80e3bf58754f32c460be916edca",
+      "route": "/ja/utilities/categories/education/international-grade-converter/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/education/latex-formula-renderer/": {
+      "hash": "9e964b3af1fec9da063f76ef93fb8401e44a7e7ecfedb983421dcb441b1ea293",
+      "route": "/ja/utilities/categories/education/latex-formula-renderer/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/education/pomodoro-flow/": {
+      "hash": "0eb56734656f3854baea344421c8e76d6e17c785e05b7b5f8839d6d21584ced7",
+      "route": "/ja/utilities/categories/education/pomodoro-flow/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/education/reading-time-note-density-planner/": {
+      "hash": "fd8f292f85e007543d4ec6d324ecada8efd47ed685f2d9e568fec3bbf13131c8",
+      "route": "/ja/utilities/categories/education/reading-time-note-density-planner/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/education/rubric-matrix-designer/": {
+      "hash": "9723287ce1fd35135d5e9250b7bf6ec041f93571eaed584e83329c8559f431cb",
+      "route": "/ja/utilities/categories/education/rubric-matrix-designer/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/education/transcript-gpa-parser/": {
+      "hash": "b352f818c6f08f2857cf8d8898804103d7da7622e009d7e40be9ca2479835b0e",
+      "route": "/ja/utilities/categories/education/transcript-gpa-parser/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/education/university-finance-simulator/": {
+      "hash": "414536ff8660800e46cc8da0afbd128f23cc3c99c5889d6e3fee551637cd81e8",
+      "route": "/ja/utilities/categories/education/university-finance-simulator/"
+    },
+    "https://www.gamebob.dev/ja/utilities/categories/education/weighted-grade-calculator/": {
+      "hash": "4a586701104e75f723c6b19b76ae7611844f065f1abb39352427de2fe8244d88",
+      "route": "/ja/utilities/categories/education/weighted-grade-calculator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/education/academic-schedule-optimizer/": {
+      "hash": "290b928189b97340a5824a2de66617db2f2e91bd5cd0d79f2551b03c02704574",
+      "route": "/ko/utilities/categories/education/academic-schedule-optimizer/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/education/citation-generator/": {
+      "hash": "a4eb46108a445c6dde3a732640cfa5d402833cdd278d26299ad19752e3a93d00",
+      "route": "/ko/utilities/categories/education/citation-generator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/education/concept-map-text-exporter/": {
+      "hash": "27bc4a9526c333b45963e1d2d33890d184574804c6037d4dd3c6ea748eaa880f",
+      "route": "/ko/utilities/categories/education/concept-map-text-exporter/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/education/degree-credit-progress-and-projected-grade-calculator/": {
+      "hash": "b49a5852fb7c7fd11db567e32bba4cb1a0746759e5b1a2b518db915ff42c8aaa",
+      "route": "/ko/utilities/categories/education/degree-credit-progress-and-projected-grade-calculator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/education/exam-countdown-session-predictor/": {
+      "hash": "e693873ae9cce49a82acd0379d10981b3f3066785d380b702800cd54c57996bb",
+      "route": "/ko/utilities/categories/education/exam-countdown-session-predictor/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/education/": {
+      "hash": "3f433a198cf1dbaacd1ac3f14bdbf22e74b7d93d5c93de4a2e28d87f35190413",
+      "route": "/ko/utilities/categories/education/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/education/interactive-flashcard-generator/": {
+      "hash": "64a01d8bac9aa90f12882a9e86dd55dca2d1e765c8d5f819131dfc46a7c58b58",
+      "route": "/ko/utilities/categories/education/interactive-flashcard-generator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/education/international-grade-converter/": {
+      "hash": "cd66dc7ac010959b1e27457bd9193214436d4b2db07533edc1bc4efd7325494b",
+      "route": "/ko/utilities/categories/education/international-grade-converter/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/education/latex-formula-renderer/": {
+      "hash": "8b5d215de2cc2c527e4595b3a0b29c6d9eff56fd33f29e5eefcfee0cf26d4fcc",
+      "route": "/ko/utilities/categories/education/latex-formula-renderer/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/education/pomodoro-flow/": {
+      "hash": "38751b9bba09e7e501f023883e7cfac2930d9438e53a1771a0b98ef32359ee16",
+      "route": "/ko/utilities/categories/education/pomodoro-flow/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/education/reading-time-note-density-planner/": {
+      "hash": "d68881fb6a01c6c14b611384546ed5ece427daf4d248c4a90363e2a901b07a8d",
+      "route": "/ko/utilities/categories/education/reading-time-note-density-planner/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/education/rubric-matrix-designer/": {
+      "hash": "dc6a9b9aa43637f614f31e25a303ca705a7563ff8d1b59a33efc84e04eba1863",
+      "route": "/ko/utilities/categories/education/rubric-matrix-designer/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/education/transcript-gpa-parser/": {
+      "hash": "61bf3d60cc83dbeb2993a14801899cab5e99d448bb17771fdb1f3b7eba6f3d97",
+      "route": "/ko/utilities/categories/education/transcript-gpa-parser/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/education/university-finance-simulator/": {
+      "hash": "4143b79fcfe450b87e82af1c9033c159e4e27bfc5bba85c8eb2ed5c0c05bba0c",
+      "route": "/ko/utilities/categories/education/university-finance-simulator/"
+    },
+    "https://www.gamebob.dev/ko/utilities/categories/education/weighted-grade-calculator/": {
+      "hash": "e7bfb484f664c54ae064c411ffa327bbe3b2793533d5880c0f555f3579b6f2d1",
+      "route": "/ko/utilities/categories/education/weighted-grade-calculator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/onderwijs/cijferlijst-gpa-analyser/": {
+      "hash": "6bc3a26019618ab086e2edbb485b01f8a8aba0b5a4ffa0c541a054f9d1b5d42e",
+      "route": "/nl/hulpmiddelen/categorieen/onderwijs/cijferlijst-gpa-analyser/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/onderwijs/citatiegenerator/": {
+      "hash": "fd5a36bc46ce48f1c061776e6224be3db585dfe8d040cef8a063771a5fbed9a0",
+      "route": "/nl/hulpmiddelen/categorieen/onderwijs/citatiegenerator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/onderwijs/conceptmap-tekst-exporter/": {
+      "hash": "9bb176aab88e6fc03502fd10c2c4df6a911b7426c7304b47e505792f8575c69b",
+      "route": "/nl/hulpmiddelen/categorieen/onderwijs/conceptmap-tekst-exporter/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/onderwijs/exam-countdown-session-predictor-dutch/": {
+      "hash": "df00419eba5e9cd2e5bc917dedc8e1636bd75a9399767c262e7ef8e3d945c45f",
+      "route": "/nl/hulpmiddelen/categorieen/onderwijs/exam-countdown-session-predictor-dutch/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/onderwijs/financieel-simulator-universiteit/": {
+      "hash": "5136392fc536cc2e3b7efb0e76c55d2f8831925c3aadac2eeb551e7b680e3090",
+      "route": "/nl/hulpmiddelen/categorieen/onderwijs/financieel-simulator-universiteit/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/onderwijs/gewogen-cijfer-eindscore-calculator/": {
+      "hash": "d7cdecb6a40160bc6bb43a1376319a83c3d6c9007f9e7e2041ebf2195f0a1014",
+      "route": "/nl/hulpmiddelen/categorieen/onderwijs/gewogen-cijfer-eindscore-calculator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/onderwijs/": {
+      "hash": "f1137e314492c26322fa5770c46244f36a2b170374e27962495fcc46580b40b8",
+      "route": "/nl/hulpmiddelen/categorieen/onderwijs/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/onderwijs/interactieve-flashcard-generator/": {
+      "hash": "5b9a8447ddd078d0724e4510d782c655026cdd0f584ec4b8ff41e90e66a71c5a",
+      "route": "/nl/hulpmiddelen/categorieen/onderwijs/interactieve-flashcard-generator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/onderwijs/internationale-cijferomzetter/": {
+      "hash": "4e1a10096adae33305953031544ffb24f029bb373b74cde7e3f822194ebbba54",
+      "route": "/nl/hulpmiddelen/categorieen/onderwijs/internationale-cijferomzetter/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/onderwijs/latex-formule-weergave/": {
+      "hash": "3dd0ba371d80371d49e4f1180fe0e9d151a517632384126f74fd0839dedc0927",
+      "route": "/nl/hulpmiddelen/categorieen/onderwijs/latex-formule-weergave/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/onderwijs/leestijd-notitiedichtheid-planner/": {
+      "hash": "29caebbdab8bf995f605de5f1ed6edf02fbb4bff3df5dd0353c96e4f190db565",
+      "route": "/nl/hulpmiddelen/categorieen/onderwijs/leestijd-notitiedichtheid-planner/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/onderwijs/pomodoro-stroom/": {
+      "hash": "c5de1b8e609880bd2c2a8745eaf5fff4c356c1ced3036fb520975d3524398ef2",
+      "route": "/nl/hulpmiddelen/categorieen/onderwijs/pomodoro-stroom/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/onderwijs/rooster-optimalisator/": {
+      "hash": "f51058ac6211769372d41958b1112f5da06c867ecf3ed60096a3858d731eceae",
+      "route": "/nl/hulpmiddelen/categorieen/onderwijs/rooster-optimalisator/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/onderwijs/rubriek-matrix-ontwerper/": {
+      "hash": "8377b19f3a7c471c19bf965388c45833428bb0fc26236a82b8ee507c904e5efe",
+      "route": "/nl/hulpmiddelen/categorieen/onderwijs/rubriek-matrix-ontwerper/"
+    },
+    "https://www.gamebob.dev/nl/hulpmiddelen/categorieen/onderwijs/studievoortgang-en-prognose-gemiddelde-calculator/": {
+      "hash": "95c88579b0e138fda77a9fd47be70f92afaa5e571315173b878dc74152d9c8ee",
+      "route": "/nl/hulpmiddelen/categorieen/onderwijs/studievoortgang-en-prognose-gemiddelde-calculator/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/edukacja/exam-countdown-session-predictor-polish/": {
+      "hash": "3de15f35778a227d4e0459555b8bec936b10f656e37bb9b7b878ada5f3b3dc76",
+      "route": "/pl/narzedzia/kategorie/edukacja/exam-countdown-session-predictor-polish/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/edukacja/generator-cytowan/": {
+      "hash": "7791dac55ac4de07e08f97839c345bd66ffa7d46e3e6ff76df116e8b90c37994",
+      "route": "/pl/narzedzia/kategorie/edukacja/generator-cytowan/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/edukacja/": {
+      "hash": "8f9bdf936dfc74aea956863b80d7571e8765fda99615b951e81baa2b5554d9d5",
+      "route": "/pl/narzedzia/kategorie/edukacja/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/edukacja/interaktywny-generator-fiszek/": {
+      "hash": "dd3ac75dd3cc1dba26e850744225a1e5cf834daaac26f2c6c6902058cca126ef",
+      "route": "/pl/narzedzia/kategorie/edukacja/interaktywny-generator-fiszek/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/edukacja/kalkulator-kosztow-studiow/": {
+      "hash": "96811b615ad761080c86a5d4da59a8e610e4583bfd50d02e9d8c4667537f13f5",
+      "route": "/pl/narzedzia/kategorie/edukacja/kalkulator-kosztow-studiow/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/edukacja/kalkulator-postepu-studiow-i-prognozowanej-sredniej-ocen/": {
+      "hash": "982e1b53ba3a0b92f920f67ff7393d17b61c0d057f937547cf469ab483aefe1f",
+      "route": "/pl/narzedzia/kategorie/edukacja/kalkulator-postepu-studiow-i-prognozowanej-sredniej-ocen/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/edukacja/kalkulator-sredniej-waznej-i-wyniku-koncowego/": {
+      "hash": "67d8060a9cd3f93bcc93a130fa8f2dfa1b49a533c14d600d4828c90393c7b0fa",
+      "route": "/pl/narzedzia/kategorie/edukacja/kalkulator-sredniej-waznej-i-wyniku-koncowego/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/edukacja/konwerter-ocen-miedzynarodowy/": {
+      "hash": "597ccb4b3def82e9dec6b5b7515e089a3f7722db4330e402d17e827beaaae58c",
+      "route": "/pl/narzedzia/kategorie/edukacja/konwerter-ocen-miedzynarodowy/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/edukacja/kreator-macierzy-rubryk/": {
+      "hash": "221853cc38c3fef4687d14cc7dd9b90eec0c2b34377359488697f46ddaaadb5e",
+      "route": "/pl/narzedzia/kategorie/edukacja/kreator-macierzy-rubryk/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/edukacja/mapa-pojecciowa-tekst/": {
+      "hash": "27f3a99860f682affadce9eece33d45f032bacbfa4a91728171992743eb79cad",
+      "route": "/pl/narzedzia/kategorie/edukacja/mapa-pojecciowa-tekst/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/edukacja/optymalizator-planu-zajec/": {
+      "hash": "adfc3164d421dce566d55a83f753509e500cb9e9d63f7e7701b825b4c5b7ec92",
+      "route": "/pl/narzedzia/kategorie/edukacja/optymalizator-planu-zajec/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/edukacja/parser-wykazu-ocen-gpa/": {
+      "hash": "ce58a8a05ed31dc17b5828558f6e3c9d9068c1e624acd971a5624841742cddb7",
+      "route": "/pl/narzedzia/kategorie/edukacja/parser-wykazu-ocen-gpa/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/edukacja/planer-czasu-czytania-i-gestosci-notatek/": {
+      "hash": "27081c5493b15665707e9b576f65a610e0f3619624cb8f1589ab0a0b71fb5201",
+      "route": "/pl/narzedzia/kategorie/edukacja/planer-czasu-czytania-i-gestosci-notatek/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/edukacja/przepyw-pomodoro/": {
+      "hash": "e7a7f97693e1341faa8c89b2e87e2a44517c9f14e58b2698e9d1148bb7077af2",
+      "route": "/pl/narzedzia/kategorie/edukacja/przepyw-pomodoro/"
+    },
+    "https://www.gamebob.dev/pl/narzedzia/kategorie/edukacja/renderowanie-wzory-latex/": {
+      "hash": "19c41cd5aaca44af1f6cb8e5117536f3f17f5a972d6d4e7527e34591c08156a7",
+      "route": "/pl/narzedzia/kategorie/edukacja/renderowanie-wzory-latex/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/educacao/analisador-historico-academico-gpa/": {
+      "hash": "cc1f1f25d2c118ff596e580526c23de4ae4a3953ff3e28e906d386edae6f91a7",
+      "route": "/pt/utilidades/categorias/educacao/analisador-historico-academico-gpa/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/educacao/calculadora-de-notas-pesadas-e-media-final/": {
+      "hash": "da069c2e2d6c3119a52ace9188cf0c290441f134dfbe737a46efc4d811b8b360",
+      "route": "/pt/utilidades/categorias/educacao/calculadora-de-notas-pesadas-e-media-final/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/educacao/calculadora-de-progresso-de-creditos-e-media-final-projetada/": {
+      "hash": "5d42aa4a271b341fa2161902d603be9a044eaf1bc6ece38df7d9053aa6a4c4a4",
+      "route": "/pt/utilidades/categorias/educacao/calculadora-de-progresso-de-creditos-e-media-final-projetada/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/educacao/conversor-notas-equivalencia-gpa/": {
+      "hash": "9eca451915f506273d62e43a610cd68b3e2e9a818d191b990ab4009fff4979ca",
+      "route": "/pt/utilidades/categorias/educacao/conversor-notas-equivalencia-gpa/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/educacao/criador-matriz-rubrica/": {
+      "hash": "c93715a083eff72eab3f06c548b39adc65ee39b68c1aba85ea24b4a72d56a603",
+      "route": "/pt/utilidades/categorias/educacao/criador-matriz-rubrica/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/educacao/exam-countdown-session-predictor-portuguese/": {
+      "hash": "b78618dd8e057d08418c0b9b92a56e6781b5ac6c7dd44a929b48378dda4e4e62",
+      "route": "/pt/utilidades/categorias/educacao/exam-countdown-session-predictor-portuguese/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/educacao/fluxo-pomodoro/": {
+      "hash": "9eb76759db375d866546cb98ecb30f1f28fc5c73795582a7e662c425771823cc",
+      "route": "/pt/utilidades/categorias/educacao/fluxo-pomodoro/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/educacao/gerador-de-citacoes/": {
+      "hash": "dbd02a59e2bc32dba9623526cddc6a0a2ea7836df46a26674aa0e6605fbff6a4",
+      "route": "/pt/utilidades/categorias/educacao/gerador-de-citacoes/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/educacao/gerador-interativo-de-flashcards/": {
+      "hash": "47b128d3758b1e44b07f1066bed15c242ff93b46fe432ae010274e4ffb10a06c",
+      "route": "/pt/utilidades/categorias/educacao/gerador-interativo-de-flashcards/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/educacao/": {
+      "hash": "5e8bcc4950c4a5e16d81eb15af00c3cde967084376dd34129d7c70b9cab1e800",
+      "route": "/pt/utilidades/categorias/educacao/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/educacao/mapa-conceitual-texto/": {
+      "hash": "9456becbe2eab7918070d1d065661c4fedd41b7f2bcfd519029f85639ce1c2fc",
+      "route": "/pt/utilidades/categorias/educacao/mapa-conceitual-texto/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/educacao/otimizador-horario-academico/": {
+      "hash": "abd8cc22add0fe28e9f08aad600eb73719184cce9356d6c639521c4455b30019",
+      "route": "/pt/utilidades/categorias/educacao/otimizador-horario-academico/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/educacao/planejador-tempo-leitura-densidade-notas/": {
+      "hash": "1ba9474ac0f22e4750b2a09fd27075176942bfeada0620bc7c61db3495cb7b3b",
+      "route": "/pt/utilidades/categorias/educacao/planejador-tempo-leitura-densidade-notas/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/educacao/renderizador-equacoes-latex/": {
+      "hash": "67aa349e2a3915ba1e3fc603e2126897fc4421aad3acdf10a5fa82801aa7a874",
+      "route": "/pt/utilidades/categorias/educacao/renderizador-equacoes-latex/"
+    },
+    "https://www.gamebob.dev/pt/utilidades/categorias/educacao/simulador-financiamento-universitario/": {
+      "hash": "1975561caae1f4959d92a55a86816bea9a7b3e82ce31ce29e74e1d5b0e04fc43",
+      "route": "/pt/utilidades/categorias/educacao/simulador-financiamento-universitario/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/obrazovaniye/analizator-akademichskoy-spravki-gpa/": {
+      "hash": "faf40be5f6ca386d31eea0d2a96952c78e5ad51270f1a3c2686f3f346cb24e21",
+      "route": "/ru/instrumenty/kategorii/obrazovaniye/analizator-akademichskoy-spravki-gpa/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/obrazovaniye/exam-countdown-session-predictor-russian/": {
+      "hash": "5c9e7469c2a9464eda09e6101fd093c9ed6d74ac429638f308e54af98a9ab708",
+      "route": "/ru/instrumenty/kategorii/obrazovaniye/exam-countdown-session-predictor-russian/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/obrazovaniye/finansovyj-simulyator-obucheniya-v-vuze/": {
+      "hash": "1cb03a1b67c5d646756a9941449fceed574a46689ce81f817edbb0d851b82cf3",
+      "route": "/ru/instrumenty/kategorii/obrazovaniye/finansovyj-simulyator-obucheniya-v-vuze/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/obrazovaniye/generator-tsitat/": {
+      "hash": "ac237d73ee4d73cb4f93794bbb69882cc7c9aac174cb7a2de8e9a0661d456c9c",
+      "route": "/ru/instrumenty/kategorii/obrazovaniye/generator-tsitat/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/obrazovaniye/": {
+      "hash": "9c22c30a960c856336f9e1c57f18d7d2cf8805b6c10958a6a2fe8bdd3b45a263",
+      "route": "/ru/instrumenty/kategorii/obrazovaniye/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/obrazovaniye/interaktivnyi-generator-kartochek/": {
+      "hash": "043041e2ea406b44120d1491f86588c97552c759a611fc1b640027e0db322e0f",
+      "route": "/ru/instrumenty/kategorii/obrazovaniye/interaktivnyi-generator-kartochek/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/obrazovaniye/kalkulyator-progressa-obucheniya-i-prognoza-srednego-balla/": {
+      "hash": "7cf320851ce182d82db855f45c8e51e4ae8b3ed01167fb68e2458ca4815e4647",
+      "route": "/ru/instrumenty/kategorii/obrazovaniye/kalkulyator-progressa-obucheniya-i-prognoza-srednego-balla/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/obrazovaniye/kalkulyator-srednevsveshennogo/": {
+      "hash": "da9db7349dc8bc03adb55e54f8a7f0c46486c1f9f9b37d07b8bde01c780a78fc",
+      "route": "/ru/instrumenty/kategorii/obrazovaniye/kalkulyator-srednevsveshennogo/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/obrazovaniye/konstruktor-kontsept-kart/": {
+      "hash": "3b83fac12f0bf875a5f10aee37b5ac6015ffc456228439686f3b4a10477ebe16",
+      "route": "/ru/instrumenty/kategorii/obrazovaniye/konstruktor-kontsept-kart/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/obrazovaniye/konstruktor-matricy-rubrik/": {
+      "hash": "486b1d30c369e887d0db29b6dd5904ff66892f6bf9d9e02c350f0746711735e6",
+      "route": "/ru/instrumenty/kategorii/obrazovaniye/konstruktor-matricy-rubrik/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/obrazovaniye/mezhdunarodnyi-perevod-ocenok/": {
+      "hash": "3f1d6f6e6e9c73c74435c67a7c155d3560c3ac7deb2b84dbfc3a596fa72b7619",
+      "route": "/ru/instrumenty/kategorii/obrazovaniye/mezhdunarodnyi-perevod-ocenok/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/obrazovaniye/optimizator-uchebnogo-raspisaniya/": {
+      "hash": "b6e2ef9552f96b947c0b2fd58bd656a8e07a14863c3f3bc8bd691dbbb7ecd7b0",
+      "route": "/ru/instrumenty/kategorii/obrazovaniye/optimizator-uchebnogo-raspisaniya/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/obrazovaniye/planer-vremeni-chteniya-i-plotnosti-konspetkov/": {
+      "hash": "3a82e019696f6dc81a818e54eeab53a1e2f2f77241bb67d2d48c08af8ccdf79c",
+      "route": "/ru/instrumenty/kategorii/obrazovaniye/planer-vremeni-chteniya-i-plotnosti-konspetkov/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/obrazovaniye/potok-pomidora/": {
+      "hash": "01cb5eb7fb431df6f47dbbde8a83f77cc32e3e57bed89a3750d4143e487e8933",
+      "route": "/ru/instrumenty/kategorii/obrazovaniye/potok-pomidora/"
+    },
+    "https://www.gamebob.dev/ru/instrumenty/kategorii/obrazovaniye/renderovanie-formuly-latex/": {
+      "hash": "5816be968ba8dc6ba8b058a86e6813e77b2054e150ebba05d14a4702444a76c0",
+      "route": "/ru/instrumenty/kategorii/obrazovaniye/renderovanie-formuly-latex/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/utbildning/citeringsgenerator/": {
+      "hash": "1b48573fcf08dc9e55b7b0bc8caf29d9cc88f220e96581632d272471b7474ae1",
+      "route": "/sv/verktyg/kategorier/utbildning/citeringsgenerator/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/utbildning/exam-countdown-session-predictor-swedish/": {
+      "hash": "f98965155a4ee5a82eabdf832687c40a3ba4dbca4d0649a5aab660bead9ea5db",
+      "route": "/sv/verktyg/kategorier/utbildning/exam-countdown-session-predictor-swedish/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/utbildning/finansieringskalkylator-for-universitet/": {
+      "hash": "2727312e0b4f7d12604baaa6ba54e24fd546c3df883e80c8d3e9efd0d20ee76b",
+      "route": "/sv/verktyg/kategorier/utbildning/finansieringskalkylator-for-universitet/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/utbildning/": {
+      "hash": "cae8e959ece8d87dafcf89904f410e97da50ad87421a5f124d70ec5120c55567",
+      "route": "/sv/verktyg/kategorier/utbildning/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/utbildning/interaktiv-flashcard-generator-studiekort/": {
+      "hash": "5e88605ed21a4e0e6d0bb9808b7bdae72740b9c547aa348337c466f788d91cf0",
+      "route": "/sv/verktyg/kategorier/utbildning/interaktiv-flashcard-generator-studiekort/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/utbildning/internationell-betygskonverterare/": {
+      "hash": "6822902435339d1956fd2765e81b7d67db195b72ecaddedce145365716453b5e",
+      "route": "/sv/verktyg/kategorier/utbildning/internationell-betygskonverterare/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/utbildning/kalkylator-for-studieresultat-och-prognostiserat-betygssnitt/": {
+      "hash": "dc992c99eefc29c02347bc8d4b47168b76a95ce9d448126357090425bfc9401b",
+      "route": "/sv/verktyg/kategorier/utbildning/kalkylator-for-studieresultat-och-prognostiserat-betygssnitt/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/utbildning/kalkylator-for-vagt-genomsnitt-och-slutbetyg/": {
+      "hash": "2a438e423ca7c6aa9767985ed047338a03671ba6618916388a0720f815bf046b",
+      "route": "/sv/verktyg/kategorier/utbildning/kalkylator-for-vagt-genomsnitt-och-slutbetyg/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/utbildning/konceptkarta-text/": {
+      "hash": "d84a2310ec39e0606f798934cc5448d134cfe18820c175451cf1232b24a73ad9",
+      "route": "/sv/verktyg/kategorier/utbildning/konceptkarta-text/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/utbildning/latex-formel-renderare/": {
+      "hash": "255dc0c9c427903dd71fda8f5e5216226c1f35e3bed2d7a274b234807966925c",
+      "route": "/sv/verktyg/kategorier/utbildning/latex-formel-renderare/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/utbildning/planeringsverktyg-las-och-noteringstid/": {
+      "hash": "7c2c66c502666f83bef491d18a2ed4945fc55be3265bf5fc0ce21e21c2d11e0c",
+      "route": "/sv/verktyg/kategorier/utbildning/planeringsverktyg-las-och-noteringstid/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/utbildning/pomodoro-flode/": {
+      "hash": "caa7eda06195bf8c856b8103a407cb64176f0a3d1e8d139f4f9ef1015e667af3",
+      "route": "/sv/verktyg/kategorier/utbildning/pomodoro-flode/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/utbildning/rubrik-matris-designer/": {
+      "hash": "8e897d5589a84116ee3321f5545b35a038a8d8d00abf947a5aed7192b3e5ea38",
+      "route": "/sv/verktyg/kategorier/utbildning/rubrik-matris-designer/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/utbildning/schema-optimerare/": {
+      "hash": "7cb18d8ff4f93a99eb8dc33920b2bf5fd307fd40076922fc2e2ab86bbbf0ef35",
+      "route": "/sv/verktyg/kategorier/utbildning/schema-optimerare/"
+    },
+    "https://www.gamebob.dev/sv/verktyg/kategorier/utbildning/studieomdome-gpa-analyser/": {
+      "hash": "ae201bf14e2d1554b0d93f3dae1d00f955f1263ec1fdf2c165759b0f0a8901de",
+      "route": "/sv/verktyg/kategorier/utbildning/studieomdome-gpa-analyser/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/egitim/agirlikli-not-hesaplayici/": {
+      "hash": "0ad9ba031d8e1188b6a209c03d175d45aaf43ca68c40624ba0dfe4bf6fab7f6f",
+      "route": "/tr/araclar/kategoriler/egitim/agirlikli-not-hesaplayici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/egitim/akademik-program-optimizasyonu/": {
+      "hash": "98c2723253ad52ea9f1d8bcea8ff0ac73d65e12e17a05a174b884e125e5cc4f7",
+      "route": "/tr/araclar/kategoriler/egitim/akademik-program-optimizasyonu/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/egitim/alinti-olusturucu/": {
+      "hash": "125ca5ecab7483eb2fbae3942b1bbcd524ee32bacc388054fe463b80c6ee9947",
+      "route": "/tr/araclar/kategoriler/egitim/alinti-olusturucu/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/egitim/ders-kredisi-ilerleme-ve-tahmini-not-ortalamasi-hesaplayici/": {
+      "hash": "346c4c0fb55bc931d1dacf1bce226e931f83530fb1f83051ef8a9a2370bd1b92",
+      "route": "/tr/araclar/kategoriler/egitim/ders-kredisi-ilerleme-ve-tahmini-not-ortalamasi-hesaplayici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/egitim/etkilesimli-flashcard-olusturucu/": {
+      "hash": "997ba6ae4d8737be2d640c0c4c5edca41ee737e8e0b710702cd7655a6e9a5d07",
+      "route": "/tr/araclar/kategoriler/egitim/etkilesimli-flashcard-olusturucu/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/egitim/exam-countdown-session-predictor-turkish/": {
+      "hash": "fe9dae9f8dc5492d07ecdb9ae048cd254c3cef62858ffc5bf16f81927cfe8378",
+      "route": "/tr/araclar/kategoriler/egitim/exam-countdown-session-predictor-turkish/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/egitim/": {
+      "hash": "aa21f8df39269bdf7640b836b6d22d73ac28b9e2f4df6b90b233bed5bd8b5cb6",
+      "route": "/tr/araclar/kategoriler/egitim/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/egitim/kavram-haritasi-olusturucu/": {
+      "hash": "1c4220c596fabd8022ccbfa1e9a6278a47beb509ea8c5d0a1880f94a144deee9",
+      "route": "/tr/araclar/kategoriler/egitim/kavram-haritasi-olusturucu/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/egitim/latex-formul-goruntuleyici/": {
+      "hash": "299819905bdf1311bdbcd3df0c76dbd75d50559f4c44adb847acd27377ab1871",
+      "route": "/tr/araclar/kategoriler/egitim/latex-formul-goruntuleyici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/egitim/okuma-suresi-ve-not-yogunlugu-planlayici/": {
+      "hash": "57da72e7b0cc9cc42d1ac483f29a40c0f2c29c70dd8239dfb27072f842758383",
+      "route": "/tr/araclar/kategoriler/egitim/okuma-suresi-ve-not-yogunlugu-planlayici/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/egitim/pomodoro-akisi/": {
+      "hash": "eff882d06edb33d5674ee2bd50d808def8df858d1beff5d5d9dcac6aa51dfc61",
+      "route": "/tr/araclar/kategoriler/egitim/pomodoro-akisi/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/egitim/rubrik-matrisi-tasarimcisi/": {
+      "hash": "89bba12b344aa93c0911511c0c638502723af14c45d58e85b475eddeef5afca6",
+      "route": "/tr/araclar/kategoriler/egitim/rubrik-matrisi-tasarimcisi/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/egitim/transkript-gno-cozucu/": {
+      "hash": "2b1896f9bd3eabd441ccb018baa305e7959faeaf9992ae4b85f77110c80bf748",
+      "route": "/tr/araclar/kategoriler/egitim/transkript-gno-cozucu/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/egitim/uluslararasi-not-donusturucu/": {
+      "hash": "78326c238201c4831f6aaf1153eea44e1b66837fbb32ac94032a096e84beee27",
+      "route": "/tr/araclar/kategoriler/egitim/uluslararasi-not-donusturucu/"
+    },
+    "https://www.gamebob.dev/tr/araclar/kategoriler/egitim/universite-finansman-simulatoru/": {
+      "hash": "52b1f42fd43c7cbf5c60e64f0bce783708257592bb835a34e8d947c2af154e69",
+      "route": "/tr/araclar/kategoriler/egitim/universite-finansman-simulatoru/"
+    },
+    "https://www.jjlmoya.es/utilidades/analizador-expediente-gpa/": {
+      "hash": "9fe4ecd45265c2e8c81c63c9ea7db8e7b6be60e171ddbce5a6c4349d138f0d3d",
+      "route": "/utilidades/analizador-expediente-gpa/"
+    },
+    "https://www.jjlmoya.es/utilidades/calculadora-de-progreso-de-creditos-y-nota-proyectada/": {
+      "hash": "66903e1238279039571189b0caa5f0bb075623405c825869c06694ea290daa17",
+      "route": "/utilidades/calculadora-de-progreso-de-creditos-y-nota-proyectada/"
+    },
+    "https://www.jjlmoya.es/utilidades/calculadora-nota-ponderada/": {
+      "hash": "0ce84020eba3258d0d26906fa2a7d79538f4174df0174fe41b5a37a8865f0d05",
+      "route": "/utilidades/calculadora-nota-ponderada/"
+    },
+    "https://www.jjlmoya.es/utilidades/categorias/educacion/": {
+      "hash": "083352ed02e275ac7228701a34c060ee3286a5cd6afcc3ecedc22b730b4af331",
+      "route": "/utilidades/categorias/educacion/"
+    },
+    "https://www.jjlmoya.es/utilidades/conversor-notas-internacional/": {
+      "hash": "b328e3ad231398e044ccf23ff1ece5ab3ef4e8abca29ad8612e1a451a258cdff",
+      "route": "/utilidades/conversor-notas-internacional/"
+    },
+    "https://www.jjlmoya.es/utilidades/cuenta-atras-planificador-examenes/": {
+      "hash": "76a605046968fea94cf16774d2b65c2817ce2a58af55ef808ebdb919badec92f",
+      "route": "/utilidades/cuenta-atras-planificador-examenes/"
+    },
+    "https://www.jjlmoya.es/utilidades/disenador-matriz-rubrica/": {
+      "hash": "8bf14f0ff8709cfdf0e307d561071203554e883df46c2cd1fa1502063134d351",
+      "route": "/utilidades/disenador-matriz-rubrica/"
+    },
+    "https://www.jjlmoya.es/utilidades/flujo-pomodoro/": {
+      "hash": "cb64101b0b3468ada8fd7f4c45ee16de5b0274d04df2c8c37851407195a4b795",
+      "route": "/utilidades/flujo-pomodoro/"
+    },
+    "https://www.jjlmoya.es/utilidades/generador-citas-bibliograficas/": {
+      "hash": "2a80d40db23da9f4e49523e9d52e3c74636fe43c959579bf084a413d29b57b1e",
+      "route": "/utilidades/generador-citas-bibliograficas/"
+    },
+    "https://www.jjlmoya.es/utilidades/generador-interactivo-de-flashcards/": {
+      "hash": "6216d7a23affeff21f19e10ce3fd0d2db02711ef57a733dc74e9a5d57f85bacd",
+      "route": "/utilidades/generador-interactivo-de-flashcards/"
+    },
+    "https://www.jjlmoya.es/utilidades/mapa-conceptual-texto/": {
+      "hash": "d0b0ac2626750347d84d9cd4741807c10919970f3330c721a2c76501efaeb672",
+      "route": "/utilidades/mapa-conceptual-texto/"
+    },
+    "https://www.jjlmoya.es/utilidades/optimizador-horario-academico/": {
+      "hash": "78a458b8acfc6a2170fd59dd0c7b488cfb6c371493a56261d27cd50671684832",
+      "route": "/utilidades/optimizador-horario-academico/"
+    },
+    "https://www.jjlmoya.es/utilidades/planificador-tiempo-lectura-densidad-notas/": {
+      "hash": "5c0d9a1d56932c531ea549a3eb38fd388e5559b1088fc9f59782178da9775d38",
+      "route": "/utilidades/planificador-tiempo-lectura-densidad-notas/"
+    },
+    "https://www.jjlmoya.es/utilidades/renderizador-formulas-latex/": {
+      "hash": "1f6b6052c0456693a8be75a23a2a61435aeca94b34d217477e1db065d4d37f11",
+      "route": "/utilidades/renderizador-formulas-latex/"
+    },
+    "https://www.jjlmoya.es/utilidades/simulador-financiero-universitario/": {
+      "hash": "d768b7386b6b24bc2662f23aac6595ecb5f2f0db127fadb8215efb5bf7198e9e",
+      "route": "/utilidades/simulador-financiero-universitario/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/education/academic-schedule-optimizer/": {
+      "hash": "664f21f5108821cb0edfe89dd53748073309faf87e2350b04d5d809a210cd688",
+      "route": "/zh/utilities/categories/education/academic-schedule-optimizer/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/education/citation-generator/": {
+      "hash": "1c8fd4db715e6642b08c5df1ea994489ba0d09dd81cf0682731c7d253b8da6e2",
+      "route": "/zh/utilities/categories/education/citation-generator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/education/concept-map-text-exporter/": {
+      "hash": "3e5cb3344d1426941227841a86ec0d88b0d66a95a806e7c095749828ef2bec0a",
+      "route": "/zh/utilities/categories/education/concept-map-text-exporter/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/education/degree-credit-progress-and-projected-grade-calculator/": {
+      "hash": "832793f25b682109b126a9d945c61e5774169b8829ba5256d8b34fd698359a88",
+      "route": "/zh/utilities/categories/education/degree-credit-progress-and-projected-grade-calculator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/education/exam-countdown-session-predictor/": {
+      "hash": "21cae3d51f2206272ddba4af11b4bdc5b23d0e7100cf6e2d0b39b3faa89844cf",
+      "route": "/zh/utilities/categories/education/exam-countdown-session-predictor/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/education/": {
+      "hash": "30a1f910092036483588d90e5faa014e98cd36618c488593fd5ca9217e76ad4f",
+      "route": "/zh/utilities/categories/education/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/education/interactive-flashcard-generator/": {
+      "hash": "e8dc560912bf23335ce078bfa42f105e252e6db85d087cf8e145ffe304661059",
+      "route": "/zh/utilities/categories/education/interactive-flashcard-generator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/education/international-grade-converter/": {
+      "hash": "6e29f3a145322077cb0d44e755740537405f287c27acdd6560a1d4e1e9ffad65",
+      "route": "/zh/utilities/categories/education/international-grade-converter/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/education/latex-formula-renderer/": {
+      "hash": "0a3b37525131b8feb7da46bced175570580aa71bd5d8c54768b6ec94fa16d78c",
+      "route": "/zh/utilities/categories/education/latex-formula-renderer/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/education/pomodoro-flow/": {
+      "hash": "240345305fc44b472bb2c4b21d511db9ad7a83221d309b40f371db2631f6a392",
+      "route": "/zh/utilities/categories/education/pomodoro-flow/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/education/reading-time-note-density-planner/": {
+      "hash": "f38fa950fe4f1f412b8e3576a622de665baa056ebc07bddd4fde3f7d07c22ab6",
+      "route": "/zh/utilities/categories/education/reading-time-note-density-planner/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/education/rubric-matrix-designer/": {
+      "hash": "387e94adff1f4d9e73f5f9fcf3a18be0f24bbf75554d27140b4e17d894d9668f",
+      "route": "/zh/utilities/categories/education/rubric-matrix-designer/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/education/transcript-gpa-parser/": {
+      "hash": "be4626a36e2104d4b606fc2ebdc6dbcb9716efdcc01afefb5c326c87dfff5dca",
+      "route": "/zh/utilities/categories/education/transcript-gpa-parser/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/education/university-finance-simulator/": {
+      "hash": "78df915e957dc783e5d50ef254610a1b114c640caddbaba18ea4823bc6e49d3d",
+      "route": "/zh/utilities/categories/education/university-finance-simulator/"
+    },
+    "https://www.gamebob.dev/zh/utilities/categories/education/weighted-grade-calculator/": {
+      "hash": "28f0d4989b676eace27bf9a5e8a17adaff7acc7468522f3d6932b6d6aaefcb17",
+      "route": "/zh/utilities/categories/education/weighted-grade-calculator/"
+    }
+  }
+}
